@@ -14,6 +14,15 @@
   assign switch_id = 'ProductUpsell-' | append: block.id
 -%}
 
+{%- if block.settings.hide_kaching_upsells -%}
+  <style>
+    .kaching-bundles .kaching-bundles__checkbox-upsells,
+    .kaching-bundles .kaching-bundles__upsell {
+      display: none !important;
+    }
+  </style>
+{%- endif -%}
+
 {%- if upsell != blank -%}
   {%- comment -%} `closest.product` would resolve to this block's own product setting, so compare with the page product {%- endcomment -%}
   {%- unless upsell.id == product.id -%}
@@ -365,6 +374,13 @@
       "label": "Open cart drawer when switched on",
       "info": "Off keeps the shopper on the product page.",
       "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_kaching_upsells",
+      "label": "Hide Kaching upsells",
+      "info": "Hides Kaching's own add-on rows so this block replaces them. Make sure none of them is pre-selected in Kaching, or it would still be added to the cart.",
+      "default": true
     },
     {
       "type": "header",

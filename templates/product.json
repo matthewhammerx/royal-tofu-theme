@@ -224,7 +224,8 @@
                 "image_size": 50,
                 "border_radius": 8,
                 "padding-block-start": 0,
-                "padding-block-end": 0
+                "padding-block-end": 0,
+                "hide_kaching_upsells": true
               },
               "blocks": {}
             },
@@ -246,7 +247,8 @@
                 "image_size": 50,
                 "border_radius": 8,
                 "padding-block-start": 0,
-                "padding-block-end": 0
+                "padding-block-end": 0,
+                "hide_kaching_upsells": true
               },
               "blocks": {}
             },
