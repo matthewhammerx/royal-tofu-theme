@@ -69,29 +69,6 @@
             "padding-inline-end": 0
           },
           "blocks": {
-            "product_upsell_xLBJ3p": {
-              "type": "product-upsell",
-              "name": "Upsell add-on",
-              "settings": {
-                "product": "granules-de-test-pour-litiere",
-                "heading": "",
-                "subtitle": "",
-                "badge": "",
-                "show_compare_price": true,
-                "show_variant_picker": true,
-                "sold_out_label": "Épuisé",
-                "open_cart_drawer": false,
-                "background_color": "#ffffff",
-                "border_color": "#f3e3a6",
-                "accent_color": "#f2b705",
-                "image_size": 50,
-                "border_radius": 8,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "active_background_color": "#fdf3dc"
-              },
-              "blocks": {}
-            },
             "group_icgrde": {
               "type": "group",
               "name": "Header",
@@ -229,6 +206,29 @@
               },
               "block_order": []
             },
+            "product_upsell_xLBJ3p": {
+              "type": "product-upsell",
+              "name": "Upsell add-on",
+              "settings": {
+                "product": "granules-de-test-pour-litiere",
+                "heading": "",
+                "subtitle": "",
+                "badge": "",
+                "show_compare_price": true,
+                "show_variant_picker": true,
+                "sold_out_label": "Épuisé",
+                "open_cart_drawer": false,
+                "background_color": "#ffffff",
+                "active_background_color": "#fdf3dc",
+                "border_color": "#f3e3a6",
+                "accent_color": "#f2b705",
+                "image_size": 50,
+                "border_radius": 8,
+                "padding-block-start": 0,
+                "padding-block-end": 0
+              },
+              "blocks": {}
+            },
             "product_upsell_scoop": {
               "type": "product-upsell",
               "settings": {
@@ -241,13 +241,13 @@
                 "sold_out_label": "Épuisé",
                 "open_cart_drawer": false,
                 "background_color": "#ffffff",
+                "active_background_color": "#fdf3dc",
                 "border_color": "#f3e3a6",
                 "accent_color": "#f2b705",
                 "image_size": 50,
                 "border_radius": 8,
                 "padding-block-start": 0,
-                "padding-block-end": 0,
-                "active_background_color": "#fdf3dc"
+                "padding-block-end": 0
               },
               "blocks": {}
             },
@@ -279,10 +279,10 @@
             }
           },
           "block_order": [
-            "product_upsell_xLBJ3p",
             "group_icgrde",
             "kaching_bundles_app_block_6qLpmi",
             "buy_buttons_eYQEYi",
+            "product_upsell_xLBJ3p",
             "product_upsell_scoop",
             "text_aEtTtq"
           ]
