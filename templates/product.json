@@ -69,30 +69,6 @@
             "padding-inline-end": 0
           },
           "blocks": {
-            "product_upsell_hK3Ehm": {
-              "type": "product-upsell",
-              "name": "Upsell add-on",
-              "settings": {
-                "product": "produit-test",
-                "heading": "Complétez votre commande",
-                "subtitle": "Pelle en métal robuste, tamise les grumeaux en un geste",
-                "badge": "",
-                "show_compare_price": true,
-                "show_variant_picker": true,
-                "button_label": "+ Ajouter",
-                "added_label": "✓ Ajouté",
-                "sold_out_label": "Épuisé",
-                "open_cart_drawer": false,
-                "background_color": "#ffffff",
-                "border_color": "#f3e3a6",
-                "accent_color": "#f2b705",
-                "image_size": 50,
-                "border_radius": 8,
-                "padding-block-start": 0,
-                "padding-block-end": 0
-              },
-              "blocks": {}
-            },
             "group_icgrde": {
               "type": "group",
               "name": "Header",
@@ -281,7 +257,6 @@
             }
           },
           "block_order": [
-            "product_upsell_hK3Ehm",
             "group_icgrde",
             "kaching_bundles_app_block_6qLpmi",
             "buy_buttons_eYQEYi",
