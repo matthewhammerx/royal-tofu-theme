@@ -232,7 +232,7 @@
               },
               "blocks": {}
             },
-            "product_upsell_scoop": {
+            "product_upsell_pelle": {
               "type": "product-upsell",
               "settings": {
                 "product": "produit-test",
@@ -259,7 +259,7 @@
             "group_icgrde",
             "kaching_bundles_app_block_6qLpmi",
             "buy_buttons_eYQEYi",
-            "product_upsell_scoop",
+            "product_upsell_pelle",
             "text_aEtTtq"
           ]
         }
