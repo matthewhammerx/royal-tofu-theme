@@ -14,9 +14,9 @@
   assign switch_id = 'ProductUpsell-' | append: block.id
 -%}
 
-<!-- upsell-debug block={{ block.id }} product={{ upsell.handle | default: 'BLANK' }} raw={{ block.settings.product | json | escape }} closest={{ closest.product.id }} -->
 {%- if upsell != blank -%}
-  {%- unless upsell.id == closest.product.id -%}
+  {%- comment -%} `closest.product` would resolve to this block's own product setting, so compare with the page product {%- endcomment -%}
+  {%- unless upsell.id == product.id -%}
     <script src="{{ 'product-upsell.js' | asset_url }}" type="module" fetchpriority="low"></script>
 
     <product-upsell-component
