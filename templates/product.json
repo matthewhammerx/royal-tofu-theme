@@ -74,13 +74,11 @@
               "name": "Upsell add-on",
               "settings": {
                 "product": "granules-de-test-pour-litiere",
-                "heading": "Complétez votre commande",
-                "subtitle": "Pelle en métal robuste, tamise les grumeaux en un geste",
+                "heading": "",
+                "subtitle": "",
                 "badge": "",
                 "show_compare_price": true,
                 "show_variant_picker": true,
-                "button_label": "+ Ajouter",
-                "added_label": "✓ Ajouté",
                 "sold_out_label": "Épuisé",
                 "open_cart_drawer": false,
                 "background_color": "#ffffff",
@@ -89,7 +87,8 @@
                 "image_size": 50,
                 "border_radius": 8,
                 "padding-block-start": 0,
-                "padding-block-end": 0
+                "padding-block-end": 0,
+                "active_background_color": "#fdf3dc"
               },
               "blocks": {}
             },
@@ -234,13 +233,11 @@
               "type": "product-upsell",
               "settings": {
                 "product": "produit-test",
-                "heading": "Complétez votre commande",
+                "heading": "",
                 "subtitle": "Pelle en métal robuste, tamise les grumeaux en un geste",
                 "badge": "",
                 "show_compare_price": true,
                 "show_variant_picker": true,
-                "button_label": "+ Ajouter",
-                "added_label": "✓ Ajouté",
                 "sold_out_label": "Épuisé",
                 "open_cart_drawer": false,
                 "background_color": "#ffffff",
@@ -249,7 +246,8 @@
                 "image_size": 50,
                 "border_radius": 8,
                 "padding-block-start": 0,
-                "padding-block-end": 0
+                "padding-block-end": 0,
+                "active_background_color": "#fdf3dc"
               },
               "blocks": {}
             },

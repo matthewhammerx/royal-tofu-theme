@@ -1,7 +1,7 @@
 {%- doc -%}
-  Compact add-on upsell shown under the add to cart button.
-  Adds the selected product to the cart on its own (independent of the main product form / Kaching bundles),
-  at the product's regular Shopify price.
+  Kaching-style add-on row with an on/off switch, shown near the add to cart button.
+  Switching it on adds the product to the cart, switching it off removes it.
+  Independent of the main product form / Kaching bundles: sold at the product's regular Shopify price.
 {%- enddoc -%}
 
 {%- liquid
@@ -11,6 +11,7 @@
   if block.settings.show_variant_picker and upsell.has_only_default_variant == false
     assign show_variant_picker = true
   endif
+  assign switch_id = 'ProductUpsell-' | append: block.id
 -%}
 
 {%- if upsell != blank -%}
@@ -18,15 +19,17 @@
     <script src="{{ 'product-upsell.js' | asset_url }}" type="module" fetchpriority="low"></script>
 
     <product-upsell-component
-      class="product-upsell spacing-style"
+      class="product-upsell spacing-style{% unless variant.available %} is-disabled{% endunless %}"
       style="
         {% render 'spacing-style', settings: block.settings %}
         --upsell-bg: {{ block.settings.background_color }};
+        --upsell-bg-active: {{ block.settings.active_background_color }};
         --upsell-border: {{ block.settings.border_color }};
         --upsell-accent: {{ block.settings.accent_color }};
         --upsell-radius: {{ block.settings.border_radius }}px;
         --upsell-image-size: {{ block.settings.image_size }}px;
       "
+      data-variant-id="{{ variant.id }}"
       data-open-cart="{{ block.settings.open_cart_drawer }}"
       {{ block.shopify_attributes }}
     >
@@ -34,14 +37,29 @@
         <p class="product-upsell__heading">{{ block.settings.heading }}</p>
       {%- endif -%}
 
-      <div class="product-upsell__card">
+      <div class="product-upsell__card" ref="card">
         {%- if block.settings.badge != blank -%}
           <span class="product-upsell__badge">{{ block.settings.badge }}</span>
         {%- endif -%}
 
+        <button
+          type="button"
+          id="{{ switch_id }}"
+          class="product-upsell__switch"
+          role="switch"
+          aria-checked="false"
+          aria-labelledby="{{ switch_id }}-title"
+          ref="switch"
+          {% unless variant.available %}
+            disabled
+          {% endunless %}
+        >
+          <span class="product-upsell__knob"></span>
+        </button>
+
         {%- assign image = variant.featured_image | default: upsell.featured_image -%}
         {%- if image != blank -%}
-          <a class="product-upsell__media" href="{{ upsell.url }}" tabindex="-1" aria-hidden="true">
+          <span class="product-upsell__media">
             {{
               image
               | image_url: width: 200
@@ -52,14 +70,22 @@
                 alt: image.alt,
                 ref: 'image'
             }}
-          </a>
+          </span>
         {%- endif -%}
 
         <div class="product-upsell__info">
-          <a class="product-upsell__title" href="{{ upsell.url }}">{{ upsell.title }}</a>
-          {%- if block.settings.subtitle != blank -%}
-            <p class="product-upsell__subtitle">{{ block.settings.subtitle }}</p>
-          {%- endif -%}
+          <span class="product-upsell__title" id="{{ switch_id }}-title">{{ upsell.title }}</span>
+          <span class="product-upsell__subtitle{% if block.settings.subtitle == blank and variant.available %} hidden{% endif %}"
+            ref="subtitle"
+            data-subtitle="{{ block.settings.subtitle | escape }}"
+            data-sold-out="{{ block.settings.sold_out_label | escape }}"
+          >
+            {%- if variant.available -%}
+              {{ block.settings.subtitle }}
+            {%- else -%}
+              {{ block.settings.sold_out_label }}
+            {%- endif -%}
+          </span>
 
           {%- if show_variant_picker -%}
             <select
@@ -87,32 +113,11 @@
           {%- endif -%}
         </div>
 
-        <div class="product-upsell__side">
-          <div class="product-upsell__prices">
-            <span class="product-upsell__price" ref="price">{{ variant.price | money }}</span>
-            <s class="product-upsell__compare{% unless variant.compare_at_price > variant.price and block.settings.show_compare_price %} hidden{% endunless %}" ref="compare">
-              {%- if variant.compare_at_price > variant.price -%}{{ variant.compare_at_price | money }}{%- endif -%}
-            </s>
-          </div>
-
-          <button
-            type="button"
-            class="product-upsell__button"
-            data-variant-id="{{ variant.id }}"
-            data-label="{{ block.settings.button_label | escape }}"
-            data-added-label="{{ block.settings.added_label | escape }}"
-            data-sold-out-label="{{ block.settings.sold_out_label | escape }}"
-            ref="button"
-            {% unless variant.available %}
-              disabled
-            {% endunless %}
-          >
-            {%- if variant.available -%}
-              {{ block.settings.button_label }}
-            {%- else -%}
-              {{ block.settings.sold_out_label }}
-            {%- endif -%}
-          </button>
+        <div class="product-upsell__prices">
+          <span class="product-upsell__price" ref="price">{{ variant.price | money }}</span>
+          <s class="product-upsell__compare{% unless variant.compare_at_price > variant.price and block.settings.show_compare_price %} hidden{% endunless %}" ref="compare">
+            {%- if variant.compare_at_price > variant.price -%}{{ variant.compare_at_price | money }}{%- endif -%}
+          </s>
         </div>
       </div>
 
@@ -144,16 +149,29 @@
     display: flex;
     align-items: center;
     gap: 12px;
-    padding: 10px 12px;
+    padding: 12px 18px;
     background: var(--upsell-bg);
     border: 1px solid var(--upsell-border);
     border-radius: var(--upsell-radius);
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .product-upsell.is-active .product-upsell__card {
+    background: var(--upsell-bg-active);
+    border-color: var(--upsell-accent);
+    box-shadow: inset 0 0 0 1px var(--upsell-accent);
+  }
+
+  .product-upsell.is-disabled .product-upsell__card {
+    cursor: default;
+    opacity: 0.6;
   }
 
   .product-upsell__badge {
     position: absolute;
-    top: -9px;
-    right: 12px;
+    top: -10px;
+    right: 14px;
     padding: 2px 8px;
     font-size: 0.6875rem;
     font-weight: 700;
@@ -164,12 +182,59 @@
     border-radius: 3px;
   }
 
+  .product-upsell__switch {
+    position: relative;
+    flex: 0 0 auto;
+    width: 42px;
+    height: 24px;
+    padding: 0;
+    background: #d9d9d9;
+    border: 0;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+
+  .product-upsell__switch:focus-visible {
+    outline: 2px solid var(--upsell-accent);
+    outline-offset: 2px;
+  }
+
+  .product-upsell__switch[aria-checked='true'] {
+    background: var(--upsell-accent);
+  }
+
+  .product-upsell__switch:disabled {
+    cursor: default;
+  }
+
+  .product-upsell__switch[aria-busy='true'] {
+    cursor: progress;
+    opacity: 0.7;
+  }
+
+  .product-upsell__knob {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 18px;
+    height: 18px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 1px 3px rgb(0 0 0 / 0.25);
+    transition: transform 0.2s ease;
+  }
+
+  .product-upsell__switch[aria-checked='true'] .product-upsell__knob {
+    transform: translateX(18px);
+  }
+
   .product-upsell__media {
     flex: 0 0 var(--upsell-image-size);
     width: var(--upsell-image-size);
     height: var(--upsell-image-size);
     overflow: hidden;
-    border-radius: calc(var(--upsell-radius) / 2);
+    border-radius: 4px;
   }
 
   .product-upsell__media img {
@@ -187,14 +252,12 @@
   }
 
   .product-upsell__title {
+    font-size: 1.125rem;
     font-weight: 700;
     line-height: 1.2;
-    color: inherit;
-    text-decoration: none;
   }
 
   .product-upsell__subtitle {
-    margin: 0;
     font-size: 0.8125rem;
     line-height: 1.3;
     color: var(--color-foreground-muted, rgb(var(--color-foreground-rgb) / 0.7));
@@ -208,68 +271,28 @@
     font: inherit;
     font-size: 0.8125rem;
     color: inherit;
-    background: var(--color-background);
+    background: #fff;
     border: 1px solid var(--upsell-border);
     border-radius: 4px;
-  }
-
-  .product-upsell__side {
-    display: flex;
-    flex: 0 0 auto;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 6px;
+    cursor: pointer;
   }
 
   .product-upsell__prices {
     display: flex;
-    align-items: baseline;
-    gap: 6px;
+    flex: 0 0 auto;
+    flex-direction: column;
+    align-items: flex-end;
     line-height: 1.2;
   }
 
   .product-upsell__price {
+    font-size: 1.125rem;
     font-weight: 700;
   }
 
   .product-upsell__compare {
-    font-size: 0.8125rem;
+    font-size: 0.875rem;
     color: var(--color-foreground-muted, rgb(var(--color-foreground-rgb) / 0.6));
-  }
-
-  .product-upsell__button {
-    padding: 6px 14px;
-    font: inherit;
-    font-size: 0.8125rem;
-    font-weight: 600;
-    line-height: 1.2;
-    white-space: nowrap;
-    color: #000;
-    background: var(--upsell-accent);
-    border: 0;
-    border-radius: 999px;
-    cursor: pointer;
-    transition: opacity 0.15s ease;
-  }
-
-  .product-upsell__button:hover:not(:disabled) {
-    opacity: 0.85;
-  }
-
-  .product-upsell__button:disabled {
-    cursor: default;
-    opacity: 0.6;
-  }
-
-  .product-upsell__button[aria-busy='true'] {
-    cursor: progress;
-    opacity: 0.6;
-  }
-
-  .product-upsell__button.is-added {
-    color: #fff;
-    background: #2e7d32;
-    opacity: 1;
   }
 
   .product-upsell__error {
@@ -302,7 +325,7 @@
       "type": "text",
       "id": "heading",
       "label": "Heading",
-      "default": "Complétez votre commande"
+      "info": "Leave empty to hide."
     },
     {
       "type": "text",
@@ -330,22 +353,6 @@
       "default": true
     },
     {
-      "type": "header",
-      "content": "Button"
-    },
-    {
-      "type": "text",
-      "id": "button_label",
-      "label": "Label",
-      "default": "+ Ajouter"
-    },
-    {
-      "type": "text",
-      "id": "added_label",
-      "label": "Added label",
-      "default": "✓ Ajouté"
-    },
-    {
       "type": "text",
       "id": "sold_out_label",
       "label": "Sold out label",
@@ -354,7 +361,7 @@
     {
       "type": "checkbox",
       "id": "open_cart_drawer",
-      "label": "Open cart drawer after adding",
+      "label": "Open cart drawer when switched on",
       "info": "Off keeps the shopper on the product page.",
       "default": false
     },
@@ -370,6 +377,12 @@
     },
     {
       "type": "color",
+      "id": "active_background_color",
+      "label": "Background when on",
+      "default": "#fdf3dc"
+    },
+    {
+      "type": "color",
       "id": "border_color",
       "label": "Border",
       "default": "#f3e3a6"
@@ -377,7 +390,7 @@
     {
       "type": "color",
       "id": "accent_color",
-      "label": "Button and badge",
+      "label": "Switch, badge and border when on",
       "default": "#f2b705"
     },
     {
