@@ -1,1 +1,1105 @@
-{"sections":{"main":{"type":"product-information","blocks":{"media-gallery":{"type":"_product-media-gallery","static":true,"settings":{"media_presentation":"carousel","media_columns":"one","image_gap":0,"large_first_image":false,"icons_style":"chevron","slideshow_controls_style":"thumbnails","slideshow_mobile_controls_style":"thumbnails","thumbnail_position":"left","thumbnail_width":60,"thumbnail_radius":5,"aspect_ratio":"adapt","constrain_to_viewport":false,"media_fit":"contain","media_radius":8,"extend_media":false,"zoom":false,"video_loop":false,"hide_variant_images_from_gallery":true,"hide_variants":true,"padding-block-start":13,"padding-block-end":13,"padding-inline-start":13,"padding-inline-end":15},"blocks":{}},"product-details":{"type":"_product-details","static":true,"settings":{"width":"fill","custom_width":100,"width_mobile":"fill","custom_width_mobile":100,"height":"fit","details_position":"flex-start","gap":28,"sticky_details_desktop":true,"inherit_color_scheme":true,"color_scheme":"scheme-1","background_media":"none","video_position":"cover","background_image_position":"cover","border":"none","border_width":1,"border_opacity":100,"border_radius":0,"padding-block-start":24,"padding-block-end":24,"padding-inline-start":0,"padding-inline-end":0},"blocks":{"group_icgrde":{"type":"group","name":"Header","settings":{"content_direction":"column","vertical_on_mobile":true,"horizontal_alignment":"flex-start","vertical_alignment":"center","align_baseline":false,"horizontal_alignment_flex_direction_column":"flex-start","vertical_alignment_flex_direction_column":"center","gap":12,"width":"fill","custom_width":100,"width_mobile":"fill","custom_width_mobile":100,"height":"fit","custom_height":100,"inherit_color_scheme":true,"color_scheme":"","background_media":"none","video_position":"cover","background_image_position":"cover","border":"none","border_width":1,"border_opacity":100,"border_radius":0,"toggle_overlay":false,"overlay_color":"#00000026","overlay_style":"solid","gradient_direction":"to top","link":"","open_in_new_tab":false,"placeholder":"","padding-block-start":0,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0},"blocks":{"text_xrnftG":{"type":"text","name":"Product title","settings":{"text":"<h1>{{ closest.product.title }}</h1>","width":"100%","max_width":"normal","alignment":"left","type_preset":"h3","font":"var(--font-primary--family)","font_size":"","line_height":"normal","letter_spacing":"normal","case":"none","wrap":"pretty","color":"","background":false,"background_color":"#00000026","corner_radius":0,"padding-block-start":0,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0},"blocks":{}},"price_tVjtKg":{"type":"price","settings":{"show_sale_price_first":true,"show_installments":false,"show_tax_info":false,"type_preset":"custom","width":"100%","alignment":"left","font":"var(--font-body--family)","font_size":"1.125rem","line_height":"normal","letter_spacing":"normal","case":"none","color":"var(--color-foreground)","padding-block-start":4,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0},"blocks":{}}},"block_order":["text_xrnftG","price_tVjtKg"]},"kaching_bundles_app_block_6qLpmi":{"type":"shopify://apps/kaching-bundles/blocks/app-block/6c637362-a106-4a32-94ac-94dcfd68cdb8","settings":{"product":"{{closest.product}}","manual_deal_block_id":""}},"buy_buttons_eYQEYi":{"type":"buy-buttons","settings":{"stacking":true,"show_pickup_availability":false,"gift_card_form":true,"padding-block-start":0,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0},"blocks":{"quantity":{"type":"quantity","disabled":true,"static":true,"settings":{},"blocks":{}},"add-to-cart":{"type":"add-to-cart","static":true,"settings":{"style_class":"button"},"blocks":{}},"accelerated-checkout":{"type":"accelerated-checkout","static":true,"settings":{},"blocks":{}}},"block_order":[]},"text_aEtTtq":{"type":"text","name":"Product description","settings":{"text":"{{ closest.product.description }}","width":"100%","max_width":"normal","alignment":"left","type_preset":"rte","font":"var(--font-primary--family)","font_size":"","line_height":"normal","letter_spacing":"normal","case":"none","wrap":"pretty","color":"","background":false,"background_color":"#00000026","corner_radius":0,"padding-block-start":0,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0},"blocks":{}},"product_upsell_scoop":{"type":"product-upsell","settings":{"product":"produit-test","heading":"Complétez votre commande","subtitle":"Pelle en métal robuste, tamise les grumeaux en un geste","badge":"","show_compare_price":true,"show_variant_picker":true,"button_label":"+ Ajouter","added_label":"✓ Ajouté","sold_out_label":"Épuisé","open_cart_drawer":false,"background_color":"#ffffff","border_color":"#f3e3a6","accent_color":"#f2b705","image_size":50,"border_radius":8,"padding-block-start":0,"padding-block-end":0},"blocks":{}}},"block_order":["group_icgrde","kaching_bundles_app_block_6qLpmi","buy_buttons_eYQEYi","product_upsell_scoop","text_aEtTtq"]}},"settings":{"content_width":"content-center-aligned","desktop_media_position":"left","equal_columns":true,"limit_details_width":false,"gap":48,"enable_sticky_add_to_cart":false,"color_scheme":"","padding-block-start":0,"padding-block-end":0}},"royal_tofu_text_cta_hDKmWy":{"type":"royal-tofu-text-cta","name":"Royal Tofu Text CTA","settings":{"heading":"Une maison qui reste fraîche, même avec plusieurs chats.","text":"<p>Notre <strong>litière de tofu naturelle</strong> contrôle les odeurs, elle est sans poussiere et laisse un bac plus propre. La forme des granules fait en sorte qu'elle reste en place dans le bac et ne s'éparpille pas dans toute la maison laissant celle-ci plus fraîche et moins de nettoyage au quotidien.</p>","text_alignment":"center","max_width":820,"text_width":720,"background_color":"#f4efe6","heading_color":"#2b211b","text_color":"#4b4038","strong_text_color":"#2b211b","heading_size":52,"mobile_heading_size":34,"text_size":19,"mobile_text_size":16,"show_buttons":true,"primary_button_label":"Découvrir les avantages","primary_button_link":"","secondary_button_label":"","secondary_button_link":"","button_radius":40,"primary_button_bg":"#2b211b","primary_button_text_color":"#ffffff","secondary_button_text_color":"#2b211b","secondary_button_border":"#2b211b","secondary_button_hover_bg":"#2b211b","secondary_button_hover_text_color":"#ffffff","mobile_button_layout":"column","mobile_full_width_buttons":false,"padding_top":90,"padding_bottom":90,"mobile_padding_top":60,"mobile_padding_bottom":60}},"royal_tofu_image_text_3cdWpA":{"type":"royal-tofu-image-text","blocks":{"benefit_YGckbM":{"type":"benefit","settings":{"icon":"✓","text":"Faible traçage"}},"benefit_3d87Rn":{"type":"benefit","settings":{"icon":"✓","text":"Moins de grains au sol"}},"benefit_UHWxUW":{"type":"benefit","settings":{"icon":"✓","text":"Nettoyage plus simple"}}},"block_order":["benefit_YGckbM","benefit_3d87Rn","benefit_UHWxUW"],"name":"Royal Tofu Image Text","settings":{"image":"shopify://shop_images/IMG_4499.webp","image_alt":"Royal Tofu cat litter","eyebrow":"Litière de tofu naturelle","heading":"Moins de litière partout.","text":"<p>Les granules Royal Tofu restent davantage dans le bac, pour réduire les grains sur le plancher et garder votre maison plus propre.</p>","reverse_layout":false,"mobile_image_first":true,"text_alignment":"left","mobile_text_alignment":"left","image_ratio":"1 / 1","image_position":"center center","section_width":1200,"content_width":560,"desktop_gap":60,"mobile_gap":30,"image_radius":24,"background_color":"#ffffff","image_background":"#eee7dc","eyebrow_color":"#7b6654","heading_color":"#2b211b","text_color":"#4b4038","strong_text_color":"#2b211b","benefit_text_color":"#2b211b","icon_bg":"#f4efe6","icon_color":"#2b211b","eyebrow_size":12,"heading_size":52,"mobile_heading_size":34,"text_size":18,"mobile_text_size":16,"benefit_size":16,"show_buttons":false,"primary_button_label":"","primary_button_link":"","secondary_button_label":"","secondary_button_link":"","button_radius":40,"primary_button_bg":"#2b211b","primary_button_text":"#ffffff","secondary_button_text":"#2b211b","secondary_button_border":"#2b211b","mobile_full_width_buttons":true,"padding_top":80,"padding_bottom":80,"mobile_padding_top":50,"mobile_padding_bottom":50}},"royal_tofu_image_text_zf8tPM":{"type":"royal-tofu-image-text","blocks":{"benefit_mBUgAM":{"type":"benefit","settings":{"icon":"✓","text":"Contrôle des odeurs"}},"benefit_GGmFwB":{"type":"benefit","settings":{"icon":"✓","text":"99 % sans poussière"}},"benefit_yxzKgU":{"type":"benefit","settings":{"icon":"✓","text":"Litière agglomérante"}}},"block_order":["benefit_mBUgAM","benefit_GGmFwB","benefit_yxzKgU"],"name":"Royal Tofu Image Text","settings":{"image":"shopify://shop_images/hf_20260608_221146_f2a2c6f5-c6b9-484d-b699-30783bd75028.png","image_alt":"Royal Tofu cat litter","eyebrow":"Litière de tofu naturelle","heading":"Moins d’odeurs. Moins de poussière.","text":"<p>Royal Tofu aide à contrôler les odeurs et à garder le bac plus propre, avec une litière de tofu naturelle conçue pour être faible en poussière et facile à ramasser.</p>","reverse_layout":true,"mobile_image_first":true,"text_alignment":"left","mobile_text_alignment":"left","image_ratio":"1 / 1","image_position":"center center","section_width":1200,"content_width":560,"desktop_gap":60,"mobile_gap":30,"image_radius":24,"background_color":"#f4efe6","image_background":"#eee7dc","eyebrow_color":"#7b6654","heading_color":"#2b211b","text_color":"#4b4038","strong_text_color":"#2b211b","benefit_text_color":"#2b211b","icon_bg":"#ffffff","icon_color":"#2b211b","eyebrow_size":12,"heading_size":52,"mobile_heading_size":34,"text_size":18,"mobile_text_size":16,"benefit_size":16,"show_buttons":false,"primary_button_label":"","primary_button_link":"","secondary_button_label":"","secondary_button_link":"","button_radius":40,"primary_button_bg":"#2b211b","primary_button_text":"#ffffff","secondary_button_text":"#2b211b","secondary_button_border":"#2b211b","mobile_full_width_buttons":true,"padding_top":80,"padding_bottom":80,"mobile_padding_top":50,"mobile_padding_bottom":50}},"royal_tofu_image_text_6JHDcM":{"type":"royal-tofu-image-text","blocks":{"benefit_rf3UDN":{"type":"benefit","settings":{"icon":"✓","text":"Litière agglomérante"}},"benefit_QQ6ftd":{"type":"benefit","settings":{"icon":"✓","text":"Facile à ramasser"}},"benefit_LFbbVr":{"type":"benefit","settings":{"icon":"✓","text":"Moins de gaspillage"}}},"block_order":["benefit_rf3UDN","benefit_QQ6ftd","benefit_LFbbVr"],"name":"Royal Tofu Image Text","settings":{"image":"shopify://shop_images/hf_20260609_072822_53b872fd-f249-4da7-a1c1-ffba4279a9b9.png","image_alt":"Royal Tofu cat litter","eyebrow":"Litière de tofu naturelle","heading":"Nettoyage simple, sans vider tout le bac.","text":"<p>Royal Tofu forme des agglomérats faciles à retirer, pour garder la litière propre plus longtemps avec moins d’effort.</p>","reverse_layout":false,"mobile_image_first":true,"text_alignment":"left","mobile_text_alignment":"left","image_ratio":"1 / 1","image_position":"center center","section_width":1200,"content_width":560,"desktop_gap":60,"mobile_gap":30,"image_radius":24,"background_color":"#ffffff","image_background":"#eee7dc","eyebrow_color":"#7b6654","heading_color":"#2b211b","text_color":"#4b4038","strong_text_color":"#2b211b","benefit_text_color":"#2b211b","icon_bg":"#f4efe6","icon_color":"#2b211b","eyebrow_size":12,"heading_size":52,"mobile_heading_size":34,"text_size":18,"mobile_text_size":16,"benefit_size":16,"show_buttons":false,"primary_button_label":"Magasiner maintenant","primary_button_link":"","secondary_button_label":"Voir les avantages","secondary_button_link":"","button_radius":40,"primary_button_bg":"#2b211b","primary_button_text":"#ffffff","secondary_button_text":"#2b211b","secondary_button_border":"#2b211b","mobile_full_width_buttons":true,"padding_top":80,"padding_bottom":80,"mobile_padding_top":50,"mobile_padding_bottom":50}},"royal_tofu_image_text_C9KXDK":{"type":"royal-tofu-image-text","blocks":{"benefit_gEJjaM":{"type":"benefit","settings":{"icon":"✓","text":"Fibres de soya"}},"benefit_fM8UJd":{"type":"benefit","settings":{"icon":"✓","text":"Formule végétale"}},"benefit_VqH7Pw":{"type":"benefit","settings":{"icon":"✓","text":"Biodégradable"}}},"block_order":["benefit_gEJjaM","benefit_fM8UJd","benefit_VqH7Pw"],"name":"Royal Tofu Image Text","settings":{"image":"shopify://shop_images/hf_20260609_073627_0356d5a0-519c-45fb-8467-7d7efa7beb11.png","image_alt":"Royal Tofu cat litter","eyebrow":"Litière de tofu naturelle","heading":"Une litière plus naturelle.","text":"<p>Fabriquée à partir de fibres de soya, Royal Tofu offre une alternative végétale aux litières traditionnelles, pensée pour une routine plus propre au quotidien.</p>","reverse_layout":true,"mobile_image_first":true,"text_alignment":"left","mobile_text_alignment":"left","image_ratio":"1 / 1","image_position":"center center","section_width":1200,"content_width":560,"desktop_gap":60,"mobile_gap":30,"image_radius":24,"background_color":"#f4efe6","image_background":"#eee7dc","eyebrow_color":"#7b6654","heading_color":"#2b211b","text_color":"#4b4038","strong_text_color":"#2b211b","benefit_text_color":"#2b211b","icon_bg":"#ffffff","icon_color":"#2b211b","eyebrow_size":12,"heading_size":52,"mobile_heading_size":34,"text_size":18,"mobile_text_size":16,"benefit_size":16,"show_buttons":false,"primary_button_label":"Magasiner maintenant","primary_button_link":"","secondary_button_label":"Voir les avantages","secondary_button_link":"","button_radius":40,"primary_button_bg":"#2b211b","primary_button_text":"#ffffff","secondary_button_text":"#2b211b","secondary_button_border":"#2b211b","mobile_full_width_buttons":true,"padding_top":80,"padding_bottom":80,"mobile_padding_top":50,"mobile_padding_bottom":50}},"herbans_comparison_v2_DNdT3g":{"type":"herbans-comparison-v2","blocks":{"comparison_row_FimpDK":{"type":"comparison_row","settings":{"row_label":"Formule végétale","royal_value":"check","royal_text":"Yes","competitor_1_value":"text","competitor_1_text":"Non","competitor_2_value":"text","competitor_2_text":"Non","competitor_3_value":"text","competitor_3_text":"Oui"}},"comparison_row_TAeXn8":{"type":"comparison_row","settings":{"row_label":"Agglomération rapide","royal_value":"check","royal_text":"Yes","competitor_1_value":"text","competitor_1_text":"Ça dépend","competitor_2_value":"x","competitor_2_text":"No","competitor_3_value":"text","competitor_3_text":"Ça dépend"}},"comparison_row_DGAjPC":{"type":"comparison_row","settings":{"row_label":"Faible poussière","royal_value":"check","royal_text":"Yes","competitor_1_value":"text","competitor_1_text":"Souvent poussiéreuse","competitor_2_value":"text","competitor_2_text":"Peut être poussiéreuse","competitor_3_value":"text","competitor_3_text":"Faible poussière"}},"comparison_row_yhmbde":{"type":"comparison_row","settings":{"row_label":"Contrôle des odeurs","royal_value":"check","royal_text":"Yes","competitor_1_value":"text","competitor_1_text":"Masque les odeurs","competitor_2_value":"text","competitor_2_text":"Peut accumuler les odeurs","competitor_3_value":"text","competitor_3_text":"Contrôle léger"}},"comparison_row_zm9Pck":{"type":"comparison_row","settings":{"row_label":"Moins de traces au sol","royal_value":"check","royal_text":"Peut coller aux pattes","competitor_1_value":"text","competitor_1_text":"Peut coller aux pattes","competitor_2_value":"text","competitor_2_text":"Peut sortir du bac","competitor_3_value":"text","competitor_3_text":"Peut sortir du bac"}},"comparison_row_qGTg9G":{"type":"comparison_row","settings":{"row_label":"Facile à ramasser","royal_value":"check","royal_text":"Yes","competitor_1_value":"text","competitor_1_text":"Lourd et salissant","competitor_2_value":"text","competitor_2_text":"Moins pratique","competitor_3_value":"text","competitor_3_text":"Ça dépend"}},"comparison_row_ht4ERa":{"type":"comparison_row","settings":{"row_label":"Biodégradable","royal_value":"check","royal_text":"Yes","competitor_1_value":"x","competitor_1_text":"Lourd et salissant","competitor_2_value":"x","competitor_2_text":"Moins pratique","competitor_3_value":"check","competitor_3_text":"Ça dépend"}}},"block_order":["comparison_row_FimpDK","comparison_row_TAeXn8","comparison_row_DGAjPC","comparison_row_yhmbde","comparison_row_zm9Pck","comparison_row_qGTg9G","comparison_row_ht4ERa"],"name":"Royal Tofu Compare","settings":{"show_intro":true,"eyebrow":"LA DIFFÉRENCE","heading":"<p><strong>Royal Tofu</strong> vs. les litières traditionnelles</p>","text":"","footnote":"<p>*Results may vary depending on your cat, litter box setup, and cleaning routine.</p>","royal_label":"Royal Tofu","competitor_1_label":"Litière d’argile","competitor_2_label":"Formule végétale","competitor_3_label":"Litière de pin","product_image":"shopify://shop_images/Untitled_design_28.png","product_image_alt":"Royal Tofu Cat Litter","intro_width_mobile":520,"intro_width_desktop":700,"heading_size_mobile":32,"heading_size_desktop":46,"body_size_mobile":15,"body_size_desktop":18,"eyebrow_size_mobile":11,"eyebrow_size_desktop":12,"header_label_size_mobile":11,"header_label_size_desktop":15,"row_label_size_mobile":14,"row_label_size_desktop":17,"cell_text_size_mobile":12,"cell_text_size_desktop":14,"footnote_size_mobile":10,"footnote_size_desktop":12,"product_image_width_mobile":65,"product_image_width_desktop":85,"max_width":1280,"header_height_mobile":84,"header_height_desktop":94,"row_height_mobile":76,"row_height_desktop":78,"table_radius":12,"table_shadow":"2px 4px 16px rgba(0,0,0,0.08)","table_border_width":0,"icon_size_mobile":28,"icon_size_desktop":32,"padding_top_mobile":36,"padding_bottom_mobile":48,"padding_side_mobile":14,"padding_top_desktop":72,"padding_bottom_desktop":72,"padding_side_desktop":40,"section_bg":"#fff8ec","table_bg":"#ffffff","table_border_color":"#e7d8ca","header_bg":"#000000","header_text":"#ffffff","row_bg":"#ffffff","row_border":"#e5ded5","feature_color":"#002d1f","cell_text_color":"#002d1f","check_bg":"#ebb900","check_color":"#ffffff","x_bg":"#ffffff","x_border":"#8d0f0f","x_color":"#8d0f0f","heading_color":"#111111","heading_accent":"#da991e","text_color":"#111111","eyebrow_bg":"#d4ba65","eyebrow_color":"#111111","royal_label_color":"#ebb901","footnote_color":"#111111"}},"section_3RtEXk":{"type":"section","blocks":{"text_qbHtGk":{"type":"text","name":"t:names.heading","settings":{"text":"<h3>FAQ</h3>","width":"fit-content","max_width":"normal","alignment":"left","type_preset":"rte","font":"var(--font-body--family)","font_size":"1rem","line_height":"normal","letter_spacing":"normal","case":"none","wrap":"pretty","color":"var(--color-foreground)","background":false,"background_color":"#00000026","corner_radius":10,"padding-block-start":0,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0},"blocks":{}},"accordion_Y7qJL7":{"type":"accordion","name":"t:names.accordion","settings":{"icon":"caret","dividers":true,"type_preset":"h5","inherit_color_scheme":true,"color_scheme":"","border":"none","border_width":1,"border_opacity":100,"border_radius":0,"padding-block-start":0,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0},"blocks":{"accordion_row_cWVDqJ":{"type":"_accordion-row","settings":{"heading":"Est-ce que Royal Tofu contrôle vraiment les odeurs ?","open_by_default":false,"icon":"none","width":20},"blocks":{"text_YTBRAk":{"type":"text","settings":{"text":"<p>Oui. Sa formule à base de fibres de soya aide à absorber rapidement l’humidité et à neutraliser les mauvaises odeurs, pour garder le bac plus frais au quotidien.</p>","width":"100%","max_width":"normal","alignment":"left","type_preset":"rte","font":"var(--font-body--family)","font_size":"1rem","line_height":"normal","letter_spacing":"normal","case":"none","wrap":"pretty","color":"var(--color-foreground)","background":false,"background_color":"#00000026","corner_radius":0,"padding-block-start":0,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0},"blocks":{}}},"block_order":["text_YTBRAk"]},"accordion_row_WdAjWn":{"type":"_accordion-row","settings":{"heading":"Est-ce que la litière fait beaucoup de poussière ou colle aux pattes ?","open_by_default":false,"icon":"none","width":20},"blocks":{"text_qeBi7g":{"type":"text","settings":{"text":"<p>Non. Les granules de tofu sont conçues pour être faibles en poussière et limiter le traçage, ce qui aide à garder votre maison plus propre.</p>","width":"100%","max_width":"normal","alignment":"left","type_preset":"rte","font":"var(--font-body--family)","font_size":"1rem","line_height":"normal","letter_spacing":"normal","case":"none","wrap":"pretty","color":"var(--color-foreground)","background":false,"background_color":"#00000026","corner_radius":0,"padding-block-start":0,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0},"blocks":{}}},"block_order":["text_qeBi7g"]},"accordion_row_w7AJxb":{"type":"_accordion-row","settings":{"heading":"Est-ce que Royal Tofu forme des agglomérats faciles à nettoyer ?","open_by_default":false,"icon":"none","width":20},"blocks":{"text_pG7gPi":{"type":"text","settings":{"text":"<p>Oui. La litière absorbe rapidement les liquides et forme des agglomérats compacts, faciles à retirer avec une pelle.</p>","width":"100%","max_width":"normal","alignment":"left","type_preset":"rte","font":"var(--font-body--family)","font_size":"1rem","line_height":"normal","letter_spacing":"normal","case":"none","wrap":"pretty","color":"var(--color-foreground)","background":false,"background_color":"#00000026","corner_radius":0,"padding-block-start":0,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0},"blocks":{}}},"block_order":["text_pG7gPi"]}},"block_order":["accordion_row_cWVDqJ","accordion_row_WdAjWn","accordion_row_w7AJxb"]}},"block_order":["text_qbHtGk","accordion_Y7qJL7"],"name":"t:names.faq_section","settings":{"content_direction":"column","vertical_on_mobile":true,"horizontal_alignment":"flex-start","vertical_alignment":"center","align_baseline":false,"horizontal_alignment_flex_direction_column":"flex-start","vertical_alignment_flex_direction_column":"center","gap":32,"section_width":"page-width","section_height":"","section_height_custom":50,"color_scheme":"","background_media":"none","video_position":"cover","background_image_position":"cover","border":"none","border_width":1,"border_opacity":100,"border_radius":0,"toggle_overlay":false,"overlay_color":"#00000026","overlay_style":"solid","gradient_direction":"to top","padding-block-start":48,"padding-block-end":48}},"1780288183adeba915":{"type":"_blocks","blocks":{"judge_me_reviews_review_widget_h4HB4Q":{"type":"shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8","settings":{"review_data":"sample_data","max_width":1200,"show_shop_reviews":false,"empty_state":"empty_widget"}}},"block_order":["judge_me_reviews_review_widget_h4HB4Q"],"settings":{"content_direction":"column","vertical_on_mobile":true,"horizontal_alignment":"flex-start","vertical_alignment":"center","align_baseline":false,"horizontal_alignment_flex_direction_column":"flex-start","vertical_alignment_flex_direction_column":"center","gap":12,"section_width":"page-width","section_height":"","section_height_custom":50,"color_scheme":"","background_media":"none","video_position":"cover","background_image_position":"cover","border":"none","border_width":1,"border_opacity":100,"border_radius":0,"toggle_overlay":false,"overlay_color":"#00000026","overlay_style":"solid","gradient_direction":"to top","padding-block-start":0,"padding-block-end":0}},"custom_sticky_scroll_atc_BGzUww":{"type":"custom-sticky-scroll-atc","name":"Custom sticky scroll ATC","settings":{"button_text":"SAUVE 15%","show_price":false,"scroll_target":"buy_now","bottom_gap":-12,"show_mobile":true,"show_desktop":true,"max_width":220,"bottom_spacing":18,"mobile_bottom_spacing":12,"outer_padding":4,"mobile_outer_padding":4,"button_height":48,"mobile_button_height":46,"button_font_size":15,"mobile_button_font_size":14,"outer_background":"#ffa805","button_background":"#111111","button_text_color":"#ffffff"}}},"order":["main","royal_tofu_text_cta_hDKmWy","royal_tofu_image_text_3cdWpA","royal_tofu_image_text_zf8tPM","royal_tofu_image_text_6JHDcM","royal_tofu_image_text_C9KXDK","herbans_comparison_v2_DNdT3g","section_3RtEXk","1780288183adeba915","custom_sticky_scroll_atc_BGzUww"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "product-information",
+      "blocks": {
+        "media-gallery": {
+          "type": "_product-media-gallery",
+          "static": true,
+          "settings": {
+            "media_presentation": "carousel",
+            "media_columns": "one",
+            "image_gap": 0,
+            "large_first_image": false,
+            "icons_style": "chevron",
+            "slideshow_controls_style": "thumbnails",
+            "slideshow_mobile_controls_style": "thumbnails",
+            "thumbnail_position": "left",
+            "thumbnail_width": 60,
+            "thumbnail_radius": 5,
+            "aspect_ratio": "adapt",
+            "constrain_to_viewport": false,
+            "media_fit": "contain",
+            "media_radius": 8,
+            "extend_media": false,
+            "zoom": false,
+            "video_loop": false,
+            "hide_variant_images_from_gallery": true,
+            "hide_variants": true,
+            "padding-block-start": 13,
+            "padding-block-end": 13,
+            "padding-inline-start": 13,
+            "padding-inline-end": 15
+          },
+          "blocks": {}
+        },
+        "product-details": {
+          "type": "_product-details",
+          "static": true,
+          "settings": {
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "details_position": "flex-start",
+            "gap": 28,
+            "sticky_details_desktop": true,
+            "inherit_color_scheme": true,
+            "color_scheme": "scheme-1",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 24,
+            "padding-block-end": 24,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "group_icgrde": {
+              "type": "group",
+              "name": "Header",
+              "settings": {
+                "content_direction": "column",
+                "vertical_on_mobile": true,
+                "horizontal_alignment": "flex-start",
+                "vertical_alignment": "center",
+                "align_baseline": false,
+                "horizontal_alignment_flex_direction_column": "flex-start",
+                "vertical_alignment_flex_direction_column": "center",
+                "gap": 12,
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "custom_height": 100,
+                "inherit_color_scheme": true,
+                "color_scheme": "",
+                "background_media": "none",
+                "video_position": "cover",
+                "background_image_position": "cover",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "toggle_overlay": false,
+                "overlay_color": "#00000026",
+                "overlay_style": "solid",
+                "gradient_direction": "to top",
+                "link": "",
+                "open_in_new_tab": false,
+                "placeholder": "",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "text_xrnftG": {
+                  "type": "text",
+                  "name": "Product title",
+                  "settings": {
+                    "text": "<h1>{{ closest.product.title }}</h1>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "h3",
+                    "font": "var(--font-primary--family)",
+                    "font_size": "",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                },
+                "price_tVjtKg": {
+                  "type": "price",
+                  "settings": {
+                    "show_sale_price_first": true,
+                    "show_installments": false,
+                    "show_tax_info": false,
+                    "type_preset": "custom",
+                    "width": "100%",
+                    "alignment": "left",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1.125rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "color": "var(--color-foreground)",
+                    "padding-block-start": 4,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_xrnftG",
+                "price_tVjtKg"
+              ]
+            },
+            "kaching_bundles_app_block_6qLpmi": {
+              "type": "shopify://apps/kaching-bundles/blocks/app-block/6c637362-a106-4a32-94ac-94dcfd68cdb8",
+              "settings": {
+                "product": "{{closest.product}}",
+                "manual_deal_block_id": ""
+              }
+            },
+            "buy_buttons_eYQEYi": {
+              "type": "buy-buttons",
+              "settings": {
+                "stacking": true,
+                "show_pickup_availability": false,
+                "gift_card_form": true,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "quantity": {
+                  "type": "quantity",
+                  "disabled": true,
+                  "static": true,
+                  "settings": {},
+                  "blocks": {}
+                },
+                "add-to-cart": {
+                  "type": "add-to-cart",
+                  "static": true,
+                  "settings": {
+                    "style_class": "button"
+                  },
+                  "blocks": {}
+                },
+                "accelerated-checkout": {
+                  "type": "accelerated-checkout",
+                  "static": true,
+                  "settings": {},
+                  "blocks": {}
+                }
+              },
+              "block_order": []
+            },
+            "product_upsell_scoop": {
+              "type": "product-upsell",
+              "settings": {
+                "product": "produit-test",
+                "heading": "Complétez votre commande",
+                "subtitle": "Pelle en métal robuste, tamise les grumeaux en un geste",
+                "badge": "",
+                "show_compare_price": true,
+                "show_variant_picker": true,
+                "button_label": "+ Ajouter",
+                "added_label": "✓ Ajouté",
+                "sold_out_label": "Épuisé",
+                "open_cart_drawer": false,
+                "background_color": "#ffffff",
+                "border_color": "#f3e3a6",
+                "accent_color": "#f2b705",
+                "image_size": 50,
+                "border_radius": 8,
+                "padding-block-start": 0,
+                "padding-block-end": 0
+              },
+              "blocks": {}
+            },
+            "text_aEtTtq": {
+              "type": "text",
+              "name": "Product description",
+              "settings": {
+                "text": "{{ closest.product.description }}",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-primary--family)",
+                "font_size": "",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "group_icgrde",
+            "kaching_bundles_app_block_6qLpmi",
+            "buy_buttons_eYQEYi",
+            "product_upsell_scoop",
+            "text_aEtTtq"
+          ]
+        }
+      },
+      "settings": {
+        "content_width": "content-center-aligned",
+        "desktop_media_position": "left",
+        "equal_columns": true,
+        "limit_details_width": false,
+        "gap": 48,
+        "enable_sticky_add_to_cart": false,
+        "color_scheme": "",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
+    "royal_tofu_text_cta_hDKmWy": {
+      "type": "royal-tofu-text-cta",
+      "name": "Royal Tofu Text CTA",
+      "settings": {
+        "heading": "Une maison qui reste fraîche, même avec plusieurs chats.",
+        "text": "<p>Notre <strong>litière de tofu naturelle</strong> contrôle les odeurs, elle est sans poussiere et laisse un bac plus propre. La forme des granules fait en sorte qu'elle reste en place dans le bac et ne s'éparpille pas dans toute la maison laissant celle-ci plus fraîche et moins de nettoyage au quotidien.</p>",
+        "text_alignment": "center",
+        "max_width": 820,
+        "text_width": 720,
+        "background_color": "#f4efe6",
+        "heading_color": "#2b211b",
+        "text_color": "#4b4038",
+        "strong_text_color": "#2b211b",
+        "heading_size": 52,
+        "mobile_heading_size": 34,
+        "text_size": 19,
+        "mobile_text_size": 16,
+        "show_buttons": true,
+        "primary_button_label": "Découvrir les avantages",
+        "primary_button_link": "",
+        "secondary_button_label": "",
+        "secondary_button_link": "",
+        "button_radius": 40,
+        "primary_button_bg": "#2b211b",
+        "primary_button_text_color": "#ffffff",
+        "secondary_button_text_color": "#2b211b",
+        "secondary_button_border": "#2b211b",
+        "secondary_button_hover_bg": "#2b211b",
+        "secondary_button_hover_text_color": "#ffffff",
+        "mobile_button_layout": "column",
+        "mobile_full_width_buttons": false,
+        "padding_top": 90,
+        "padding_bottom": 90,
+        "mobile_padding_top": 60,
+        "mobile_padding_bottom": 60
+      }
+    },
+    "royal_tofu_image_text_3cdWpA": {
+      "type": "royal-tofu-image-text",
+      "blocks": {
+        "benefit_YGckbM": {
+          "type": "benefit",
+          "settings": {
+            "icon": "✓",
+            "text": "Faible traçage"
+          }
+        },
+        "benefit_3d87Rn": {
+          "type": "benefit",
+          "settings": {
+            "icon": "✓",
+            "text": "Moins de grains au sol"
+          }
+        },
+        "benefit_UHWxUW": {
+          "type": "benefit",
+          "settings": {
+            "icon": "✓",
+            "text": "Nettoyage plus simple"
+          }
+        }
+      },
+      "block_order": [
+        "benefit_YGckbM",
+        "benefit_3d87Rn",
+        "benefit_UHWxUW"
+      ],
+      "name": "Royal Tofu Image Text",
+      "settings": {
+        "image": "shopify://shop_images/IMG_4499.webp",
+        "image_alt": "Royal Tofu cat litter",
+        "eyebrow": "Litière de tofu naturelle",
+        "heading": "Moins de litière partout.",
+        "text": "<p>Les granules Royal Tofu restent davantage dans le bac, pour réduire les grains sur le plancher et garder votre maison plus propre.</p>",
+        "reverse_layout": false,
+        "mobile_image_first": true,
+        "text_alignment": "left",
+        "mobile_text_alignment": "left",
+        "image_ratio": "1 / 1",
+        "image_position": "center center",
+        "section_width": 1200,
+        "content_width": 560,
+        "desktop_gap": 60,
+        "mobile_gap": 30,
+        "image_radius": 24,
+        "background_color": "#ffffff",
+        "image_background": "#eee7dc",
+        "eyebrow_color": "#7b6654",
+        "heading_color": "#2b211b",
+        "text_color": "#4b4038",
+        "strong_text_color": "#2b211b",
+        "benefit_text_color": "#2b211b",
+        "icon_bg": "#f4efe6",
+        "icon_color": "#2b211b",
+        "eyebrow_size": 12,
+        "heading_size": 52,
+        "mobile_heading_size": 34,
+        "text_size": 18,
+        "mobile_text_size": 16,
+        "benefit_size": 16,
+        "show_buttons": false,
+        "primary_button_label": "",
+        "primary_button_link": "",
+        "secondary_button_label": "",
+        "secondary_button_link": "",
+        "button_radius": 40,
+        "primary_button_bg": "#2b211b",
+        "primary_button_text": "#ffffff",
+        "secondary_button_text": "#2b211b",
+        "secondary_button_border": "#2b211b",
+        "mobile_full_width_buttons": true,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "mobile_padding_top": 50,
+        "mobile_padding_bottom": 50
+      }
+    },
+    "royal_tofu_image_text_zf8tPM": {
+      "type": "royal-tofu-image-text",
+      "blocks": {
+        "benefit_mBUgAM": {
+          "type": "benefit",
+          "settings": {
+            "icon": "✓",
+            "text": "Contrôle des odeurs"
+          }
+        },
+        "benefit_GGmFwB": {
+          "type": "benefit",
+          "settings": {
+            "icon": "✓",
+            "text": "99 % sans poussière"
+          }
+        },
+        "benefit_yxzKgU": {
+          "type": "benefit",
+          "settings": {
+            "icon": "✓",
+            "text": "Litière agglomérante"
+          }
+        }
+      },
+      "block_order": [
+        "benefit_mBUgAM",
+        "benefit_GGmFwB",
+        "benefit_yxzKgU"
+      ],
+      "name": "Royal Tofu Image Text",
+      "settings": {
+        "image": "shopify://shop_images/hf_20260608_221146_f2a2c6f5-c6b9-484d-b699-30783bd75028.png",
+        "image_alt": "Royal Tofu cat litter",
+        "eyebrow": "Litière de tofu naturelle",
+        "heading": "Moins d’odeurs. Moins de poussière.",
+        "text": "<p>Royal Tofu aide à contrôler les odeurs et à garder le bac plus propre, avec une litière de tofu naturelle conçue pour être faible en poussière et facile à ramasser.</p>",
+        "reverse_layout": true,
+        "mobile_image_first": true,
+        "text_alignment": "left",
+        "mobile_text_alignment": "left",
+        "image_ratio": "1 / 1",
+        "image_position": "center center",
+        "section_width": 1200,
+        "content_width": 560,
+        "desktop_gap": 60,
+        "mobile_gap": 30,
+        "image_radius": 24,
+        "background_color": "#f4efe6",
+        "image_background": "#eee7dc",
+        "eyebrow_color": "#7b6654",
+        "heading_color": "#2b211b",
+        "text_color": "#4b4038",
+        "strong_text_color": "#2b211b",
+        "benefit_text_color": "#2b211b",
+        "icon_bg": "#ffffff",
+        "icon_color": "#2b211b",
+        "eyebrow_size": 12,
+        "heading_size": 52,
+        "mobile_heading_size": 34,
+        "text_size": 18,
+        "mobile_text_size": 16,
+        "benefit_size": 16,
+        "show_buttons": false,
+        "primary_button_label": "",
+        "primary_button_link": "",
+        "secondary_button_label": "",
+        "secondary_button_link": "",
+        "button_radius": 40,
+        "primary_button_bg": "#2b211b",
+        "primary_button_text": "#ffffff",
+        "secondary_button_text": "#2b211b",
+        "secondary_button_border": "#2b211b",
+        "mobile_full_width_buttons": true,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "mobile_padding_top": 50,
+        "mobile_padding_bottom": 50
+      }
+    },
+    "royal_tofu_image_text_6JHDcM": {
+      "type": "royal-tofu-image-text",
+      "blocks": {
+        "benefit_rf3UDN": {
+          "type": "benefit",
+          "settings": {
+            "icon": "✓",
+            "text": "Litière agglomérante"
+          }
+        },
+        "benefit_QQ6ftd": {
+          "type": "benefit",
+          "settings": {
+            "icon": "✓",
+            "text": "Facile à ramasser"
+          }
+        },
+        "benefit_LFbbVr": {
+          "type": "benefit",
+          "settings": {
+            "icon": "✓",
+            "text": "Moins de gaspillage"
+          }
+        }
+      },
+      "block_order": [
+        "benefit_rf3UDN",
+        "benefit_QQ6ftd",
+        "benefit_LFbbVr"
+      ],
+      "name": "Royal Tofu Image Text",
+      "settings": {
+        "image": "shopify://shop_images/hf_20260609_072822_53b872fd-f249-4da7-a1c1-ffba4279a9b9.png",
+        "image_alt": "Royal Tofu cat litter",
+        "eyebrow": "Litière de tofu naturelle",
+        "heading": "Nettoyage simple, sans vider tout le bac.",
+        "text": "<p>Royal Tofu forme des agglomérats faciles à retirer, pour garder la litière propre plus longtemps avec moins d’effort.</p>",
+        "reverse_layout": false,
+        "mobile_image_first": true,
+        "text_alignment": "left",
+        "mobile_text_alignment": "left",
+        "image_ratio": "1 / 1",
+        "image_position": "center center",
+        "section_width": 1200,
+        "content_width": 560,
+        "desktop_gap": 60,
+        "mobile_gap": 30,
+        "image_radius": 24,
+        "background_color": "#ffffff",
+        "image_background": "#eee7dc",
+        "eyebrow_color": "#7b6654",
+        "heading_color": "#2b211b",
+        "text_color": "#4b4038",
+        "strong_text_color": "#2b211b",
+        "benefit_text_color": "#2b211b",
+        "icon_bg": "#f4efe6",
+        "icon_color": "#2b211b",
+        "eyebrow_size": 12,
+        "heading_size": 52,
+        "mobile_heading_size": 34,
+        "text_size": 18,
+        "mobile_text_size": 16,
+        "benefit_size": 16,
+        "show_buttons": false,
+        "primary_button_label": "Magasiner maintenant",
+        "primary_button_link": "",
+        "secondary_button_label": "Voir les avantages",
+        "secondary_button_link": "",
+        "button_radius": 40,
+        "primary_button_bg": "#2b211b",
+        "primary_button_text": "#ffffff",
+        "secondary_button_text": "#2b211b",
+        "secondary_button_border": "#2b211b",
+        "mobile_full_width_buttons": true,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "mobile_padding_top": 50,
+        "mobile_padding_bottom": 50
+      }
+    },
+    "royal_tofu_image_text_C9KXDK": {
+      "type": "royal-tofu-image-text",
+      "blocks": {
+        "benefit_gEJjaM": {
+          "type": "benefit",
+          "settings": {
+            "icon": "✓",
+            "text": "Fibres de soya"
+          }
+        },
+        "benefit_fM8UJd": {
+          "type": "benefit",
+          "settings": {
+            "icon": "✓",
+            "text": "Formule végétale"
+          }
+        },
+        "benefit_VqH7Pw": {
+          "type": "benefit",
+          "settings": {
+            "icon": "✓",
+            "text": "Biodégradable"
+          }
+        }
+      },
+      "block_order": [
+        "benefit_gEJjaM",
+        "benefit_fM8UJd",
+        "benefit_VqH7Pw"
+      ],
+      "name": "Royal Tofu Image Text",
+      "settings": {
+        "image": "shopify://shop_images/hf_20260609_073627_0356d5a0-519c-45fb-8467-7d7efa7beb11.png",
+        "image_alt": "Royal Tofu cat litter",
+        "eyebrow": "Litière de tofu naturelle",
+        "heading": "Une litière plus naturelle.",
+        "text": "<p>Fabriquée à partir de fibres de soya, Royal Tofu offre une alternative végétale aux litières traditionnelles, pensée pour une routine plus propre au quotidien.</p>",
+        "reverse_layout": true,
+        "mobile_image_first": true,
+        "text_alignment": "left",
+        "mobile_text_alignment": "left",
+        "image_ratio": "1 / 1",
+        "image_position": "center center",
+        "section_width": 1200,
+        "content_width": 560,
+        "desktop_gap": 60,
+        "mobile_gap": 30,
+        "image_radius": 24,
+        "background_color": "#f4efe6",
+        "image_background": "#eee7dc",
+        "eyebrow_color": "#7b6654",
+        "heading_color": "#2b211b",
+        "text_color": "#4b4038",
+        "strong_text_color": "#2b211b",
+        "benefit_text_color": "#2b211b",
+        "icon_bg": "#ffffff",
+        "icon_color": "#2b211b",
+        "eyebrow_size": 12,
+        "heading_size": 52,
+        "mobile_heading_size": 34,
+        "text_size": 18,
+        "mobile_text_size": 16,
+        "benefit_size": 16,
+        "show_buttons": false,
+        "primary_button_label": "Magasiner maintenant",
+        "primary_button_link": "",
+        "secondary_button_label": "Voir les avantages",
+        "secondary_button_link": "",
+        "button_radius": 40,
+        "primary_button_bg": "#2b211b",
+        "primary_button_text": "#ffffff",
+        "secondary_button_text": "#2b211b",
+        "secondary_button_border": "#2b211b",
+        "mobile_full_width_buttons": true,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "mobile_padding_top": 50,
+        "mobile_padding_bottom": 50
+      }
+    },
+    "herbans_comparison_v2_DNdT3g": {
+      "type": "herbans-comparison-v2",
+      "blocks": {
+        "comparison_row_FimpDK": {
+          "type": "comparison_row",
+          "settings": {
+            "row_label": "Formule végétale",
+            "royal_value": "check",
+            "royal_text": "Yes",
+            "competitor_1_value": "text",
+            "competitor_1_text": "Non",
+            "competitor_2_value": "text",
+            "competitor_2_text": "Non",
+            "competitor_3_value": "text",
+            "competitor_3_text": "Oui"
+          }
+        },
+        "comparison_row_TAeXn8": {
+          "type": "comparison_row",
+          "settings": {
+            "row_label": "Agglomération rapide",
+            "royal_value": "check",
+            "royal_text": "Yes",
+            "competitor_1_value": "text",
+            "competitor_1_text": "Ça dépend",
+            "competitor_2_value": "x",
+            "competitor_2_text": "No",
+            "competitor_3_value": "text",
+            "competitor_3_text": "Ça dépend"
+          }
+        },
+        "comparison_row_DGAjPC": {
+          "type": "comparison_row",
+          "settings": {
+            "row_label": "Faible poussière",
+            "royal_value": "check",
+            "royal_text": "Yes",
+            "competitor_1_value": "text",
+            "competitor_1_text": "Souvent poussiéreuse",
+            "competitor_2_value": "text",
+            "competitor_2_text": "Peut être poussiéreuse",
+            "competitor_3_value": "text",
+            "competitor_3_text": "Faible poussière"
+          }
+        },
+        "comparison_row_yhmbde": {
+          "type": "comparison_row",
+          "settings": {
+            "row_label": "Contrôle des odeurs",
+            "royal_value": "check",
+            "royal_text": "Yes",
+            "competitor_1_value": "text",
+            "competitor_1_text": "Masque les odeurs",
+            "competitor_2_value": "text",
+            "competitor_2_text": "Peut accumuler les odeurs",
+            "competitor_3_value": "text",
+            "competitor_3_text": "Contrôle léger"
+          }
+        },
+        "comparison_row_zm9Pck": {
+          "type": "comparison_row",
+          "settings": {
+            "row_label": "Moins de traces au sol",
+            "royal_value": "check",
+            "royal_text": "Peut coller aux pattes",
+            "competitor_1_value": "text",
+            "competitor_1_text": "Peut coller aux pattes",
+            "competitor_2_value": "text",
+            "competitor_2_text": "Peut sortir du bac",
+            "competitor_3_value": "text",
+            "competitor_3_text": "Peut sortir du bac"
+          }
+        },
+        "comparison_row_qGTg9G": {
+          "type": "comparison_row",
+          "settings": {
+            "row_label": "Facile à ramasser",
+            "royal_value": "check",
+            "royal_text": "Yes",
+            "competitor_1_value": "text",
+            "competitor_1_text": "Lourd et salissant",
+            "competitor_2_value": "text",
+            "competitor_2_text": "Moins pratique",
+            "competitor_3_value": "text",
+            "competitor_3_text": "Ça dépend"
+          }
+        },
+        "comparison_row_ht4ERa": {
+          "type": "comparison_row",
+          "settings": {
+            "row_label": "Biodégradable",
+            "royal_value": "check",
+            "royal_text": "Yes",
+            "competitor_1_value": "x",
+            "competitor_1_text": "Lourd et salissant",
+            "competitor_2_value": "x",
+            "competitor_2_text": "Moins pratique",
+            "competitor_3_value": "check",
+            "competitor_3_text": "Ça dépend"
+          }
+        }
+      },
+      "block_order": [
+        "comparison_row_FimpDK",
+        "comparison_row_TAeXn8",
+        "comparison_row_DGAjPC",
+        "comparison_row_yhmbde",
+        "comparison_row_zm9Pck",
+        "comparison_row_qGTg9G",
+        "comparison_row_ht4ERa"
+      ],
+      "name": "Royal Tofu Compare",
+      "settings": {
+        "show_intro": true,
+        "eyebrow": "LA DIFFÉRENCE",
+        "heading": "<p><strong>Royal Tofu</strong> vs. les litières traditionnelles</p>",
+        "text": "",
+        "footnote": "<p>*Results may vary depending on your cat, litter box setup, and cleaning routine.</p>",
+        "royal_label": "Royal Tofu",
+        "competitor_1_label": "Litière d’argile",
+        "competitor_2_label": "Formule végétale",
+        "competitor_3_label": "Litière de pin",
+        "product_image": "shopify://shop_images/Untitled_design_28.png",
+        "product_image_alt": "Royal Tofu Cat Litter",
+        "intro_width_mobile": 520,
+        "intro_width_desktop": 700,
+        "heading_size_mobile": 32,
+        "heading_size_desktop": 46,
+        "body_size_mobile": 15,
+        "body_size_desktop": 18,
+        "eyebrow_size_mobile": 11,
+        "eyebrow_size_desktop": 12,
+        "header_label_size_mobile": 11,
+        "header_label_size_desktop": 15,
+        "row_label_size_mobile": 14,
+        "row_label_size_desktop": 17,
+        "cell_text_size_mobile": 12,
+        "cell_text_size_desktop": 14,
+        "footnote_size_mobile": 10,
+        "footnote_size_desktop": 12,
+        "product_image_width_mobile": 65,
+        "product_image_width_desktop": 85,
+        "max_width": 1280,
+        "header_height_mobile": 84,
+        "header_height_desktop": 94,
+        "row_height_mobile": 76,
+        "row_height_desktop": 78,
+        "table_radius": 12,
+        "table_shadow": "2px 4px 16px rgba(0,0,0,0.08)",
+        "table_border_width": 0,
+        "icon_size_mobile": 28,
+        "icon_size_desktop": 32,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 48,
+        "padding_side_mobile": 14,
+        "padding_top_desktop": 72,
+        "padding_bottom_desktop": 72,
+        "padding_side_desktop": 40,
+        "section_bg": "#fff8ec",
+        "table_bg": "#ffffff",
+        "table_border_color": "#e7d8ca",
+        "header_bg": "#000000",
+        "header_text": "#ffffff",
+        "row_bg": "#ffffff",
+        "row_border": "#e5ded5",
+        "feature_color": "#002d1f",
+        "cell_text_color": "#002d1f",
+        "check_bg": "#ebb900",
+        "check_color": "#ffffff",
+        "x_bg": "#ffffff",
+        "x_border": "#8d0f0f",
+        "x_color": "#8d0f0f",
+        "heading_color": "#111111",
+        "heading_accent": "#da991e",
+        "text_color": "#111111",
+        "eyebrow_bg": "#d4ba65",
+        "eyebrow_color": "#111111",
+        "royal_label_color": "#ebb901",
+        "footnote_color": "#111111"
+      }
+    },
+    "section_3RtEXk": {
+      "type": "section",
+      "blocks": {
+        "text_qbHtGk": {
+          "type": "text",
+          "name": "t:names.heading",
+          "settings": {
+            "text": "<h3>FAQ</h3>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 10,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "accordion_Y7qJL7": {
+          "type": "accordion",
+          "name": "t:names.accordion",
+          "settings": {
+            "icon": "caret",
+            "dividers": true,
+            "type_preset": "h5",
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "accordion_row_cWVDqJ": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "Est-ce que Royal Tofu contrôle vraiment les odeurs ?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_YTBRAk": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Oui. Sa formule à base de fibres de soya aide à absorber rapidement l’humidité et à neutraliser les mauvaises odeurs, pour garder le bac plus frais au quotidien.</p>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_YTBRAk"
+              ]
+            },
+            "accordion_row_WdAjWn": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "Est-ce que la litière fait beaucoup de poussière ou colle aux pattes ?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_qeBi7g": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Non. Les granules de tofu sont conçues pour être faibles en poussière et limiter le traçage, ce qui aide à garder votre maison plus propre.</p>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_qeBi7g"
+              ]
+            },
+            "accordion_row_w7AJxb": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "Est-ce que Royal Tofu forme des agglomérats faciles à nettoyer ?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_pG7gPi": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Oui. La litière absorbe rapidement les liquides et forme des agglomérats compacts, faciles à retirer avec une pelle.</p>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_pG7gPi"
+              ]
+            }
+          },
+          "block_order": [
+            "accordion_row_cWVDqJ",
+            "accordion_row_WdAjWn",
+            "accordion_row_w7AJxb"
+          ]
+        }
+      },
+      "block_order": [
+        "text_qbHtGk",
+        "accordion_Y7qJL7"
+      ],
+      "name": "t:names.faq_section",
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 32,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 48,
+        "padding-block-end": 48
+      }
+    },
+    "1780288183adeba915": {
+      "type": "_blocks",
+      "blocks": {
+        "judge_me_reviews_review_widget_h4HB4Q": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "sample_data",
+            "max_width": 1200,
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget"
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_h4HB4Q"
+      ],
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 12,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
+    "custom_sticky_scroll_atc_BGzUww": {
+      "type": "custom-sticky-scroll-atc",
+      "name": "Custom sticky scroll ATC",
+      "settings": {
+        "button_text": "SAUVE 15%",
+        "show_price": false,
+        "scroll_target": "buy_now",
+        "bottom_gap": -12,
+        "show_mobile": true,
+        "show_desktop": true,
+        "max_width": 220,
+        "bottom_spacing": 18,
+        "mobile_bottom_spacing": 12,
+        "outer_padding": 4,
+        "mobile_outer_padding": 4,
+        "button_height": 48,
+        "mobile_button_height": 46,
+        "button_font_size": 15,
+        "mobile_button_font_size": 14,
+        "outer_background": "#ffa805",
+        "button_background": "#111111",
+        "button_text_color": "#ffffff"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "royal_tofu_text_cta_hDKmWy",
+    "royal_tofu_image_text_3cdWpA",
+    "royal_tofu_image_text_zf8tPM",
+    "royal_tofu_image_text_6JHDcM",
+    "royal_tofu_image_text_C9KXDK",
+    "herbans_comparison_v2_DNdT3g",
+    "section_3RtEXk",
+    "1780288183adeba915",
+    "custom_sticky_scroll_atc_BGzUww"
+  ]
+}
