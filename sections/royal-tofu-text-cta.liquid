@@ -1,0 +1,429 @@
+{% style %}
+  #shopify-section-{{ section.id }} .rt-text-cta {
+    background: {{ section.settings.background_color }};
+    color: {{ section.settings.text_color }};
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+
+  #shopify-section-{{ section.id }} .rt-text-cta__inner {
+    max-width: {{ section.settings.max_width }}px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: {{ section.settings.text_alignment }};
+  }
+
+  #shopify-section-{{ section.id }} .rt-text-cta__heading {
+    margin: 0 0 18px;
+    font-size: {{ section.settings.heading_size }}px;
+    line-height: 1.08;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    color: {{ section.settings.heading_color }};
+  }
+
+  #shopify-section-{{ section.id }} .rt-text-cta__text {
+    margin: 0 auto;
+    max-width: {{ section.settings.text_width }}px;
+    font-size: {{ section.settings.text_size }}px;
+    line-height: 1.55;
+    color: {{ section.settings.text_color }};
+  }
+
+  #shopify-section-{{ section.id }} .rt-text-cta__text p {
+    margin: 0;
+  }
+
+  #shopify-section-{{ section.id }} .rt-text-cta__text strong {
+    font-weight: 700;
+    color: {{ section.settings.strong_text_color }};
+  }
+
+  #shopify-section-{{ section.id }} .rt-text-cta__buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 32px;
+  }
+
+  #shopify-section-{{ section.id }} .rt-text-cta__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 50px;
+    padding: 14px 28px;
+    border-radius: {{ section.settings.button_radius }}px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    line-height: 1;
+  }
+
+  #shopify-section-{{ section.id }} .rt-text-cta__button--primary {
+    background: {{ section.settings.primary_button_bg }};
+    color: {{ section.settings.primary_button_text_color }};
+    border: 1px solid {{ section.settings.primary_button_bg }};
+  }
+
+  #shopify-section-{{ section.id }} .rt-text-cta__button--primary:hover {
+    opacity: 0.85;
+    transform: translateY(-1px);
+  }
+
+  #shopify-section-{{ section.id }} .rt-text-cta__button--secondary {
+    background: transparent;
+    color: {{ section.settings.secondary_button_text_color }};
+    border: 1px solid {{ section.settings.secondary_button_border }};
+  }
+
+  #shopify-section-{{ section.id }} .rt-text-cta__button--secondary:hover {
+    background: {{ section.settings.secondary_button_hover_bg }};
+    color: {{ section.settings.secondary_button_hover_text_color }};
+    transform: translateY(-1px);
+  }
+
+  @media screen and (max-width: 749px) {
+    #shopify-section-{{ section.id }} .rt-text-cta {
+      padding-top: {{ section.settings.mobile_padding_top }}px;
+      padding-bottom: {{ section.settings.mobile_padding_bottom }}px;
+    }
+
+    #shopify-section-{{ section.id }} .rt-text-cta__inner {
+      padding: 0 18px;
+    }
+
+    #shopify-section-{{ section.id }} .rt-text-cta__heading {
+      font-size: {{ section.settings.mobile_heading_size }}px;
+      line-height: 1.12;
+      margin-bottom: 14px;
+    }
+
+    #shopify-section-{{ section.id }} .rt-text-cta__text {
+      font-size: {{ section.settings.mobile_text_size }}px;
+      line-height: 1.5;
+    }
+
+    #shopify-section-{{ section.id }} .rt-text-cta__buttons {
+      margin-top: 26px;
+      gap: 10px;
+      flex-direction: {{ section.settings.mobile_button_layout }};
+    }
+
+    #shopify-section-{{ section.id }} .rt-text-cta__button {
+      width: {% if section.settings.mobile_full_width_buttons %}100%{% else %}auto{% endif %};
+      min-height: 48px;
+      padding: 13px 22px;
+    }
+  }
+{% endstyle %}
+
+<section class="rt-text-cta">
+  <div class="rt-text-cta__inner">
+    {% if section.settings.heading != blank %}
+      <h2 class="rt-text-cta__heading">
+        {{ section.settings.heading }}
+      </h2>
+    {% endif %}
+
+    {% if section.settings.text != blank %}
+      <div class="rt-text-cta__text rte">
+        {{ section.settings.text }}
+      </div>
+    {% endif %}
+
+    {% if section.settings.show_buttons %}
+      <div class="rt-text-cta__buttons">
+        {% if section.settings.primary_button_label != blank %}
+          <a 
+            href="{{ section.settings.primary_button_link }}" 
+            class="rt-text-cta__button rt-text-cta__button--primary"
+          >
+            {{ section.settings.primary_button_label }}
+          </a>
+        {% endif %}
+
+        {% if section.settings.secondary_button_label != blank %}
+          <a 
+            href="{{ section.settings.secondary_button_link }}" 
+            class="rt-text-cta__button rt-text-cta__button--secondary"
+          >
+            {{ section.settings.secondary_button_label }}
+          </a>
+        {% endif %}
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Royal Tofu Text CTA",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Dites bonjour à une maison plus propre."
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>Notre <strong>litière de tofu naturelle</strong> aide à réduire la poussière, les odeurs et le traçage — pour passer <strong>moins de temps à nettoyer</strong> et plus de temps avec votre chat.</p>"
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Text alignment",
+      "default": "center",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "label": "Section max width",
+      "min": 500,
+      "max": 1200,
+      "step": 20,
+      "default": 820
+    },
+    {
+      "type": "range",
+      "id": "text_width",
+      "label": "Text max width",
+      "min": 400,
+      "max": 1000,
+      "step": 20,
+      "default": 720
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#F4EFE6"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading",
+      "default": "#2B211B"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#4B4038"
+    },
+    {
+      "type": "color",
+      "id": "strong_text_color",
+      "label": "Bold text",
+      "default": "#2B211B"
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Desktop heading size",
+      "min": 28,
+      "max": 78,
+      "step": 2,
+      "default": 52
+    },
+    {
+      "type": "range",
+      "id": "mobile_heading_size",
+      "label": "Mobile heading size",
+      "min": 24,
+      "max": 52,
+      "step": 2,
+      "default": 34
+    },
+    {
+      "type": "range",
+      "id": "text_size",
+      "label": "Desktop text size",
+      "min": 14,
+      "max": 28,
+      "step": 1,
+      "default": 19
+    },
+    {
+      "type": "range",
+      "id": "mobile_text_size",
+      "label": "Mobile text size",
+      "min": 13,
+      "max": 22,
+      "step": 1,
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "Buttons"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_buttons",
+      "label": "Show buttons",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "primary_button_label",
+      "label": "Primary button text",
+      "default": "Magasiner maintenant"
+    },
+    {
+      "type": "url",
+      "id": "primary_button_link",
+      "label": "Primary button link"
+    },
+    {
+      "type": "text",
+      "id": "secondary_button_label",
+      "label": "Secondary button text",
+      "default": "Découvrir les avantages"
+    },
+    {
+      "type": "url",
+      "id": "secondary_button_link",
+      "label": "Secondary button link"
+    },
+    {
+      "type": "range",
+      "id": "button_radius",
+      "label": "Button corner radius",
+      "min": 0,
+      "max": 60,
+      "step": 2,
+      "default": 40
+    },
+    {
+      "type": "color",
+      "id": "primary_button_bg",
+      "label": "Primary button background",
+      "default": "#2B211B"
+    },
+    {
+      "type": "color",
+      "id": "primary_button_text_color",
+      "label": "Primary button text color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "secondary_button_text_color",
+      "label": "Secondary button text color",
+      "default": "#2B211B"
+    },
+    {
+      "type": "color",
+      "id": "secondary_button_border",
+      "label": "Secondary button border",
+      "default": "#2B211B"
+    },
+    {
+      "type": "color",
+      "id": "secondary_button_hover_bg",
+      "label": "Secondary button hover background",
+      "default": "#2B211B"
+    },
+    {
+      "type": "color",
+      "id": "secondary_button_hover_text_color",
+      "label": "Secondary button hover text color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "select",
+      "id": "mobile_button_layout",
+      "label": "Mobile button layout",
+      "default": "column",
+      "options": [
+        {
+          "value": "row",
+          "label": "Side by side"
+        },
+        {
+          "value": "column",
+          "label": "Stacked"
+        }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "mobile_full_width_buttons",
+      "label": "Full width buttons on mobile",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Desktop top padding",
+      "min": 20,
+      "max": 180,
+      "step": 5,
+      "default": 90
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Desktop bottom padding",
+      "min": 20,
+      "max": 180,
+      "step": 5,
+      "default": 90
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_top",
+      "label": "Mobile top padding",
+      "min": 20,
+      "max": 120,
+      "step": 5,
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_bottom",
+      "label": "Mobile bottom padding",
+      "min": 20,
+      "max": 120,
+      "step": 5,
+      "default": 60
+    }
+  ],
+  "presets": [
+    {
+      "name": "Royal Tofu Text CTA"
+    }
+  ]
+}
+{% endschema %}

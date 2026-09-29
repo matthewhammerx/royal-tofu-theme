@@ -1,0 +1,586 @@
+{% comment %}
+  Custom Sticky Scroll ATC - Pill style
+  - Uses store font
+  - Floating centered pill
+  - Does NOT add to cart directly
+  - Only scrolls to the real Add to Cart / Buy Now button
+  - ONLY appears after the user scrolls past the real target button
+{% endcomment %}
+
+{% liquid
+  assign current_variant = product.selected_or_first_available_variant
+%}
+
+{% if product != blank %}
+  <div
+    id="CustomStickyScrollATC-{{ section.id }}"
+    class="custom-sticky-pill-atc"
+    data-target="{{ section.settings.scroll_target }}"
+    data-bottom-gap="{{ section.settings.bottom_gap }}"
+  >
+    <div class="custom-sticky-pill-atc__shell">
+      <button
+        type="button"
+        class="custom-sticky-pill-atc__button"
+        data-sticky-scroll-button
+      >
+        <span class="custom-sticky-pill-atc__button-text">
+          {{ section.settings.button_text }}
+        </span>
+
+        {% if section.settings.show_price %}
+          <span class="custom-sticky-pill-atc__separator">-</span>
+          <span class="custom-sticky-pill-atc__price">
+            {{ current_variant.price | money }}
+          </span>
+        {% endif %}
+      </button>
+    </div>
+  </div>
+
+  <style>
+    #CustomStickyScrollATC-{{ section.id }},
+    #CustomStickyScrollATC-{{ section.id }} * {
+      font-family: var(--font-body-family, var(--font-body--family, var(--font-stack-body, inherit))) !important;
+    }
+
+    #CustomStickyScrollATC-{{ section.id }} {
+      position: fixed;
+      left: 50%;
+      bottom: {{ section.settings.bottom_spacing }}px;
+      transform: translateX(-50%) translateY(140%);
+      opacity: 0;
+      pointer-events: none;
+      z-index: 9999;
+      transition: transform 0.28s ease, opacity 0.28s ease;
+      width: calc(100% - 24px);
+      max-width: {{ section.settings.max_width }}px;
+    }
+
+    #CustomStickyScrollATC-{{ section.id }}.is-visible {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    #CustomStickyScrollATC-{{ section.id }} .custom-sticky-pill-atc__shell {
+      background: {{ section.settings.outer_background }};
+      border-radius: 999px;
+      padding: {{ section.settings.outer_padding }}px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.10);
+      border: 1px solid rgba(0, 0, 0, 0.04);
+    }
+
+    #CustomStickyScrollATC-{{ section.id }} .custom-sticky-pill-atc__button {
+      appearance: none;
+      width: 100%;
+      min-height: {{ section.settings.button_height }}px;
+      border: none;
+      border-radius: 999px;
+      background: {{ section.settings.button_background }};
+      color: {{ section.settings.button_text_color }};
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 0 24px;
+      cursor: pointer;
+      font-size: {{ section.settings.button_font_size }}px;
+      font-weight: 600;
+      line-height: 1;
+      letter-spacing: 0;
+      transition: transform 0.15s ease, opacity 0.15s ease;
+      text-align: center;
+    }
+
+    #CustomStickyScrollATC-{{ section.id }} .custom-sticky-pill-atc__button:hover {
+      opacity: 0.96;
+    }
+
+    #CustomStickyScrollATC-{{ section.id }} .custom-sticky-pill-atc__button:active {
+      transform: scale(0.985);
+    }
+
+    #CustomStickyScrollATC-{{ section.id }} .custom-sticky-pill-atc__button-text,
+    #CustomStickyScrollATC-{{ section.id }} .custom-sticky-pill-atc__price,
+    #CustomStickyScrollATC-{{ section.id }} .custom-sticky-pill-atc__separator {
+      display: inline-flex;
+      align-items: center;
+    }
+
+    #CustomStickyScrollATC-{{ section.id }} .custom-sticky-pill-atc__separator {
+      opacity: 0.7;
+    }
+
+    #CustomStickyScrollATC-{{ section.id }} .custom-sticky-pill-atc__price {
+      white-space: nowrap;
+    }
+
+    .custom-sticky-scroll-atc-target-pulse {
+      animation: customStickyTargetPulse 1.1s ease;
+    }
+
+    @keyframes customStickyTargetPulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.18);
+      }
+
+      70% {
+        box-shadow: 0 0 0 12px rgba(0, 0, 0, 0);
+      }
+
+      100% {
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+      }
+    }
+
+    {% unless section.settings.show_desktop %}
+      @media screen and (min-width: 750px) {
+        #CustomStickyScrollATC-{{ section.id }} {
+          display: none !important;
+        }
+      }
+    {% endunless %}
+
+    {% unless section.settings.show_mobile %}
+      @media screen and (max-width: 749px) {
+        #CustomStickyScrollATC-{{ section.id }} {
+          display: none !important;
+        }
+      }
+    {% endunless %}
+
+    @media screen and (max-width: 749px) {
+      #CustomStickyScrollATC-{{ section.id }} {
+        width: calc(100% - 16px);
+        bottom: {{ section.settings.mobile_bottom_spacing }}px;
+      }
+
+      #CustomStickyScrollATC-{{ section.id }} .custom-sticky-pill-atc__shell {
+        padding: {{ section.settings.mobile_outer_padding }}px;
+      }
+
+      #CustomStickyScrollATC-{{ section.id }} .custom-sticky-pill-atc__button {
+        min-height: {{ section.settings.mobile_button_height }}px;
+        font-size: {{ section.settings.mobile_button_font_size }}px;
+        padding: 0 18px;
+        gap: 8px;
+      }
+    }
+  </style>
+
+  <script>
+    (() => {
+      const sticky = document.getElementById('CustomStickyScrollATC-{{ section.id }}');
+
+      if (!sticky || sticky.dataset.initialized === 'true') return;
+
+      sticky.dataset.initialized = 'true';
+
+      const scrollButton = sticky.querySelector('[data-sticky-scroll-button]');
+      const scrollTargetSetting = sticky.dataset.target || 'buy_now';
+      const bottomGap = Number(sticky.dataset.bottomGap || 0);
+
+      let targetButton = null;
+      let mutationTimer = null;
+      let temporarilyHiddenUntil = 0;
+
+      const isInsideSticky = (element) => {
+        return element && element.closest('#CustomStickyScrollATC-{{ section.id }}');
+      };
+
+      const isVisibleElement = (element) => {
+        if (!element) return false;
+
+        const styles = window.getComputedStyle(element);
+
+        if (
+          styles.display === 'none' ||
+          styles.visibility === 'hidden' ||
+          Number(styles.opacity) === 0
+        ) {
+          return false;
+        }
+
+        const rect = element.getBoundingClientRect();
+
+        return rect.width > 0 && rect.height > 0;
+      };
+
+      const findProductForms = () => {
+        return Array.from(document.querySelectorAll('form[action*="/cart/add"]')).filter((form) => {
+          return !isInsideSticky(form);
+        });
+      };
+
+      const findAddToCartButton = () => {
+        const forms = findProductForms();
+
+        for (const form of forms) {
+          const button =
+            form.querySelector('[id^="ProductSubmitButton-"]') ||
+            form.querySelector('button[name="add"]') ||
+            form.querySelector('button[type="submit"]') ||
+            form.querySelector('input[type="submit"]') ||
+            form.querySelector('.product-form__submit');
+
+          if (button && isVisibleElement(button)) return button;
+        }
+
+        const possibleButtons = Array.from(
+          document.querySelectorAll(
+            '[id^="ProductSubmitButton-"], product-form button[name="add"], .product-form__submit, button[name="add"]'
+          )
+        ).filter((button) => {
+          return !isInsideSticky(button) && isVisibleElement(button);
+        });
+
+        return possibleButtons[0] || null;
+      };
+
+      const findBuyNowButton = () => {
+        const forms = findProductForms();
+
+        for (const form of forms) {
+          const productForm = form.closest('product-form') || form.parentElement;
+
+          const paymentButton =
+            form.querySelector('.shopify-payment-button__button') ||
+            productForm?.querySelector('.shopify-payment-button__button') ||
+            form.parentElement?.querySelector('.shopify-payment-button__button');
+
+          if (paymentButton && isVisibleElement(paymentButton)) return paymentButton;
+        }
+
+        const possibleButtons = Array.from(
+          document.querySelectorAll(
+            '.shopify-payment-button__button, shopify-accelerated-checkout, [data-testid="ShopifyPay-button"]'
+          )
+        ).filter((button) => {
+          return !isInsideSticky(button) && isVisibleElement(button);
+        });
+
+        return possibleButtons[0] || null;
+      };
+
+      const findTargetButton = () => {
+        if (scrollTargetSetting === 'buy_now') {
+          return findBuyNowButton() || findAddToCartButton();
+        }
+
+        if (scrollTargetSetting === 'add_to_cart') {
+          return findAddToCartButton() || findBuyNowButton();
+        }
+
+        return findBuyNowButton() || findAddToCartButton();
+      };
+
+      const showSticky = () => {
+        if (Date.now() < temporarilyHiddenUntil) {
+          sticky.classList.remove('is-visible');
+          return;
+        }
+
+        sticky.classList.add('is-visible');
+      };
+
+      const hideSticky = () => {
+        sticky.classList.remove('is-visible');
+      };
+
+      const hasScrolledPastTargetButton = (element) => {
+        if (!element) return false;
+
+        const rect = element.getBoundingClientRect();
+
+        /*
+          Sticky only appears once the real button has gone ABOVE the screen.
+          It stays hidden at the top of the page.
+        */
+        return rect.bottom < 0;
+      };
+
+      const updateStickyVisibility = () => {
+        if (Date.now() < temporarilyHiddenUntil) {
+          hideSticky();
+          return;
+        }
+
+        targetButton = findTargetButton();
+
+        if (!targetButton) {
+          hideSticky();
+          return;
+        }
+
+        if (hasScrolledPastTargetButton(targetButton)) {
+          showSticky();
+        } else {
+          hideSticky();
+        }
+      };
+
+      const scrollToRealButton = () => {
+        targetButton = findTargetButton();
+
+        if (!targetButton) return;
+
+        temporarilyHiddenUntil = Date.now() + 1700;
+        hideSticky();
+
+        const rect = targetButton.getBoundingClientRect();
+        const targetY = window.pageYOffset + rect.bottom - window.innerHeight + bottomGap;
+
+        window.scrollTo({
+          top: Math.max(targetY, 0),
+          behavior: 'smooth'
+        });
+
+        const pulseTarget =
+          targetButton.closest('.shopify-payment-button') ||
+          targetButton.closest('form') ||
+          targetButton.closest('product-form') ||
+          targetButton;
+
+        if (pulseTarget) {
+          pulseTarget.classList.remove('custom-sticky-scroll-atc-target-pulse');
+
+          setTimeout(() => {
+            pulseTarget.classList.add('custom-sticky-scroll-atc-target-pulse');
+          }, 350);
+
+          setTimeout(() => {
+            pulseTarget.classList.remove('custom-sticky-scroll-atc-target-pulse');
+          }, 1800);
+        }
+
+        setTimeout(() => {
+          try {
+            targetButton.focus({ preventScroll: true });
+          } catch (e) {}
+        }, 650);
+
+        setTimeout(updateStickyVisibility, 1800);
+      };
+
+      if (scrollButton) {
+        scrollButton.addEventListener('click', scrollToRealButton);
+      }
+
+      document.addEventListener('DOMContentLoaded', updateStickyVisibility);
+      window.addEventListener('load', updateStickyVisibility);
+      window.addEventListener('resize', updateStickyVisibility);
+      window.addEventListener('scroll', updateStickyVisibility, { passive: true });
+
+      document.addEventListener('variant:change', () => {
+        setTimeout(updateStickyVisibility, 150);
+      });
+
+      document.addEventListener('product:variant-change', () => {
+        setTimeout(updateStickyVisibility, 150);
+      });
+
+      document.addEventListener('variantChange', () => {
+        setTimeout(updateStickyVisibility, 150);
+      });
+
+      const mutationObserver = new MutationObserver(() => {
+        clearTimeout(mutationTimer);
+
+        mutationTimer = setTimeout(() => {
+          updateStickyVisibility();
+        }, 150);
+      });
+
+      mutationObserver.observe(document.body, {
+        childList: true,
+        subtree: true
+      });
+
+      updateStickyVisibility();
+    })();
+  </script>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Custom sticky scroll ATC",
+  "settings": [
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Ajouter au panier"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_price",
+      "label": "Show price in button",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "scroll_target",
+      "label": "Scroll button target",
+      "options": [
+        {
+          "value": "add_to_cart",
+          "label": "Add to cart button"
+        },
+        {
+          "value": "buy_now",
+          "label": "Buy now button"
+        }
+      ],
+      "default": "buy_now"
+    },
+    {
+      "type": "range",
+      "id": "bottom_gap",
+      "label": "Bottom gap for real button position",
+      "min": -80,
+      "max": 80,
+      "step": 2,
+      "unit": "px",
+      "default": -12
+    },
+    {
+      "type": "checkbox",
+      "id": "show_mobile",
+      "label": "Show on mobile",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_desktop",
+      "label": "Show on desktop",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Pill layout"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "label": "Max width",
+      "min": 220,
+      "max": 700,
+      "step": 10,
+      "unit": "px",
+      "default": 340
+    },
+    {
+      "type": "range",
+      "id": "bottom_spacing",
+      "label": "Desktop bottom spacing",
+      "min": 4,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "mobile_bottom_spacing",
+      "label": "Mobile bottom spacing",
+      "min": 4,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "outer_padding",
+      "label": "Desktop outer padding",
+      "min": 4,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "mobile_outer_padding",
+      "label": "Mobile outer padding",
+      "min": 4,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "range",
+      "id": "button_height",
+      "label": "Desktop button height",
+      "min": 40,
+      "max": 90,
+      "step": 1,
+      "unit": "px",
+      "default": 72
+    },
+    {
+      "type": "range",
+      "id": "mobile_button_height",
+      "label": "Mobile button height",
+      "min": 40,
+      "max": 84,
+      "step": 1,
+      "unit": "px",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "button_font_size",
+      "label": "Desktop button font size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 17
+    },
+    {
+      "type": "range",
+      "id": "mobile_button_font_size",
+      "label": "Mobile button font size",
+      "min": 12,
+      "max": 22,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "outer_background",
+      "label": "Outer pill background",
+      "default": "#ededed"
+    },
+    {
+      "type": "color",
+      "id": "button_background",
+      "label": "Inner button background",
+      "default": "#1f1f21"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button text color",
+      "default": "#ffffff"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom sticky scroll ATC"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,668 @@
+{% render 'product-media-gallery-content',
+  media_presentation: block.settings.media_presentation,
+  block_settings: block.settings,
+  block_id: block.id,
+  block_shopify_attributes: block.shopify_attributes
+%}
+
+{% if block.settings.hide_variant_images_from_gallery %}
+  <style>
+    {% for variant in product.variants %}
+      {% if variant.featured_media %}
+        {% assign variant_media_id = variant.featured_media.id %}
+
+        #shopify-section-{{ section.id }} [data-media-id="{{ variant_media_id }}"],
+        #shopify-section-{{ section.id }} [data-media-id$="-{{ variant_media_id }}"],
+        #shopify-section-{{ section.id }} [id="{{ variant_media_id }}"],
+        #shopify-section-{{ section.id }} [id$="-{{ variant_media_id }}"],
+        #shopify-section-{{ section.id }} [aria-controls="{{ variant_media_id }}"],
+        #shopify-section-{{ section.id }} [aria-controls$="-{{ variant_media_id }}"],
+        #shopify-section-{{ section.id }} [data-target="{{ variant_media_id }}"],
+        #shopify-section-{{ section.id }} [data-target$="-{{ variant_media_id }}"],
+        #shopify-section-{{ section.id }} [href="#{{ variant_media_id }}"],
+        #shopify-section-{{ section.id }} [href$="-{{ variant_media_id }}"],
+        #shopify-section-{{ section.id }} button[name="{{ variant_media_id }}"],
+        #shopify-section-{{ section.id }} slideshow-slide[data-media-id="{{ variant_media_id }}"],
+        #shopify-section-{{ section.id }} slideshow-slide[data-media-id$="-{{ variant_media_id }}"] {
+          display: none !important;
+        }
+
+        #shopify-section-{{ section.id }} li:has([data-media-id="{{ variant_media_id }}"]),
+        #shopify-section-{{ section.id }} li:has([data-media-id$="-{{ variant_media_id }}"]),
+        #shopify-section-{{ section.id }} li:has([aria-controls="{{ variant_media_id }}"]),
+        #shopify-section-{{ section.id }} li:has([aria-controls$="-{{ variant_media_id }}"]),
+        #shopify-section-{{ section.id }} li:has([href="#{{ variant_media_id }}"]),
+        #shopify-section-{{ section.id }} li:has([href$="-{{ variant_media_id }}"]),
+        #shopify-section-{{ section.id }} slideshow-slide:has([data-media-id="{{ variant_media_id }}"]),
+        #shopify-section-{{ section.id }} slideshow-slide:has([data-media-id$="-{{ variant_media_id }}"]) {
+          display: none !important;
+        }
+      {% endif %}
+    {% endfor %}
+  </style>
+
+  {% capture variant_media_ids_json %}
+    [
+      {% assign first_variant_media = true %}
+      {% for variant in product.variants %}
+        {% if variant.featured_media %}
+          {% unless first_variant_media %},{% endunless %}
+          {{ variant.featured_media.id | json }}
+          {% assign first_variant_media = false %}
+        {% endif %}
+      {% endfor %}
+    ]
+  {% endcapture %}
+
+  <script>
+    (() => {
+      const sectionId = {{ section.id | json }};
+      const variantMediaIds = {{ variant_media_ids_json | strip }};
+
+      const root = document.getElementById(`shopify-section-${sectionId}`);
+      if (!root || !variantMediaIds.length) return;
+
+      const isVariantMedia = (value) => {
+        if (!value) return false;
+        const id = String(value);
+        return variantMediaIds.some((variantId) => id.includes(String(variantId)));
+      };
+
+      const getElementMediaValue = (element) => {
+        if (!element) return '';
+
+        return (
+          element.getAttribute('data-media-id') ||
+          element.getAttribute('aria-controls') ||
+          element.getAttribute('data-target') ||
+          element.getAttribute('href') ||
+          element.getAttribute('id') ||
+          element.getAttribute('name') ||
+          ''
+        );
+      };
+
+      const getGallery = () => {
+        return root.querySelector(
+          'media-gallery, product-media-gallery, slideshow-component, slideshow-carousel, slideshow-gallery, [id^="MediaGallery-"], [data-media-gallery]'
+        );
+      };
+
+      const hideVariantGalleryImages = () => {
+        const selectors = [];
+
+        variantMediaIds.forEach((variantId) => {
+          selectors.push(
+            `[data-media-id="${variantId}"]`,
+            `[data-media-id$="-${variantId}"]`,
+            `[id="${variantId}"]`,
+            `[id$="-${variantId}"]`,
+            `[aria-controls="${variantId}"]`,
+            `[aria-controls$="-${variantId}"]`,
+            `[data-target="${variantId}"]`,
+            `[data-target$="-${variantId}"]`,
+            `[href="#${variantId}"]`,
+            `[href$="-${variantId}"]`,
+            `button[name="${variantId}"]`
+          );
+        });
+
+        root.querySelectorAll(selectors.join(',')).forEach((element) => {
+          element.style.setProperty('display', 'none', 'important');
+
+          const li = element.closest('li');
+          if (li) li.style.setProperty('display', 'none', 'important');
+
+          const slide = element.closest('slideshow-slide, .slideshow-slide, .slideshow__slide');
+          if (slide) slide.style.setProperty('display', 'none', 'important');
+        });
+      };
+
+      const runFix = () => {
+        requestAnimationFrame(() => {
+          hideVariantGalleryImages();
+          setTimeout(hideVariantGalleryImages, 50);
+          setTimeout(hideVariantGalleryImages, 250);
+          setTimeout(hideVariantGalleryImages, 700);
+        });
+      };
+
+      document.addEventListener('DOMContentLoaded', runFix);
+      window.addEventListener('load', runFix);
+
+      document.addEventListener('variant:change', runFix, true);
+      document.addEventListener('variantChange', runFix, true);
+      document.addEventListener('product:variant-change', runFix, true);
+
+      root.addEventListener(
+        'change',
+        (event) => {
+          const target = event.target;
+
+          if (
+            target.matches('select[name="id"]') ||
+            target.matches('input[name="id"]') ||
+            target.matches('input[type="radio"]') ||
+            target.matches('select')
+          ) {
+            runFix();
+          }
+        },
+        true
+      );
+
+      const observer = new MutationObserver(runFix);
+
+      observer.observe(root, {
+        childList: true,
+        subtree: true
+      });
+
+      runFix();
+    })();
+  </script>
+{% endif %}
+
+<style>
+  /*
+    Mobile radius fix
+  */
+  #shopify-section-{{ section.id }} .product-media-container,
+  #shopify-section-{{ section.id }} .product-media,
+  #shopify-section-{{ section.id }} .product__media,
+  #shopify-section-{{ section.id }} .product-media-gallery__image,
+  #shopify-section-{{ section.id }} .media-gallery__image,
+  #shopify-section-{{ section.id }} .media,
+  #shopify-section-{{ section.id }} .deferred-media {
+    border-radius: {{ block.settings.media_radius }}px !important;
+    overflow: hidden !important;
+  }
+
+  #shopify-section-{{ section.id }} .product-media-container img,
+  #shopify-section-{{ section.id }} .product-media img,
+  #shopify-section-{{ section.id }} .product__media img,
+  #shopify-section-{{ section.id }} .product-media-gallery__image img,
+  #shopify-section-{{ section.id }} .media-gallery__image img,
+  #shopify-section-{{ section.id }} .media img,
+  #shopify-section-{{ section.id }} .deferred-media img,
+  #shopify-section-{{ section.id }} .media video,
+  #shopify-section-{{ section.id }} .media model-viewer,
+  #shopify-section-{{ section.id }} .media iframe {
+    border-radius: {{ block.settings.media_radius }}px !important;
+    overflow: hidden !important;
+  }
+
+  @media screen and (max-width: 749px) {
+    #shopify-section-{{ section.id }} slideshow-slide,
+    #shopify-section-{{ section.id }} .slideshow-slide,
+    #shopify-section-{{ section.id }} .slideshow__slide,
+    #shopify-section-{{ section.id }} .product-media-container,
+    #shopify-section-{{ section.id }} .product-media,
+    #shopify-section-{{ section.id }} .product__media,
+    #shopify-section-{{ section.id }} .media,
+    #shopify-section-{{ section.id }} .deferred-media {
+      border-radius: {{ block.settings.media_radius }}px !important;
+      overflow: hidden !important;
+      clip-path: inset(0 round {{ block.settings.media_radius }}px);
+    }
+
+    #shopify-section-{{ section.id }} slideshow-slide img,
+    #shopify-section-{{ section.id }} .slideshow-slide img,
+    #shopify-section-{{ section.id }} .slideshow__slide img,
+    #shopify-section-{{ section.id }} .product-media-container img,
+    #shopify-section-{{ section.id }} .product-media img,
+    #shopify-section-{{ section.id }} .product__media img,
+    #shopify-section-{{ section.id }} .media img,
+    #shopify-section-{{ section.id }} .media video,
+    #shopify-section-{{ section.id }} .media model-viewer,
+    #shopify-section-{{ section.id }} .media iframe {
+      border-radius: {{ block.settings.media_radius }}px !important;
+      overflow: hidden !important;
+    }
+  }
+</style>
+
+{% if product.featured_media %}
+  <script>
+    (() => {
+      const sectionId = {{ section.id | json }};
+      const mainMediaId = {{ product.featured_media.id | json }};
+      const root = document.getElementById(`shopify-section-${sectionId}`);
+
+      if (!root || !mainMediaId) return;
+
+      const getGallery = () => {
+        return root.querySelector(
+          'media-gallery, product-media-gallery, slideshow-component, slideshow-carousel, slideshow-gallery, [id^="MediaGallery-"], [data-media-gallery]'
+        );
+      };
+
+      const getMainMediaElement = () => {
+        return root.querySelector(
+          `[data-media-id="${sectionId}-${mainMediaId}"],
+           [data-media-id="${mainMediaId}"],
+           [data-media-id$="-${mainMediaId}"],
+           [id="${sectionId}-${mainMediaId}"],
+           [id$="-${mainMediaId}"]`
+        );
+      };
+
+      const getMainThumbnail = () => {
+        return root.querySelector(
+          `[aria-controls="${sectionId}-${mainMediaId}"],
+           [aria-controls$="-${mainMediaId}"],
+           [data-media-id="${sectionId}-${mainMediaId}"],
+           [data-media-id="${mainMediaId}"],
+           [data-media-id$="-${mainMediaId}"],
+           [data-target="${sectionId}-${mainMediaId}"],
+           [data-target$="-${mainMediaId}"],
+           [href="#${sectionId}-${mainMediaId}"],
+           button[id$="-${mainMediaId}"],
+           button[name="${mainMediaId}"]`
+        );
+      };
+
+      const activateProductFirstImage = () => {
+        const gallery = getGallery();
+        const mediaElement = getMainMediaElement();
+        const thumbnail = getMainThumbnail();
+
+        if (!mediaElement && !thumbnail) return;
+
+        const possibleMediaIds = [
+          `${sectionId}-${mainMediaId}`,
+          `${mainMediaId}`,
+          mediaElement?.getAttribute('data-media-id'),
+          mediaElement?.id
+        ].filter(Boolean);
+
+        if (gallery && typeof gallery.setActiveMedia === 'function') {
+          possibleMediaIds.forEach((id) => {
+            try {
+              gallery.setActiveMedia(id, false);
+            } catch (e) {}
+          });
+        }
+
+        if (gallery && typeof gallery.selectMedia === 'function') {
+          possibleMediaIds.forEach((id) => {
+            try {
+              gallery.selectMedia(id);
+            } catch (e) {}
+          });
+        }
+
+        if (thumbnail && typeof thumbnail.click === 'function') {
+          thumbnail.click();
+        }
+
+        if (mediaElement) {
+          mediaElement.scrollIntoView({
+            behavior: 'instant',
+            block: 'nearest',
+            inline: 'nearest'
+          });
+        }
+      };
+
+      const forceMainImageAfterThemeUpdates = () => {
+        requestAnimationFrame(() => {
+          activateProductFirstImage();
+
+          setTimeout(activateProductFirstImage, 50);
+          setTimeout(activateProductFirstImage, 250);
+          setTimeout(activateProductFirstImage, 600);
+        });
+      };
+
+      document.addEventListener('DOMContentLoaded', forceMainImageAfterThemeUpdates);
+      window.addEventListener('load', forceMainImageAfterThemeUpdates);
+
+      document.addEventListener('variant:change', forceMainImageAfterThemeUpdates, true);
+      document.addEventListener('variantChange', forceMainImageAfterThemeUpdates, true);
+      document.addEventListener('product:variant-change', forceMainImageAfterThemeUpdates, true);
+
+      root.addEventListener('change', (event) => {
+        const target = event.target;
+
+        if (
+          target.matches('select[name="id"]') ||
+          target.matches('input[name="id"]') ||
+          target.matches('input[type="radio"]') ||
+          target.matches('select')
+        ) {
+          forceMainImageAfterThemeUpdates();
+        }
+      });
+
+      forceMainImageAfterThemeUpdates();
+    })();
+  </script>
+{% endif %}
+
+{% schema %}
+{
+  "name": "t:names.product_media",
+  "tag": null,
+  "settings": [
+    {
+      "type": "select",
+      "id": "media_presentation",
+      "label": "t:settings.type",
+      "options": [
+        {
+          "value": "grid",
+          "label": "t:options.grid"
+        },
+        {
+          "value": "carousel",
+          "label": "t:options.carousel"
+        }
+      ],
+      "default": "grid",
+      "info": "t:info.carousel_layout_on_mobile"
+    },
+    {
+      "type": "header",
+      "content": "t:content.grid",
+      "visible_if": "{{ block.settings.media_presentation == 'grid' }}"
+    },
+    {
+      "type": "select",
+      "id": "media_columns",
+      "label": "t:settings.columns",
+      "options": [
+        {
+          "value": "one",
+          "label": "t:options.one_number"
+        },
+        {
+          "value": "two",
+          "label": "t:options.two_number"
+        }
+      ],
+      "default": "one",
+      "visible_if": "{{ block.settings.media_presentation == 'grid' }}"
+    },
+    {
+      "type": "range",
+      "id": "image_gap",
+      "label": "t:settings.gap",
+      "min": 0,
+      "max": 100,
+      "unit": "px",
+      "step": 1,
+      "default": 0,
+      "visible_if": "{{ block.settings.media_presentation == 'grid' }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "large_first_image",
+      "label": "t:settings.full_width_first_image",
+      "default": false,
+      "visible_if": "{{ block.settings.media_presentation == 'grid' and block.settings.media_columns == 'two' }}"
+    },
+    {
+      "type": "header",
+      "content": "t:content.carousel"
+    },
+    {
+      "type": "select",
+      "id": "icons_style",
+      "label": "t:settings.icons",
+      "options": [
+        {
+          "value": "arrow",
+          "label": "t:options.arrows"
+        },
+        {
+          "value": "chevron",
+          "label": "t:options.chevrons"
+        },
+        {
+          "value": "arrows_large",
+          "label": "t:options.large_arrows"
+        },
+        {
+          "value": "chevron_large",
+          "label": "t:options.large_chevrons"
+        }
+      ],
+      "default": "arrow",
+      "visible_if": "{{ block.settings.media_presentation == 'carousel' }}"
+    },
+    {
+      "type": "select",
+      "id": "slideshow_controls_style",
+      "label": "t:settings.desktop_pagination",
+      "options": [
+        {
+          "value": "dots",
+          "label": "t:options.dots"
+        },
+        {
+          "value": "counter",
+          "label": "t:options.counter"
+        },
+        {
+          "value": "thumbnails",
+          "label": "t:options.thumbnails"
+        }
+      ],
+      "visible_if": "{{ block.settings.media_presentation == 'carousel' }}"
+    },
+    {
+      "type": "select",
+      "id": "slideshow_mobile_controls_style",
+      "label": "t:settings.mobile_pagination",
+      "options": [
+        {
+          "value": "dots",
+          "label": "t:options.dots"
+        },
+        {
+          "value": "counter",
+          "label": "t:options.counter"
+        },
+        {
+          "value": "hint",
+          "label": "t:options.hint"
+        },
+        {
+          "value": "thumbnails",
+          "label": "t:options.thumbnails"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "t:content.thumbnails",
+      "visible_if": "{{ block.settings.slideshow_controls_style == 'thumbnails' or block.settings.slideshow_mobile_controls_style == 'thumbnails' }}"
+    },
+    {
+      "type": "select",
+      "id": "thumbnail_position",
+      "label": "t:settings.desktop_position",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:options.left"
+        },
+        {
+          "value": "bottom",
+          "label": "t:options.bottom"
+        },
+        {
+          "value": "right",
+          "label": "t:options.right"
+        }
+      ],
+      "default": "bottom",
+      "visible_if": "{{ block.settings.slideshow_controls_style == 'thumbnails' }}"
+    },
+    {
+      "type": "range",
+      "id": "thumbnail_width",
+      "label": "t:settings.width_desktop",
+      "min": 44,
+      "max": 72,
+      "step": 1,
+      "unit": "px",
+      "default": 64,
+      "visible_if": "{{ block.settings.slideshow_controls_style == 'thumbnails' }}"
+    },
+    {
+      "type": "range",
+      "id": "thumbnail_radius",
+      "label": "t:settings.corner_radius",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "default": 0,
+      "visible_if": "{{ block.settings.slideshow_controls_style == 'thumbnails' or block.settings.slideshow_mobile_controls_style == 'thumbnails' }}"
+    },
+    {
+      "type": "header",
+      "content": "t:content.media"
+    },
+    {
+      "type": "select",
+      "id": "aspect_ratio",
+      "label": "t:settings.aspect_ratio",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "t:options.auto"
+        },
+        {
+          "value": "1/1.25",
+          "label": "t:options.portrait"
+        },
+        {
+          "value": "1",
+          "label": "t:options.square"
+        },
+        {
+          "value": "2/1",
+          "label": "t:options.landscape"
+        }
+      ],
+      "default": "adapt"
+    },
+    {
+      "type": "checkbox",
+      "id": "constrain_to_viewport",
+      "label": "t:settings.limit_media_to_screen_height",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "media_fit",
+      "label": "t:settings.media_fit",
+      "options": [
+        {
+          "value": "cover",
+          "label": "t:options.cover"
+        },
+        {
+          "value": "contain",
+          "label": "t:options.contain"
+        }
+      ],
+      "default": "cover",
+      "visible_if": "{{ block.settings.aspect_ratio == 'adapt' and block.settings.constrain_to_viewport == true }}"
+    },
+    {
+      "type": "range",
+      "id": "media_radius",
+      "label": "t:settings.border_radius",
+      "min": 0,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "default": 4
+    },
+    {
+      "type": "checkbox",
+      "id": "extend_media",
+      "label": "t:settings.extend_media_to_screen_edge",
+      "default": true,
+      "visible_if": "{{ section.settings.content_width == 'content-center-aligned' }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "zoom",
+      "label": "t:settings.enable_zoom",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "video_loop",
+      "label": "t:settings.enable_video_looping",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_variant_images_from_gallery",
+      "default": false,
+      "label": "Hide variant images from product gallery"
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_variants",
+      "default": false,
+      "label": "t:settings.hide_unselected_variant_media"
+    },
+    {
+      "type": "header",
+      "content": "t:content.padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "t:settings.top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "t:settings.bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-start",
+      "label": "t:settings.left",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-end",
+      "label": "t:settings.right",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:names.product_media"
+    }
+  ]
+}
+{% endschema %}

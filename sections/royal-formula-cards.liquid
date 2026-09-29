@@ -1,0 +1,1245 @@
+{% comment %}
+  Royal Formula Cards
+  Image + text cards section for Royal Tofu formulas/scents.
+{% endcomment %}
+
+{%- style -%}
+  #RoyalFormulaCards-{{ section.id }} {
+    --rfc-section-bg: {{ section.settings.section_background }};
+    --rfc-heading-color: {{ section.settings.heading_color }};
+    --rfc-heading-accent: {{ section.settings.heading_accent }};
+    --rfc-text-color: {{ section.settings.text_color }};
+    --rfc-pill-bg: {{ section.settings.pill_background }};
+    --rfc-pill-text: {{ section.settings.pill_text_color }};
+    --rfc-pill-border: {{ section.settings.pill_border_color }};
+    --rfc-card-bg: {{ section.settings.card_background }};
+    --rfc-card-border: {{ section.settings.card_border_color }};
+    --rfc-card-heading: {{ section.settings.card_heading_color }};
+    --rfc-card-text: {{ section.settings.card_text_color }};
+    --rfc-button-bg: {{ section.settings.button_background }};
+    --rfc-button-text: {{ section.settings.button_text_color }};
+    --rfc-button-border: {{ section.settings.button_border_color }};
+
+    background: var(--rfc-section-bg);
+    padding: {{ section.settings.padding_top_desktop }}px {{ section.settings.padding_side_desktop }}px {{ section.settings.padding_bottom_desktop }}px;
+    overflow: hidden;
+  }
+
+  #RoyalFormulaCards-{{ section.id }} * {
+    box-sizing: border-box;
+  }
+
+  #RoyalFormulaCards-{{ section.id }} .rfc-container {
+    width: 100%;
+    max-width: {{ section.settings.section_width }}px;
+    margin: 0 auto;
+  }
+
+  #RoyalFormulaCards-{{ section.id }} .rfc-header {
+    max-width: {{ section.settings.header_width }}px;
+    margin: 0 auto {{ section.settings.header_spacing }}px;
+    text-align: {{ section.settings.header_alignment }};
+  }
+
+  #RoyalFormulaCards-{{ section.id }} .rfc-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    max-width: 100%;
+    padding: {{ section.settings.pill_padding_vertical }}px {{ section.settings.pill_padding_horizontal }}px;
+    margin-bottom: {{ section.settings.pill_spacing }}px;
+    background: var(--rfc-pill-bg);
+    color: var(--rfc-pill-text);
+    border: {{ section.settings.pill_border_width }}px solid var(--rfc-pill-border);
+    border-radius: 999px;
+    font-size: {{ section.settings.pill_size_desktop }}px;
+    line-height: 1;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  #RoyalFormulaCards-{{ section.id }} .rfc-heading,
+  #RoyalFormulaCards-{{ section.id }} .rfc-heading p {
+    margin: 0;
+    color: var(--rfc-heading-color);
+    font-size: {{ section.settings.heading_size_desktop }}px;
+    line-height: {{ section.settings.heading_line_height | divided_by: 100.0 }};
+    letter-spacing: -0.045em;
+    font-weight: 900;
+  }
+
+  #RoyalFormulaCards-{{ section.id }} .rfc-heading strong {
+    color: var(--rfc-heading-accent);
+    font-weight: inherit;
+  }
+
+  #RoyalFormulaCards-{{ section.id }} .rfc-description {
+    margin-top: {{ section.settings.description_spacing }}px;
+    color: var(--rfc-text-color);
+    font-size: {{ section.settings.text_size_desktop }}px;
+    line-height: 1.55;
+    font-weight: 500;
+  }
+
+  #RoyalFormulaCards-{{ section.id }} .rfc-description p {
+    margin: 0;
+  }
+
+  #RoyalFormulaCards-{{ section.id }} .rfc-grid {
+    display: grid;
+    grid-template-columns: repeat({{ section.settings.columns_desktop }}, minmax(0, 1fr));
+    gap: {{ section.settings.card_gap_desktop }}px;
+  }
+
+  #RoyalFormulaCards-{{ section.id }} .rfc-card {
+    background: var(--rfc-card-bg);
+    border: {{ section.settings.card_border_width }}px solid var(--rfc-card-border);
+    border-radius: {{ section.settings.card_radius }}px;
+    overflow: hidden;
+    box-shadow: {% if section.settings.enable_card_shadow %}0 14px 36px rgba(0, 0, 0, 0.08){% else %}none{% endif %};
+    transition: transform 0.22s ease, box-shadow 0.22s ease;
+  }
+
+  #RoyalFormulaCards-{{ section.id }} .rfc-card:hover {
+    transform: {% if section.settings.enable_hover_lift %}translateY(-4px){% else %}none{% endif %};
+    box-shadow: {% if section.settings.enable_hover_lift %}0 18px 44px rgba(0, 0, 0, 0.11){% elsif section.settings.enable_card_shadow %}0 14px 36px rgba(0, 0, 0, 0.08){% else %}none{% endif %};
+  }
+
+  #RoyalFormulaCards-{{ section.id }} .rfc-image-wrap {
+    width: 100%;
+    height: {{ section.settings.image_height_desktop }}px;
+    background: {{ section.settings.image_background }};
+    overflow: hidden;
+  }
+
+  #RoyalFormulaCards-{{ section.id }} .rfc-image {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: {{ section.settings.image_fit }};
+    object-position: center center;
+  }
+
+  #RoyalFormulaCards-{{ section.id }} .rfc-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    background: #f4f4f4;
+  }
+
+  #RoyalFormulaCards-{{ section.id }} .rfc-card-content {
+    padding: {{ section.settings.card_padding_desktop }}px;
+    text-align: {{ section.settings.card_text_alignment }};
+  }
+
+  #RoyalFormulaCards-{{ section.id }} .rfc-card-title {
+    margin: 0 0 {{ section.settings.card_title_spacing }}px;
+    color: var(--rfc-card-heading);
+    font-size: {{ section.settings.card_heading_size_desktop }}px;
+    line-height: 1.08;
+    font-weight: 900;
+    letter-spacing: -0.035em;
+  }
+
+  #RoyalFormulaCards-{{ section.id }} .rfc-card-text {
+    color: var(--rfc-card-text);
+    font-size: {{ section.settings.card_text_size_desktop }}px;
+    line-height: 1.5;
+    font-weight: 500;
+  }
+
+  #RoyalFormulaCards-{{ section.id }} .rfc-card-text p {
+    margin: 0 0 12px;
+  }
+
+  #RoyalFormulaCards-{{ section.id }} .rfc-card-text p:last-child {
+    margin-bottom: 0;
+  }
+
+  #RoyalFormulaCards-{{ section.id }} .rfc-card-text ul {
+    margin: 0;
+    padding-left: 20px;
+  }
+
+  #RoyalFormulaCards-{{ section.id }} .rfc-card-text li {
+    margin-bottom: 8px;
+  }
+
+  #RoyalFormulaCards-{{ section.id }} .rfc-card-text li:last-child {
+    margin-bottom: 0;
+  }
+
+  #RoyalFormulaCards-{{ section.id }} .rfc-card-link {
+    display: inline-flex;
+    margin-top: 18px;
+    color: var(--rfc-card-heading);
+    font-size: {{ section.settings.card_link_size }}px;
+    line-height: 1;
+    font-weight: 900;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  #RoyalFormulaCards-{{ section.id }} .rfc-button-wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: {{ section.settings.button_spacing_desktop }}px;
+  }
+
+  #RoyalFormulaCards-{{ section.id }} .rfc-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: {{ section.settings.button_height_desktop }}px;
+    min-width: {{ section.settings.button_min_width }}px;
+    padding: 0 34px;
+    background: var(--rfc-button-bg);
+    color: var(--rfc-button-text);
+    border: {{ section.settings.button_border_width }}px solid var(--rfc-button-border);
+    border-radius: {{ section.settings.button_radius }}px;
+    font-size: {{ section.settings.button_size_desktop }}px;
+    line-height: 1;
+    font-weight: 900;
+    text-decoration: none;
+    text-transform: {{ section.settings.button_text_transform }};
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  #RoyalFormulaCards-{{ section.id }} .rfc-button:hover {
+    transform: translateY(-1px);
+    opacity: 0.92;
+  }
+
+  @media screen and (max-width: 989px) {
+    #RoyalFormulaCards-{{ section.id }} .rfc-grid {
+      grid-template-columns: repeat({{ section.settings.columns_tablet }}, minmax(0, 1fr));
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    #RoyalFormulaCards-{{ section.id }} {
+      padding: {{ section.settings.padding_top_mobile }}px {{ section.settings.padding_side_mobile }}px {{ section.settings.padding_bottom_mobile }}px;
+    }
+
+    #RoyalFormulaCards-{{ section.id }} .rfc-header {
+      margin-bottom: {{ section.settings.header_spacing_mobile }}px;
+    }
+
+    #RoyalFormulaCards-{{ section.id }} .rfc-pill {
+      padding: {{ section.settings.pill_padding_vertical_mobile }}px {{ section.settings.pill_padding_horizontal_mobile }}px;
+      margin-bottom: {{ section.settings.pill_spacing_mobile }}px;
+      font-size: {{ section.settings.pill_size_mobile }}px;
+    }
+
+    #RoyalFormulaCards-{{ section.id }} .rfc-heading,
+    #RoyalFormulaCards-{{ section.id }} .rfc-heading p {
+      font-size: {{ section.settings.heading_size_mobile }}px;
+      line-height: {{ section.settings.heading_line_height_mobile | divided_by: 100.0 }};
+    }
+
+    #RoyalFormulaCards-{{ section.id }} .rfc-description {
+      margin-top: {{ section.settings.description_spacing_mobile }}px;
+      font-size: {{ section.settings.text_size_mobile }}px;
+      line-height: 1.5;
+    }
+
+    #RoyalFormulaCards-{{ section.id }} .rfc-grid {
+      grid-template-columns: repeat({{ section.settings.columns_mobile }}, minmax(0, 1fr));
+      gap: {{ section.settings.card_gap_mobile }}px;
+    }
+
+    #RoyalFormulaCards-{{ section.id }} .rfc-image-wrap {
+      height: {{ section.settings.image_height_mobile }}px;
+    }
+
+    #RoyalFormulaCards-{{ section.id }} .rfc-card-content {
+      padding: {{ section.settings.card_padding_mobile }}px;
+    }
+
+    #RoyalFormulaCards-{{ section.id }} .rfc-card-title {
+      font-size: {{ section.settings.card_heading_size_mobile }}px;
+      margin-bottom: {{ section.settings.card_title_spacing_mobile }}px;
+    }
+
+    #RoyalFormulaCards-{{ section.id }} .rfc-card-text {
+      font-size: {{ section.settings.card_text_size_mobile }}px;
+    }
+
+    #RoyalFormulaCards-{{ section.id }} .rfc-button-wrap {
+      margin-top: {{ section.settings.button_spacing_mobile }}px;
+    }
+
+    #RoyalFormulaCards-{{ section.id }} .rfc-button {
+      width: 100%;
+      min-width: 0;
+      min-height: {{ section.settings.button_height_mobile }}px;
+      font-size: {{ section.settings.button_size_mobile }}px;
+    }
+  }
+{%- endstyle -%}
+
+<section id="RoyalFormulaCards-{{ section.id }}" class="royal-formula-cards">
+  <div class="rfc-container">
+    {% if section.settings.show_header %}
+      <div class="rfc-header">
+        {% if section.settings.eyebrow != blank %}
+          <div class="rfc-pill">
+            {{ section.settings.eyebrow }}
+          </div>
+        {% endif %}
+
+        {% if section.settings.heading != blank %}
+          <div class="rfc-heading">
+            {{ section.settings.heading }}
+          </div>
+        {% endif %}
+
+        {% if section.settings.description != blank %}
+          <div class="rfc-description">
+            {{ section.settings.description }}
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    <div class="rfc-grid">
+      {% for block in section.blocks %}
+        <div class="rfc-card" {{ block.shopify_attributes }}>
+          <div class="rfc-image-wrap">
+            {% if block.settings.image != blank %}
+              {{
+                block.settings.image
+                | image_url: width: 1200
+                | image_tag:
+                  loading: 'lazy',
+                  class: 'rfc-image',
+                  widths: '300, 420, 540, 720, 900, 1200',
+                  sizes: '(min-width: 990px) 33vw, (min-width: 750px) 50vw, 100vw'
+              }}
+            {% else %}
+              <div class="rfc-placeholder">
+                {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+              </div>
+            {% endif %}
+          </div>
+
+          <div class="rfc-card-content">
+            {% if block.settings.title != blank %}
+              <h3 class="rfc-card-title">
+                {{ block.settings.title }}
+              </h3>
+            {% endif %}
+
+            {% if block.settings.text != blank %}
+              <div class="rfc-card-text">
+                {{ block.settings.text }}
+              </div>
+            {% endif %}
+
+            {% if block.settings.link_label != blank %}
+              <a
+                class="rfc-card-link"
+                {% if block.settings.link != blank %}
+                  href="{{ block.settings.link }}"
+                {% else %}
+                  role="link" aria-disabled="true"
+                {% endif %}
+              >
+                {{ block.settings.link_label }}
+              </a>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    {% if section.settings.button_label != blank %}
+      <div class="rfc-button-wrap">
+        <a
+          class="rfc-button"
+          {% if section.settings.button_link != blank %}
+            href="{{ section.settings.button_link }}"
+          {% else %}
+            role="link" aria-disabled="true"
+          {% endif %}
+        >
+          {{ section.settings.button_label }}
+        </a>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Royal Formula Cards",
+  "tag": "section",
+  "class": "section-royal-formula-cards",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Header content"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_header",
+      "label": "Show header",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Pill text",
+      "default": "Find Your Formula"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "<p>Find the right Royal Tofu for your home.</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Every home and every cat is different. Choose the Royal Tofu scent that fits your routine, from soft and fresh to simple and unscented.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Shop Royal Tofu"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "select",
+      "id": "button_text_transform",
+      "label": "Button text transform",
+      "default": "uppercase",
+      "options": [
+        {
+          "value": "none",
+          "label": "Normal"
+        },
+        {
+          "value": "uppercase",
+          "label": "Uppercase"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Desktop layout"
+    },
+    {
+      "type": "range",
+      "id": "section_width",
+      "label": "Section width",
+      "min": 900,
+      "max": 1600,
+      "step": 20,
+      "unit": "px",
+      "default": 1180
+    },
+    {
+      "type": "range",
+      "id": "header_width",
+      "label": "Header width",
+      "min": 420,
+      "max": 1100,
+      "step": 20,
+      "unit": "px",
+      "default": 760
+    },
+    {
+      "type": "select",
+      "id": "header_alignment",
+      "label": "Header alignment",
+      "default": "center",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "columns_desktop",
+      "label": "Desktop columns",
+      "default": "3",
+      "options": [
+        {
+          "value": "2",
+          "label": "2 columns"
+        },
+        {
+          "value": "3",
+          "label": "3 columns"
+        },
+        {
+          "value": "4",
+          "label": "4 columns"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "columns_tablet",
+      "label": "Tablet columns",
+      "default": "2",
+      "options": [
+        {
+          "value": "1",
+          "label": "1 column"
+        },
+        {
+          "value": "2",
+          "label": "2 columns"
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Desktop padding top",
+      "min": 20,
+      "max": 180,
+      "step": 4,
+      "unit": "px",
+      "default": 84
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Desktop padding bottom",
+      "min": 20,
+      "max": 180,
+      "step": 4,
+      "unit": "px",
+      "default": 84
+    },
+    {
+      "type": "range",
+      "id": "padding_side_desktop",
+      "label": "Desktop side padding",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "header_spacing",
+      "label": "Header bottom spacing",
+      "min": 16,
+      "max": 90,
+      "step": 2,
+      "unit": "px",
+      "default": 42
+    },
+    {
+      "type": "range",
+      "id": "card_gap_desktop",
+      "label": "Desktop card gap",
+      "min": 8,
+      "max": 50,
+      "step": 2,
+      "unit": "px",
+      "default": 22
+    },
+    {
+      "type": "range",
+      "id": "image_height_desktop",
+      "label": "Desktop image height",
+      "min": 180,
+      "max": 520,
+      "step": 10,
+      "unit": "px",
+      "default": 320
+    },
+    {
+      "type": "range",
+      "id": "card_padding_desktop",
+      "label": "Desktop card padding",
+      "min": 14,
+      "max": 50,
+      "step": 2,
+      "unit": "px",
+      "default": 26
+    },
+    {
+      "type": "range",
+      "id": "button_spacing_desktop",
+      "label": "Desktop button top spacing",
+      "min": 14,
+      "max": 80,
+      "step": 2,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "button_height_desktop",
+      "label": "Desktop button height",
+      "min": 38,
+      "max": 80,
+      "step": 2,
+      "unit": "px",
+      "default": 56
+    },
+    {
+      "type": "range",
+      "id": "button_min_width",
+      "label": "Desktop button min width",
+      "min": 140,
+      "max": 360,
+      "step": 10,
+      "unit": "px",
+      "default": 220
+    },
+    {
+      "type": "header",
+      "content": "Mobile layout"
+    },
+    {
+      "type": "select",
+      "id": "columns_mobile",
+      "label": "Mobile columns",
+      "default": "1",
+      "options": [
+        {
+          "value": "1",
+          "label": "1 column"
+        },
+        {
+          "value": "2",
+          "label": "2 columns"
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Mobile padding top",
+      "min": 16,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 56
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Mobile padding bottom",
+      "min": 16,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 56
+    },
+    {
+      "type": "range",
+      "id": "padding_side_mobile",
+      "label": "Mobile side padding",
+      "min": 0,
+      "max": 34,
+      "step": 2,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "header_spacing_mobile",
+      "label": "Mobile header bottom spacing",
+      "min": 14,
+      "max": 70,
+      "step": 2,
+      "unit": "px",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "card_gap_mobile",
+      "label": "Mobile card gap",
+      "min": 8,
+      "max": 36,
+      "step": 2,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "image_height_mobile",
+      "label": "Mobile image height",
+      "min": 160,
+      "max": 420,
+      "step": 10,
+      "unit": "px",
+      "default": 260
+    },
+    {
+      "type": "range",
+      "id": "card_padding_mobile",
+      "label": "Mobile card padding",
+      "min": 12,
+      "max": 36,
+      "step": 2,
+      "unit": "px",
+      "default": 22
+    },
+    {
+      "type": "range",
+      "id": "button_spacing_mobile",
+      "label": "Mobile button top spacing",
+      "min": 14,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "button_height_mobile",
+      "label": "Mobile button height",
+      "min": 38,
+      "max": 80,
+      "step": 2,
+      "unit": "px",
+      "default": 56
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "pill_size_desktop",
+      "label": "Desktop pill size",
+      "min": 9,
+      "max": 22,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "pill_size_mobile",
+      "label": "Mobile pill size",
+      "min": 9,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "default": 11
+    },
+    {
+      "type": "range",
+      "id": "heading_size_desktop",
+      "label": "Desktop heading size",
+      "min": 28,
+      "max": 82,
+      "step": 2,
+      "unit": "px",
+      "default": 46
+    },
+    {
+      "type": "range",
+      "id": "heading_size_mobile",
+      "label": "Mobile heading size",
+      "min": 24,
+      "max": 56,
+      "step": 1,
+      "unit": "px",
+      "default": 34
+    },
+    {
+      "type": "range",
+      "id": "heading_line_height",
+      "label": "Desktop heading line height",
+      "min": 80,
+      "max": 130,
+      "step": 1,
+      "unit": "%",
+      "default": 98
+    },
+    {
+      "type": "range",
+      "id": "heading_line_height_mobile",
+      "label": "Mobile heading line height",
+      "min": 80,
+      "max": 130,
+      "step": 1,
+      "unit": "%",
+      "default": 98
+    },
+    {
+      "type": "range",
+      "id": "text_size_desktop",
+      "label": "Desktop description size",
+      "min": 13,
+      "max": 26,
+      "step": 1,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "text_size_mobile",
+      "label": "Mobile description size",
+      "min": 12,
+      "max": 22,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "card_heading_size_desktop",
+      "label": "Desktop card heading size",
+      "min": 18,
+      "max": 42,
+      "step": 1,
+      "unit": "px",
+      "default": 26
+    },
+    {
+      "type": "range",
+      "id": "card_heading_size_mobile",
+      "label": "Mobile card heading size",
+      "min": 16,
+      "max": 34,
+      "step": 1,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "card_text_size_desktop",
+      "label": "Desktop card text size",
+      "min": 12,
+      "max": 22,
+      "step": 1,
+      "unit": "px",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "card_text_size_mobile",
+      "label": "Mobile card text size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "button_size_desktop",
+      "label": "Desktop button size",
+      "min": 12,
+      "max": 22,
+      "step": 1,
+      "unit": "px",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "button_size_mobile",
+      "label": "Mobile button size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "card_link_size",
+      "label": "Card link size",
+      "min": 11,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "header",
+      "content": "Fine-tuning"
+    },
+    {
+      "type": "range",
+      "id": "pill_padding_vertical",
+      "label": "Desktop pill vertical padding",
+      "min": 4,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 9
+    },
+    {
+      "type": "range",
+      "id": "pill_padding_horizontal",
+      "label": "Desktop pill horizontal padding",
+      "min": 10,
+      "max": 44,
+      "step": 2,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "pill_padding_vertical_mobile",
+      "label": "Mobile pill vertical padding",
+      "min": 4,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "pill_padding_horizontal_mobile",
+      "label": "Mobile pill horizontal padding",
+      "min": 8,
+      "max": 36,
+      "step": 2,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "pill_spacing",
+      "label": "Desktop pill bottom spacing",
+      "min": 8,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "pill_spacing_mobile",
+      "label": "Mobile pill bottom spacing",
+      "min": 8,
+      "max": 34,
+      "step": 2,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "description_spacing",
+      "label": "Desktop description spacing",
+      "min": 8,
+      "max": 36,
+      "step": 2,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "description_spacing_mobile",
+      "label": "Mobile description spacing",
+      "min": 8,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "card_title_spacing",
+      "label": "Desktop card title spacing",
+      "min": 6,
+      "max": 28,
+      "step": 2,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "card_title_spacing_mobile",
+      "label": "Mobile card title spacing",
+      "min": 6,
+      "max": 24,
+      "step": 2,
+      "unit": "px",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "card_radius",
+      "label": "Card radius",
+      "min": 0,
+      "max": 34,
+      "step": 2,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "card_border_width",
+      "label": "Card border width",
+      "min": 0,
+      "max": 4,
+      "step": 1,
+      "unit": "px",
+      "default": 1
+    },
+    {
+      "type": "range",
+      "id": "pill_border_width",
+      "label": "Pill border width",
+      "min": 0,
+      "max": 4,
+      "step": 1,
+      "unit": "px",
+      "default": 1
+    },
+    {
+      "type": "range",
+      "id": "button_border_width",
+      "label": "Button border width",
+      "min": 0,
+      "max": 4,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "button_radius",
+      "label": "Button radius",
+      "min": 0,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 50
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_card_shadow",
+      "label": "Enable card shadow",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_hover_lift",
+      "label": "Enable hover lift",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "image_fit",
+      "label": "Image fit",
+      "default": "cover",
+      "options": [
+        {
+          "value": "cover",
+          "label": "Cover"
+        },
+        {
+          "value": "contain",
+          "label": "Contain"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "card_text_alignment",
+      "label": "Card text alignment",
+      "default": "left",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "section_background",
+      "label": "Section background",
+      "default": "#F7F2EA"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#111111"
+    },
+    {
+      "type": "color",
+      "id": "heading_accent",
+      "label": "Heading accent",
+      "default": "#FFC860"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Description color",
+      "default": "#333333"
+    },
+    {
+      "type": "color",
+      "id": "pill_background",
+      "label": "Pill background",
+      "default": "#FFC860"
+    },
+    {
+      "type": "color",
+      "id": "pill_text_color",
+      "label": "Pill text color",
+      "default": "#111111"
+    },
+    {
+      "type": "color",
+      "id": "pill_border_color",
+      "label": "Pill border color",
+      "default": "#FFC860"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Card background",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "card_border_color",
+      "label": "Card border",
+      "default": "#E6DED2"
+    },
+    {
+      "type": "color",
+      "id": "card_heading_color",
+      "label": "Card heading",
+      "default": "#111111"
+    },
+    {
+      "type": "color",
+      "id": "card_text_color",
+      "label": "Card text",
+      "default": "#333333"
+    },
+    {
+      "type": "color",
+      "id": "image_background",
+      "label": "Image background",
+      "default": "#EFE8DB"
+    },
+    {
+      "type": "color",
+      "id": "button_background",
+      "label": "Button background",
+      "default": "#111111"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button text",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "button_border_color",
+      "label": "Button border",
+      "default": "#111111"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "formula_card",
+      "name": "Formula card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Card image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Card title",
+          "default": "Natural"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Card text",
+          "default": "<ul><li>Plant-based tofu litter</li><li>Simple unscented freshness</li><li>Low-tracking and low-dust</li><li>Flushable in small quantities</li></ul>"
+        },
+        {
+          "type": "text",
+          "id": "link_label",
+          "label": "Optional card link label"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Optional card link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Royal Formula Cards",
+      "blocks": [
+        {
+          "type": "formula_card",
+          "settings": {
+            "title": "Natural",
+            "text": "<ul><li>Plant-based tofu litter</li><li>Unscented for sensitive cats</li><li>Low-tracking and low-dust</li><li>Flushable in small quantities</li></ul>"
+          }
+        },
+        {
+          "type": "formula_card",
+          "settings": {
+            "title": "Lavender",
+            "text": "<ul><li>Plant-based tofu litter</li><li>Light fresh lavender scent</li><li>Helps control litter box odor</li><li>Low-tracking and easy to scoop</li></ul>"
+          }
+        },
+        {
+          "type": "formula_card",
+          "settings": {
+            "title": "Baby Powder",
+            "text": "<ul><li>Plant-based tofu litter</li><li>Soft clean scent for everyday use</li><li>Fast clumping for simple cleanup</li><li>Made for a fresher home</li></ul>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

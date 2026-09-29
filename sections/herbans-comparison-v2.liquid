@@ -1,0 +1,1192 @@
+<section id="royal-compare-{{ section.id }}" class="royal-compare-section">
+  <div class="rc-wrap">
+
+    {% if section.settings.show_intro %}
+      <div class="rc-intro">
+        {% if section.settings.eyebrow != blank %}
+          <div class="rc-eyebrow">{{ section.settings.eyebrow }}</div>
+        {% endif %}
+
+        {% if section.settings.heading != blank %}
+          <div class="rc-heading">{{ section.settings.heading }}</div>
+        {% endif %}
+
+        {% if section.settings.text != blank %}
+          <div class="rc-text">{{ section.settings.text }}</div>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    <div class="rc-table-area">
+      <div class="rc-scroll">
+        <div class="rc-table">
+          <div class="rc-card">
+
+            <div class="rc-grid rc-header">
+              <div class="rc-feature-head"></div>
+
+              <div class="rc-head-cell rc-head-cell--product">
+                {% if section.settings.product_image != blank %}
+                  <img
+                    class="rc-product-img"
+                    src="{{ section.settings.product_image | image_url: width: 500 }}"
+                    alt="{{ section.settings.product_image_alt | escape }}"
+                    loading="lazy"
+                  >
+                {% endif %}
+                <span class="rc-head-label rc-head-label--royal">
+                  {{ section.settings.royal_label }}
+                </span>
+              </div>
+
+              <div class="rc-head-cell">
+                <span class="rc-head-label">{{ section.settings.competitor_1_label }}</span>
+              </div>
+
+              <div class="rc-head-cell">
+                <span class="rc-head-label">{{ section.settings.competitor_2_label }}</span>
+              </div>
+
+              <div class="rc-head-cell">
+                <span class="rc-head-label">{{ section.settings.competitor_3_label }}</span>
+              </div>
+            </div>
+
+            {% for block in section.blocks %}
+              <div class="rc-grid rc-row" {{ block.shopify_attributes }}>
+                <div class="rc-feature">
+                  {{ block.settings.row_label }}
+                </div>
+
+                <div class="rc-cell">
+                  {% if block.settings.royal_value == 'check' %}
+                    <span class="rc-icon rc-check">
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M5 12.5l4.2 4.2L19 7"></path>
+                      </svg>
+                    </span>
+                  {% elsif block.settings.royal_value == 'x' %}
+                    <span class="rc-icon rc-x">
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M8 8l8 8M16 8l-8 8"></path>
+                      </svg>
+                    </span>
+                  {% else %}
+                    <span class="rc-value-text">{{ block.settings.royal_text }}</span>
+                  {% endif %}
+                </div>
+
+                <div class="rc-cell">
+                  {% if block.settings.competitor_1_value == 'check' %}
+                    <span class="rc-icon rc-check">
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M5 12.5l4.2 4.2L19 7"></path>
+                      </svg>
+                    </span>
+                  {% elsif block.settings.competitor_1_value == 'x' %}
+                    <span class="rc-icon rc-x">
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M8 8l8 8M16 8l-8 8"></path>
+                      </svg>
+                    </span>
+                  {% else %}
+                    <span class="rc-value-text">{{ block.settings.competitor_1_text }}</span>
+                  {% endif %}
+                </div>
+
+                <div class="rc-cell">
+                  {% if block.settings.competitor_2_value == 'check' %}
+                    <span class="rc-icon rc-check">
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M5 12.5l4.2 4.2L19 7"></path>
+                      </svg>
+                    </span>
+                  {% elsif block.settings.competitor_2_value == 'x' %}
+                    <span class="rc-icon rc-x">
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M8 8l8 8M16 8l-8 8"></path>
+                      </svg>
+                    </span>
+                  {% else %}
+                    <span class="rc-value-text">{{ block.settings.competitor_2_text }}</span>
+                  {% endif %}
+                </div>
+
+                <div class="rc-cell">
+                  {% if block.settings.competitor_3_value == 'check' %}
+                    <span class="rc-icon rc-check">
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M5 12.5l4.2 4.2L19 7"></path>
+                      </svg>
+                    </span>
+                  {% elsif block.settings.competitor_3_value == 'x' %}
+                    <span class="rc-icon rc-x">
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M8 8l8 8M16 8l-8 8"></path>
+                      </svg>
+                    </span>
+                  {% else %}
+                    <span class="rc-value-text">{{ block.settings.competitor_3_text }}</span>
+                  {% endif %}
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+
+      {% if section.settings.footnote != blank %}
+        <div class="rc-footnote">{{ section.settings.footnote }}</div>
+      {% endif %}
+    </div>
+
+  </div>
+</section>
+
+<style>
+  #royal-compare-{{ section.id }} {
+    --section-bg: {{ section.settings.section_bg }};
+    --table-bg: {{ section.settings.table_bg }};
+    --table-border: {{ section.settings.table_border_color }};
+    --header-bg: {{ section.settings.header_bg }};
+    --header-text: {{ section.settings.header_text }};
+    --row-bg: {{ section.settings.row_bg }};
+    --row-border: {{ section.settings.row_border }};
+    --feature-color: {{ section.settings.feature_color }};
+    --cell-text-color: {{ section.settings.cell_text_color }};
+    --check-bg: {{ section.settings.check_bg }};
+    --check-color: {{ section.settings.check_color }};
+    --x-bg: {{ section.settings.x_bg }};
+    --x-border: {{ section.settings.x_border }};
+    --x-color: {{ section.settings.x_color }};
+    --heading-color: {{ section.settings.heading_color }};
+    --heading-accent: {{ section.settings.heading_accent }};
+    --text-color: {{ section.settings.text_color }};
+    --eyebrow-bg: {{ section.settings.eyebrow_bg }};
+    --eyebrow-color: {{ section.settings.eyebrow_color }};
+    --royal-label-color: {{ section.settings.royal_label_color }};
+    --footnote-color: {{ section.settings.footnote_color }};
+
+    background: var(--section-bg);
+    padding: {{ section.settings.padding_top_mobile }}px {{ section.settings.padding_side_mobile }}px {{ section.settings.padding_bottom_mobile }}px;
+    overflow: hidden;
+  }
+
+  #royal-compare-{{ section.id }} * {
+    box-sizing: border-box;
+  }
+
+  #royal-compare-{{ section.id }} .rc-wrap {
+    max-width: {{ section.settings.max_width }}px;
+    margin: 0 auto;
+  }
+
+  #royal-compare-{{ section.id }} .rc-intro {
+    max-width: {{ section.settings.intro_width_mobile }}px;
+    margin: 0 auto 28px;
+    text-align: center;
+  }
+
+  #royal-compare-{{ section.id }} .rc-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--eyebrow-bg);
+    color: var(--eyebrow-color);
+    border-radius: 999px;
+    padding: 8px 16px;
+    font-size: {{ section.settings.eyebrow_size_mobile }}px;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    line-height: 1;
+  }
+
+  #royal-compare-{{ section.id }} .rc-heading,
+  #royal-compare-{{ section.id }} .rc-heading p {
+    margin: 0;
+    color: var(--heading-color);
+    font-size: {{ section.settings.heading_size_mobile }}px;
+    line-height: 1.04;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+  }
+
+  #royal-compare-{{ section.id }} .rc-heading strong {
+    color: var(--heading-accent);
+    font-weight: inherit;
+  }
+
+  #royal-compare-{{ section.id }} .rc-text {
+    margin-top: 14px;
+    color: var(--text-color);
+    font-size: {{ section.settings.body_size_mobile }}px;
+    line-height: 1.5;
+    font-weight: 500;
+  }
+
+  #royal-compare-{{ section.id }} .rc-text p,
+  #royal-compare-{{ section.id }} .rc-footnote p {
+    margin: 0;
+  }
+
+  #royal-compare-{{ section.id }} .rc-scroll {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 4px;
+  }
+
+  #royal-compare-{{ section.id }} .rc-scroll::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  #royal-compare-{{ section.id }} .rc-scroll::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.18);
+    border-radius: 999px;
+  }
+
+  #royal-compare-{{ section.id }} .rc-table {
+    min-width: 760px;
+  }
+
+  #royal-compare-{{ section.id }} .rc-card {
+    width: 100%;
+    background: var(--table-bg);
+    border-radius: {{ section.settings.table_radius }}px;
+    overflow: hidden;
+    box-shadow: {{ section.settings.table_shadow }};
+    border: {{ section.settings.table_border_width }}px solid var(--table-border);
+  }
+
+  #royal-compare-{{ section.id }} .rc-grid {
+    display: grid;
+    grid-template-columns: 1.55fr 1fr 1fr 1fr 1fr;
+    align-items: stretch;
+  }
+
+  #royal-compare-{{ section.id }} .rc-header {
+    background: var(--header-bg);
+    color: var(--header-text);
+  }
+
+  #royal-compare-{{ section.id }} .rc-feature-head {
+    min-height: {{ section.settings.header_height_mobile }}px;
+  }
+
+  #royal-compare-{{ section.id }} .rc-head-cell {
+    min-height: {{ section.settings.header_height_mobile }}px;
+    padding: 14px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-align: center;
+  }
+
+  #royal-compare-{{ section.id }} .rc-head-cell--product {
+    padding-top: 10px;
+    padding-bottom: 12px;
+  }
+
+  #royal-compare-{{ section.id }} .rc-head-label {
+    display: block;
+    width: 100%;
+    max-width: 110px;
+    margin: 0 auto;
+    font-size: {{ section.settings.header_label_size_mobile }}px;
+    line-height: 1.05;
+    font-weight: 900;
+    color: var(--header-text);
+    text-align: center;
+  }
+
+  #royal-compare-{{ section.id }} .rc-head-label--royal {
+    color: var(--royal-label-color);
+  }
+
+  #royal-compare-{{ section.id }} .rc-product-img {
+    display: block;
+    width: {{ section.settings.product_image_width_mobile }}px;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto 6px;
+  }
+
+  #royal-compare-{{ section.id }} .rc-row {
+    background: var(--row-bg);
+    border-top: 1px solid var(--row-border);
+  }
+
+  #royal-compare-{{ section.id }} .rc-feature {
+    padding: 18px 14px 18px 18px;
+    color: var(--feature-color);
+    font-size: {{ section.settings.row_label_size_mobile }}px;
+    line-height: 1.15;
+    font-weight: 900;
+    text-align: left;
+    display: flex;
+    align-items: center;
+  }
+
+  #royal-compare-{{ section.id }} .rc-cell {
+    min-height: {{ section.settings.row_height_mobile }}px;
+    padding: 14px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  #royal-compare-{{ section.id }} .rc-icon {
+    width: {{ section.settings.icon_size_mobile }}px;
+    height: {{ section.settings.icon_size_mobile }}px;
+    min-width: {{ section.settings.icon_size_mobile }}px;
+    min-height: {{ section.settings.icon_size_mobile }}px;
+    max-width: {{ section.settings.icon_size_mobile }}px;
+    max-height: {{ section.settings.icon_size_mobile }}px;
+    border-radius: 50%;
+    flex: 0 0 {{ section.settings.icon_size_mobile }}px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #royal-compare-{{ section.id }} .rc-icon svg {
+    width: 58%;
+    height: 58%;
+    fill: none;
+  }
+
+  #royal-compare-{{ section.id }} .rc-icon path {
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  #royal-compare-{{ section.id }} .rc-check {
+    background: var(--check-bg);
+  }
+
+  #royal-compare-{{ section.id }} .rc-check path {
+    stroke: var(--check-color);
+    stroke-width: 3.2;
+  }
+
+  #royal-compare-{{ section.id }} .rc-x {
+    background: var(--x-bg);
+    border: 2px solid var(--x-border);
+  }
+
+  #royal-compare-{{ section.id }} .rc-x path {
+    stroke: var(--x-color);
+    stroke-width: 3;
+  }
+
+  #royal-compare-{{ section.id }} .rc-value-text {
+    display: block;
+    width: 100%;
+    max-width: 110px;
+    margin: 0 auto;
+    color: var(--cell-text-color);
+    font-size: {{ section.settings.cell_text_size_mobile }}px;
+    line-height: 1.15;
+    font-weight: 800;
+    text-align: center;
+  }
+
+  #royal-compare-{{ section.id }} .rc-footnote {
+    margin-top: 12px;
+    color: var(--footnote-color);
+    font-size: {{ section.settings.footnote_size_mobile }}px;
+    line-height: 1.4;
+    text-align: center;
+    opacity: 0.75;
+  }
+
+  @media screen and (min-width: 768px) {
+    #royal-compare-{{ section.id }} {
+      padding: {{ section.settings.padding_top_desktop }}px {{ section.settings.padding_side_desktop }}px {{ section.settings.padding_bottom_desktop }}px;
+    }
+
+    #royal-compare-{{ section.id }} .rc-intro {
+      max-width: {{ section.settings.intro_width_desktop }}px;
+      margin: 0 auto 34px;
+      text-align: center;
+    }
+
+    #royal-compare-{{ section.id }} .rc-eyebrow {
+      font-size: {{ section.settings.eyebrow_size_desktop }}px;
+      margin-bottom: 18px;
+    }
+
+    #royal-compare-{{ section.id }} .rc-heading,
+    #royal-compare-{{ section.id }} .rc-heading p {
+      font-size: {{ section.settings.heading_size_desktop }}px;
+      line-height: 1.04;
+    }
+
+    #royal-compare-{{ section.id }} .rc-text {
+      max-width: 760px;
+      margin: 18px auto 0;
+      font-size: {{ section.settings.body_size_desktop }}px;
+      line-height: 1.45;
+    }
+
+    #royal-compare-{{ section.id }} .rc-table {
+      min-width: 0;
+    }
+
+    #royal-compare-{{ section.id }} .rc-feature-head {
+      min-height: {{ section.settings.header_height_desktop }}px;
+    }
+
+    #royal-compare-{{ section.id }} .rc-head-cell {
+      min-height: {{ section.settings.header_height_desktop }}px;
+      padding: 16px 12px;
+      gap: 10px;
+    }
+
+    #royal-compare-{{ section.id }} .rc-head-cell--product {
+      padding-top: 10px;
+      padding-bottom: 14px;
+    }
+
+    #royal-compare-{{ section.id }} .rc-head-label {
+      max-width: 140px;
+      font-size: {{ section.settings.header_label_size_desktop }}px;
+    }
+
+    #royal-compare-{{ section.id }} .rc-product-img {
+      width: {{ section.settings.product_image_width_desktop }}px;
+      margin-bottom: 8px;
+    }
+
+    #royal-compare-{{ section.id }} .rc-feature {
+      padding: 22px 20px 22px 26px;
+      font-size: {{ section.settings.row_label_size_desktop }}px;
+    }
+
+    #royal-compare-{{ section.id }} .rc-cell {
+      min-height: {{ section.settings.row_height_desktop }}px;
+      padding: 18px 12px;
+    }
+
+    #royal-compare-{{ section.id }} .rc-icon {
+      width: {{ section.settings.icon_size_desktop }}px;
+      height: {{ section.settings.icon_size_desktop }}px;
+      min-width: {{ section.settings.icon_size_desktop }}px;
+      min-height: {{ section.settings.icon_size_desktop }}px;
+      max-width: {{ section.settings.icon_size_desktop }}px;
+      max-height: {{ section.settings.icon_size_desktop }}px;
+      flex: 0 0 {{ section.settings.icon_size_desktop }}px;
+    }
+
+    #royal-compare-{{ section.id }} .rc-value-text {
+      max-width: 130px;
+      font-size: {{ section.settings.cell_text_size_desktop }}px;
+    }
+
+    #royal-compare-{{ section.id }} .rc-footnote {
+      font-size: {{ section.settings.footnote_size_desktop }}px;
+      text-align: right;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Royal Tofu Compare",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_intro",
+      "label": "Show intro",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "WHY ROYAL TOFU"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "<p><strong>Royal Tofu</strong> vs. Traditional Cat Litter</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>Most cat litters are dusty, heavy, and only mask odor. Royal Tofu is made to keep your home cleaner, fresher, and easier to maintain.</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "footnote",
+      "label": "Footnote",
+      "default": "<p>*Results may vary depending on your cat, litter box setup, and cleaning routine.</p>"
+    },
+    {
+      "type": "text",
+      "id": "royal_label",
+      "label": "Royal Tofu label",
+      "default": "Royal Tofu"
+    },
+    {
+      "type": "text",
+      "id": "competitor_1_label",
+      "label": "Competitor 1 label",
+      "default": "Clay Litter"
+    },
+    {
+      "type": "text",
+      "id": "competitor_2_label",
+      "label": "Competitor 2 label",
+      "default": "Crystal Litter"
+    },
+    {
+      "type": "text",
+      "id": "competitor_3_label",
+      "label": "Competitor 3 label",
+      "default": "Pine Litter"
+    },
+    {
+      "type": "image_picker",
+      "id": "product_image",
+      "label": "Product image"
+    },
+    {
+      "type": "text",
+      "id": "product_image_alt",
+      "label": "Product image alt text",
+      "default": "Royal Tofu Cat Litter"
+    },
+
+    {
+      "type": "header",
+      "content": "Intro widths"
+    },
+    {
+      "type": "range",
+      "id": "intro_width_mobile",
+      "label": "Intro width mobile",
+      "min": 260,
+      "max": 700,
+      "step": 10,
+      "default": 520
+    },
+    {
+      "type": "range",
+      "id": "intro_width_desktop",
+      "label": "Intro width desktop",
+      "min": 400,
+      "max": 1000,
+      "step": 10,
+      "default": 700
+    },
+
+    {
+      "type": "header",
+      "content": "Text sizes"
+    },
+    {
+      "type": "range",
+      "id": "heading_size_mobile",
+      "label": "Heading size mobile",
+      "min": 20,
+      "max": 46,
+      "step": 1,
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "heading_size_desktop",
+      "label": "Heading size desktop",
+      "min": 28,
+      "max": 70,
+      "step": 1,
+      "default": 46
+    },
+    {
+      "type": "range",
+      "id": "body_size_mobile",
+      "label": "Body text size mobile",
+      "min": 12,
+      "max": 22,
+      "step": 1,
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "body_size_desktop",
+      "label": "Body text size desktop",
+      "min": 14,
+      "max": 26,
+      "step": 1,
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "eyebrow_size_mobile",
+      "label": "Eyebrow size mobile",
+      "min": 9,
+      "max": 18,
+      "step": 1,
+      "default": 11
+    },
+    {
+      "type": "range",
+      "id": "eyebrow_size_desktop",
+      "label": "Eyebrow size desktop",
+      "min": 9,
+      "max": 20,
+      "step": 1,
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "header_label_size_mobile",
+      "label": "Column label size mobile",
+      "min": 9,
+      "max": 20,
+      "step": 1,
+      "default": 11
+    },
+    {
+      "type": "range",
+      "id": "header_label_size_desktop",
+      "label": "Column label size desktop",
+      "min": 11,
+      "max": 24,
+      "step": 1,
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "row_label_size_mobile",
+      "label": "Row label size mobile",
+      "min": 11,
+      "max": 22,
+      "step": 1,
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "row_label_size_desktop",
+      "label": "Row label size desktop",
+      "min": 13,
+      "max": 26,
+      "step": 1,
+      "default": 17
+    },
+    {
+      "type": "range",
+      "id": "cell_text_size_mobile",
+      "label": "Cell text size mobile",
+      "min": 10,
+      "max": 20,
+      "step": 1,
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "cell_text_size_desktop",
+      "label": "Cell text size desktop",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "footnote_size_mobile",
+      "label": "Footnote size mobile",
+      "min": 8,
+      "max": 16,
+      "step": 1,
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "footnote_size_desktop",
+      "label": "Footnote size desktop",
+      "min": 10,
+      "max": 18,
+      "step": 1,
+      "default": 12
+    },
+
+    {
+      "type": "header",
+      "content": "Product image sizes"
+    },
+    {
+      "type": "range",
+      "id": "product_image_width_mobile",
+      "label": "Product image width mobile",
+      "min": 30,
+      "max": 120,
+      "step": 5,
+      "default": 65
+    },
+    {
+      "type": "range",
+      "id": "product_image_width_desktop",
+      "label": "Product image width desktop",
+      "min": 40,
+      "max": 180,
+      "step": 5,
+      "default": 85
+    },
+
+    {
+      "type": "header",
+      "content": "Table sizes"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "label": "Max width",
+      "min": 900,
+      "max": 1600,
+      "step": 20,
+      "default": 1280
+    },
+    {
+      "type": "range",
+      "id": "header_height_mobile",
+      "label": "Header height mobile",
+      "min": 54,
+      "max": 130,
+      "step": 2,
+      "default": 84
+    },
+    {
+      "type": "range",
+      "id": "header_height_desktop",
+      "label": "Header height desktop",
+      "min": 60,
+      "max": 160,
+      "step": 2,
+      "default": 94
+    },
+    {
+      "type": "range",
+      "id": "row_height_mobile",
+      "label": "Row height mobile",
+      "min": 54,
+      "max": 120,
+      "step": 2,
+      "default": 76
+    },
+    {
+      "type": "range",
+      "id": "row_height_desktop",
+      "label": "Row height desktop",
+      "min": 54,
+      "max": 130,
+      "step": 2,
+      "default": 78
+    },
+    {
+      "type": "range",
+      "id": "table_radius",
+      "label": "Table corner radius",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "default": 12
+    },
+    {
+      "type": "text",
+      "id": "table_shadow",
+      "label": "Table shadow CSS",
+      "default": "2px 4px 16px rgba(0,0,0,0.08)"
+    },
+    {
+      "type": "range",
+      "id": "table_border_width",
+      "label": "Table border width",
+      "min": 0,
+      "max": 4,
+      "step": 1,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "icon_size_mobile",
+      "label": "Icon size mobile",
+      "min": 18,
+      "max": 42,
+      "step": 1,
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "icon_size_desktop",
+      "label": "Icon size desktop",
+      "min": 20,
+      "max": 48,
+      "step": 1,
+      "default": 32
+    },
+
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Top padding mobile",
+      "min": 0,
+      "max": 140,
+      "step": 4,
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Bottom padding mobile",
+      "min": 0,
+      "max": 140,
+      "step": 4,
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_side_mobile",
+      "label": "Side padding mobile",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Top padding desktop",
+      "min": 0,
+      "max": 180,
+      "step": 4,
+      "default": 72
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Bottom padding desktop",
+      "min": 0,
+      "max": 180,
+      "step": 4,
+      "default": 72
+    },
+    {
+      "type": "range",
+      "id": "padding_side_desktop",
+      "label": "Side padding desktop",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "default": 40
+    },
+
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "section_bg",
+      "label": "Section background",
+      "default": "#F8F2E8"
+    },
+    {
+      "type": "color",
+      "id": "table_bg",
+      "label": "Table background",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "table_border_color",
+      "label": "Table border color",
+      "default": "#E7D8CA"
+    },
+    {
+      "type": "color",
+      "id": "header_bg",
+      "label": "Header background",
+      "default": "#00452F"
+    },
+    {
+      "type": "color",
+      "id": "header_text",
+      "label": "Header text",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "row_bg",
+      "label": "Row background",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "row_border",
+      "label": "Row border",
+      "default": "#E5DED5"
+    },
+    {
+      "type": "color",
+      "id": "feature_color",
+      "label": "Feature text",
+      "default": "#002D1F"
+    },
+    {
+      "type": "color",
+      "id": "cell_text_color",
+      "label": "Cell text",
+      "default": "#002D1F"
+    },
+    {
+      "type": "color",
+      "id": "check_bg",
+      "label": "Check background",
+      "default": "#00624A"
+    },
+    {
+      "type": "color",
+      "id": "check_color",
+      "label": "Check color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "x_bg",
+      "label": "X background",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "x_border",
+      "label": "X border",
+      "default": "#8D0F0F"
+    },
+    {
+      "type": "color",
+      "id": "x_color",
+      "label": "X color",
+      "default": "#8D0F0F"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading",
+      "default": "#111111"
+    },
+    {
+      "type": "color",
+      "id": "heading_accent",
+      "label": "Heading accent",
+      "default": "#D76F3D"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#111111"
+    },
+    {
+      "type": "color",
+      "id": "eyebrow_bg",
+      "label": "Eyebrow background",
+      "default": "#FFD26F"
+    },
+    {
+      "type": "color",
+      "id": "eyebrow_color",
+      "label": "Eyebrow text",
+      "default": "#111111"
+    },
+    {
+      "type": "color",
+      "id": "royal_label_color",
+      "label": "Royal Tofu label color",
+      "default": "#FFD26F"
+    },
+    {
+      "type": "color",
+      "id": "footnote_color",
+      "label": "Footnote",
+      "default": "#111111"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "comparison_row",
+      "name": "Row",
+      "settings": [
+        {
+          "type": "text",
+          "id": "row_label",
+          "label": "Row label",
+          "default": "Plant-based formula"
+        },
+        {
+          "type": "select",
+          "id": "royal_value",
+          "label": "Royal Tofu value",
+          "options": [
+            { "value": "check", "label": "Check" },
+            { "value": "x", "label": "X" },
+            { "value": "text", "label": "Text" }
+          ],
+          "default": "check"
+        },
+        {
+          "type": "text",
+          "id": "royal_text",
+          "label": "Royal Tofu text",
+          "default": "Yes"
+        },
+        {
+          "type": "select",
+          "id": "competitor_1_value",
+          "label": "Competitor 1 value",
+          "options": [
+            { "value": "check", "label": "Check" },
+            { "value": "x", "label": "X" },
+            { "value": "text", "label": "Text" }
+          ],
+          "default": "text"
+        },
+        {
+          "type": "text",
+          "id": "competitor_1_text",
+          "label": "Competitor 1 text",
+          "default": "No"
+        },
+        {
+          "type": "select",
+          "id": "competitor_2_value",
+          "label": "Competitor 2 value",
+          "options": [
+            { "value": "check", "label": "Check" },
+            { "value": "x", "label": "X" },
+            { "value": "text", "label": "Text" }
+          ],
+          "default": "text"
+        },
+        {
+          "type": "text",
+          "id": "competitor_2_text",
+          "label": "Competitor 2 text",
+          "default": "No"
+        },
+        {
+          "type": "select",
+          "id": "competitor_3_value",
+          "label": "Competitor 3 value",
+          "options": [
+            { "value": "check", "label": "Check" },
+            { "value": "x", "label": "X" },
+            { "value": "text", "label": "Text" }
+          ],
+          "default": "text"
+        },
+        {
+          "type": "text",
+          "id": "competitor_3_text",
+          "label": "Competitor 3 text",
+          "default": "Depends"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Royal Tofu Compare",
+      "blocks": [
+        {
+          "type": "comparison_row",
+          "settings": {
+            "row_label": "Plant-based formula",
+            "royal_value": "check",
+            "competitor_1_value": "text",
+            "competitor_1_text": "No",
+            "competitor_2_value": "text",
+            "competitor_2_text": "No",
+            "competitor_3_value": "text",
+            "competitor_3_text": "Yes"
+          }
+        },
+        {
+          "type": "comparison_row",
+          "settings": {
+            "row_label": "Fast clumping",
+            "royal_value": "check",
+            "competitor_1_value": "text",
+            "competitor_1_text": "Depends",
+            "competitor_2_value": "x",
+            "competitor_3_value": "text",
+            "competitor_3_text": "Depends"
+          }
+        },
+        {
+          "type": "comparison_row",
+          "settings": {
+            "row_label": "Low-dust pour",
+            "royal_value": "check",
+            "competitor_1_value": "text",
+            "competitor_1_text": "Often dusty",
+            "competitor_2_value": "text",
+            "competitor_2_text": "Can be dusty",
+            "competitor_3_value": "text",
+            "competitor_3_text": "Low dust"
+          }
+        },
+        {
+          "type": "comparison_row",
+          "settings": {
+            "row_label": "Helps control odor",
+            "royal_value": "check",
+            "competitor_1_value": "text",
+            "competitor_1_text": "Masks smell",
+            "competitor_2_value": "text",
+            "competitor_2_text": "Builds odor",
+            "competitor_3_value": "text",
+            "competitor_3_text": "Mild control"
+          }
+        },
+        {
+          "type": "comparison_row",
+          "settings": {
+            "row_label": "Less tracking mess",
+            "royal_value": "check",
+            "competitor_1_value": "x",
+            "competitor_2_value": "x",
+            "competitor_3_value": "text",
+            "competitor_3_text": "Can track"
+          }
+        },
+        {
+          "type": "comparison_row",
+          "settings": {
+            "row_label": "Lightweight & easy to scoop",
+            "royal_value": "check",
+            "competitor_1_value": "text",
+            "competitor_1_text": "Heavy",
+            "competitor_2_value": "text",
+            "competitor_2_text": "Less scoopable",
+            "competitor_3_value": "text",
+            "competitor_3_text": "Lightweight"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

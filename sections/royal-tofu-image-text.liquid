@@ -1,0 +1,692 @@
+{% style %}
+  #shopify-section-{{ section.id }} .rt-image-text {
+    background: {{ section.settings.background_color }};
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+
+  #shopify-section-{{ section.id }} .rt-image-text__wrapper {
+    max-width: {{ section.settings.section_width }}px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  #shopify-section-{{ section.id }} .rt-image-text__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: {{ section.settings.desktop_gap }}px;
+    align-items: center;
+  }
+
+  #shopify-section-{{ section.id }} .rt-image-text__grid--reverse .rt-image-text__media {
+    order: 2;
+  }
+
+  #shopify-section-{{ section.id }} .rt-image-text__grid--reverse .rt-image-text__content {
+    order: 1;
+  }
+
+  #shopify-section-{{ section.id }} .rt-image-text__media {
+    border-radius: {{ section.settings.image_radius }}px;
+    overflow: hidden;
+    background: {{ section.settings.image_background }};
+  }
+
+  #shopify-section-{{ section.id }} .rt-image-text__image {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: {{ section.settings.image_ratio }};
+    object-fit: cover;
+    object-position: {{ section.settings.image_position }};
+    display: block;
+  }
+
+  #shopify-section-{{ section.id }} .rt-image-text__placeholder {
+    width: 100%;
+    aspect-ratio: {{ section.settings.image_ratio }};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #eee7dc;
+    color: #4b4038;
+    font-size: 15px;
+  }
+
+  #shopify-section-{{ section.id }} .rt-image-text__content {
+    max-width: {{ section.settings.content_width }}px;
+    color: {{ section.settings.text_color }};
+    text-align: {{ section.settings.text_alignment }};
+  }
+
+  #shopify-section-{{ section.id }} .rt-image-text__eyebrow {
+    margin: 0 0 12px;
+    font-size: {{ section.settings.eyebrow_size }}px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: {{ section.settings.eyebrow_color }};
+  }
+
+  #shopify-section-{{ section.id }} .rt-image-text__heading {
+    margin: 0 0 18px;
+    font-size: {{ section.settings.heading_size }}px;
+    line-height: 1.05;
+    letter-spacing: -0.035em;
+    font-weight: 600;
+    color: {{ section.settings.heading_color }};
+  }
+
+  #shopify-section-{{ section.id }} .rt-image-text__text {
+    font-size: {{ section.settings.text_size }}px;
+    line-height: 1.55;
+    color: {{ section.settings.text_color }};
+  }
+
+  #shopify-section-{{ section.id }} .rt-image-text__text p {
+    margin-top: 0;
+  }
+
+  #shopify-section-{{ section.id }} .rt-image-text__text p:last-child {
+    margin-bottom: 0;
+  }
+
+  #shopify-section-{{ section.id }} .rt-image-text__text strong {
+    color: {{ section.settings.strong_text_color }};
+    font-weight: 700;
+  }
+
+  #shopify-section-{{ section.id }} .rt-image-text__benefits {
+    display: grid;
+    gap: 12px;
+    margin-top: 26px;
+  }
+
+  #shopify-section-{{ section.id }} .rt-image-text__benefit {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: {{ section.settings.benefit_text_color }};
+    font-size: {{ section.settings.benefit_size }}px;
+    line-height: 1.35;
+    font-weight: 600;
+  }
+
+  #shopify-section-{{ section.id }} .rt-image-text__benefit-icon {
+    width: 34px;
+    height: 34px;
+    min-width: 34px;
+    border-radius: 50%;
+    background: {{ section.settings.icon_bg }};
+    color: {{ section.settings.icon_color }};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+    font-weight: 700;
+  }
+
+  #shopify-section-{{ section.id }} .rt-image-text__buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 32px;
+    justify-content: {% if section.settings.text_alignment == 'center' %}center{% elsif section.settings.text_alignment == 'right' %}flex-end{% else %}flex-start{% endif %};
+  }
+
+  #shopify-section-{{ section.id }} .rt-image-text__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 50px;
+    padding: 14px 28px;
+    border-radius: {{ section.settings.button_radius }}px;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: 0.2s ease;
+  }
+
+  #shopify-section-{{ section.id }} .rt-image-text__button--primary {
+    background: {{ section.settings.primary_button_bg }};
+    color: {{ section.settings.primary_button_text }};
+    border: 1px solid {{ section.settings.primary_button_bg }};
+  }
+
+  #shopify-section-{{ section.id }} .rt-image-text__button--secondary {
+    background: transparent;
+    color: {{ section.settings.secondary_button_text }};
+    border: 1px solid {{ section.settings.secondary_button_border }};
+  }
+
+  #shopify-section-{{ section.id }} .rt-image-text__button:hover {
+    transform: translateY(-1px);
+    opacity: 0.88;
+  }
+
+  @media screen and (max-width: 749px) {
+    #shopify-section-{{ section.id }} .rt-image-text {
+      padding-top: {{ section.settings.mobile_padding_top }}px;
+      padding-bottom: {{ section.settings.mobile_padding_bottom }}px;
+    }
+
+    #shopify-section-{{ section.id }} .rt-image-text__wrapper {
+      padding: 0 16px;
+    }
+
+    #shopify-section-{{ section.id }} .rt-image-text__grid {
+      grid-template-columns: 1fr;
+      gap: {{ section.settings.mobile_gap }}px;
+    }
+
+    #shopify-section-{{ section.id }} .rt-image-text__grid--reverse .rt-image-text__media,
+    #shopify-section-{{ section.id }} .rt-image-text__grid--reverse .rt-image-text__content {
+      order: unset;
+    }
+
+    #shopify-section-{{ section.id }} .rt-image-text__media {
+      {% if section.settings.mobile_image_first %}
+        order: 1;
+      {% else %}
+        order: 2;
+      {% endif %}
+    }
+
+    #shopify-section-{{ section.id }} .rt-image-text__content {
+      order: {% if section.settings.mobile_image_first %}2{% else %}1{% endif %};
+      max-width: 100%;
+      text-align: {{ section.settings.mobile_text_alignment }};
+    }
+
+    #shopify-section-{{ section.id }} .rt-image-text__heading {
+      font-size: {{ section.settings.mobile_heading_size }}px;
+      line-height: 1.1;
+      margin-bottom: 14px;
+    }
+
+    #shopify-section-{{ section.id }} .rt-image-text__text {
+      font-size: {{ section.settings.mobile_text_size }}px;
+    }
+
+    #shopify-section-{{ section.id }} .rt-image-text__buttons {
+      justify-content: {% if section.settings.mobile_text_alignment == 'center' %}center{% elsif section.settings.mobile_text_alignment == 'right' %}flex-end{% else %}flex-start{% endif %};
+    }
+
+    #shopify-section-{{ section.id }} .rt-image-text__button {
+      width: {% if section.settings.mobile_full_width_buttons %}100%{% else %}auto{% endif %};
+    }
+  }
+{% endstyle %}
+
+<section class="rt-image-text">
+  <div class="rt-image-text__wrapper">
+    <div class="rt-image-text__grid {% if section.settings.reverse_layout %}rt-image-text__grid--reverse{% endif %}">
+      
+      <div class="rt-image-text__media">
+        {% if section.settings.image != blank %}
+          {{
+            section.settings.image
+            | image_url: width: 1600
+            | image_tag:
+              class: 'rt-image-text__image',
+              loading: 'lazy',
+              widths: '400, 600, 800, 1000, 1200, 1600',
+              sizes: '(min-width: 750px) 50vw, 100vw',
+              alt: section.settings.image_alt
+          }}
+        {% else %}
+          <div class="rt-image-text__placeholder">
+            Add image here
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="rt-image-text__content">
+        {% if section.settings.eyebrow != blank %}
+          <p class="rt-image-text__eyebrow">{{ section.settings.eyebrow }}</p>
+        {% endif %}
+
+        {% if section.settings.heading != blank %}
+          <h2 class="rt-image-text__heading">{{ section.settings.heading }}</h2>
+        {% endif %}
+
+        {% if section.settings.text != blank %}
+          <div class="rt-image-text__text rte">
+            {{ section.settings.text }}
+          </div>
+        {% endif %}
+
+        {% if section.blocks.size > 0 %}
+          <div class="rt-image-text__benefits">
+            {% for block in section.blocks %}
+              {% if block.type == 'benefit' %}
+                <div class="rt-image-text__benefit" {{ block.shopify_attributes }}>
+                  <span class="rt-image-text__benefit-icon">
+                    {{ block.settings.icon }}
+                  </span>
+                  <span>{{ block.settings.text }}</span>
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        {% endif %}
+
+        {% if section.settings.show_buttons %}
+          <div class="rt-image-text__buttons">
+            {% if section.settings.primary_button_label != blank %}
+              <a href="{{ section.settings.primary_button_link }}" class="rt-image-text__button rt-image-text__button--primary">
+                {{ section.settings.primary_button_label }}
+              </a>
+            {% endif %}
+
+            {% if section.settings.secondary_button_label != blank %}
+              <a href="{{ section.settings.secondary_button_link }}" class="rt-image-text__button rt-image-text__button--secondary">
+                {{ section.settings.secondary_button_label }}
+              </a>
+            {% endif %}
+          </div>
+        {% endif %}
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Royal Tofu Image Text",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "image_alt",
+      "label": "Image alt text",
+      "default": "Royal Tofu cat litter"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Litière de tofu naturelle"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Une maison plus propre, sans le désordre."
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>Les granules de tofu Royal Tofu sont conçues pour rester dans le bac. Moins de poussière, moins de traçage et moins de nettoyage au quotidien.</p>"
+    },
+    {
+      "type": "checkbox",
+      "id": "reverse_layout",
+      "label": "Image on right",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "mobile_image_first",
+      "label": "Show image first on mobile",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Desktop text alignment",
+      "default": "left",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "mobile_text_alignment",
+      "label": "Mobile text alignment",
+      "default": "left",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "label": "Image ratio",
+      "default": "1 / 1",
+      "options": [
+        { "value": "1 / 1", "label": "Square" },
+        { "value": "4 / 5", "label": "Portrait" },
+        { "value": "5 / 4", "label": "Landscape" },
+        { "value": "16 / 9", "label": "Wide" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Image position",
+      "default": "center center",
+      "options": [
+        { "value": "center center", "label": "Center" },
+        { "value": "top center", "label": "Top" },
+        { "value": "bottom center", "label": "Bottom" },
+        { "value": "left center", "label": "Left" },
+        { "value": "right center", "label": "Right" }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "section_width",
+      "label": "Section width",
+      "min": 900,
+      "max": 1600,
+      "step": 20,
+      "default": 1200
+    },
+    {
+      "type": "range",
+      "id": "content_width",
+      "label": "Content width",
+      "min": 360,
+      "max": 760,
+      "step": 20,
+      "default": 560
+    },
+    {
+      "type": "range",
+      "id": "desktop_gap",
+      "label": "Desktop gap",
+      "min": 20,
+      "max": 120,
+      "step": 5,
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "mobile_gap",
+      "label": "Mobile gap",
+      "min": 15,
+      "max": 70,
+      "step": 5,
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "image_radius",
+      "label": "Image corner radius",
+      "min": 0,
+      "max": 50,
+      "step": 2,
+      "default": 24
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#F4EFE6"
+    },
+    {
+      "type": "color",
+      "id": "image_background",
+      "label": "Image placeholder background",
+      "default": "#EEE7DC"
+    },
+    {
+      "type": "color",
+      "id": "eyebrow_color",
+      "label": "Eyebrow",
+      "default": "#7B6654"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading",
+      "default": "#2B211B"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#4B4038"
+    },
+    {
+      "type": "color",
+      "id": "strong_text_color",
+      "label": "Bold text",
+      "default": "#2B211B"
+    },
+    {
+      "type": "color",
+      "id": "benefit_text_color",
+      "label": "Benefit text",
+      "default": "#2B211B"
+    },
+    {
+      "type": "color",
+      "id": "icon_bg",
+      "label": "Icon background",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "icon_color",
+      "label": "Icon color",
+      "default": "#2B211B"
+    },
+    {
+      "type": "range",
+      "id": "eyebrow_size",
+      "label": "Eyebrow size",
+      "min": 10,
+      "max": 20,
+      "step": 1,
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Desktop heading size",
+      "min": 28,
+      "max": 78,
+      "step": 2,
+      "default": 52
+    },
+    {
+      "type": "range",
+      "id": "mobile_heading_size",
+      "label": "Mobile heading size",
+      "min": 24,
+      "max": 54,
+      "step": 2,
+      "default": 34
+    },
+    {
+      "type": "range",
+      "id": "text_size",
+      "label": "Desktop text size",
+      "min": 14,
+      "max": 26,
+      "step": 1,
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "mobile_text_size",
+      "label": "Mobile text size",
+      "min": 13,
+      "max": 22,
+      "step": 1,
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "benefit_size",
+      "label": "Benefit text size",
+      "min": 13,
+      "max": 22,
+      "step": 1,
+      "default": 16
+    },
+    {
+      "type": "checkbox",
+      "id": "show_buttons",
+      "label": "Show buttons",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "primary_button_label",
+      "label": "Primary button text",
+      "default": "Magasiner maintenant"
+    },
+    {
+      "type": "url",
+      "id": "primary_button_link",
+      "label": "Primary button link"
+    },
+    {
+      "type": "text",
+      "id": "secondary_button_label",
+      "label": "Secondary button text",
+      "default": "Voir les avantages"
+    },
+    {
+      "type": "url",
+      "id": "secondary_button_link",
+      "label": "Secondary button link"
+    },
+    {
+      "type": "range",
+      "id": "button_radius",
+      "label": "Button radius",
+      "min": 0,
+      "max": 60,
+      "step": 2,
+      "default": 40
+    },
+    {
+      "type": "color",
+      "id": "primary_button_bg",
+      "label": "Primary button background",
+      "default": "#2B211B"
+    },
+    {
+      "type": "color",
+      "id": "primary_button_text",
+      "label": "Primary button text",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "secondary_button_text",
+      "label": "Secondary button text",
+      "default": "#2B211B"
+    },
+    {
+      "type": "color",
+      "id": "secondary_button_border",
+      "label": "Secondary button border",
+      "default": "#2B211B"
+    },
+    {
+      "type": "checkbox",
+      "id": "mobile_full_width_buttons",
+      "label": "Full width buttons on mobile",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Desktop top padding",
+      "min": 20,
+      "max": 180,
+      "step": 5,
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Desktop bottom padding",
+      "min": 20,
+      "max": 180,
+      "step": 5,
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_top",
+      "label": "Mobile top padding",
+      "min": 20,
+      "max": 120,
+      "step": 5,
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_bottom",
+      "label": "Mobile bottom padding",
+      "min": 20,
+      "max": 120,
+      "step": 5,
+      "default": 50
+    }
+  ],
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Benefit",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Icon",
+          "default": "✓"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Ultra faible traçage"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Royal Tofu Image Text",
+      "blocks": [
+        {
+          "type": "benefit",
+          "settings": {
+            "icon": "✓",
+            "text": "Ultra faible traçage"
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "icon": "✓",
+            "text": "99 % sans poussière"
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "icon": "✓",
+            "text": "Jetable dans la toilette"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
