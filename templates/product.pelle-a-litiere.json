@@ -1,0 +1,755 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "product-information",
+      "blocks": {
+        "media-gallery": {
+          "type": "_product-media-gallery",
+          "static": true,
+          "settings": {
+            "media_presentation": "carousel",
+            "media_columns": "one",
+            "image_gap": 0,
+            "large_first_image": false,
+            "icons_style": "chevron",
+            "slideshow_controls_style": "thumbnails",
+            "slideshow_mobile_controls_style": "thumbnails",
+            "thumbnail_position": "left",
+            "thumbnail_width": 60,
+            "thumbnail_radius": 5,
+            "aspect_ratio": "adapt",
+            "constrain_to_viewport": false,
+            "media_fit": "contain",
+            "media_radius": 8,
+            "extend_media": false,
+            "zoom": false,
+            "video_loop": false,
+            "hide_variant_images_from_gallery": true,
+            "hide_variants": true,
+            "padding-block-start": 13,
+            "padding-block-end": 13,
+            "padding-inline-start": 13,
+            "padding-inline-end": 15
+          },
+          "blocks": {}
+        },
+        "product-details": {
+          "type": "_product-details",
+          "static": true,
+          "settings": {
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "details_position": "flex-start",
+            "gap": 28,
+            "sticky_details_desktop": true,
+            "inherit_color_scheme": true,
+            "color_scheme": "scheme-1",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 24,
+            "padding-block-end": 24,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "group_icgrde": {
+              "type": "group",
+              "name": "Header",
+              "settings": {
+                "content_direction": "column",
+                "vertical_on_mobile": true,
+                "horizontal_alignment": "flex-start",
+                "vertical_alignment": "center",
+                "align_baseline": false,
+                "horizontal_alignment_flex_direction_column": "flex-start",
+                "vertical_alignment_flex_direction_column": "center",
+                "gap": 12,
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "custom_height": 100,
+                "inherit_color_scheme": true,
+                "color_scheme": "",
+                "background_media": "none",
+                "video_position": "cover",
+                "background_image_position": "cover",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "toggle_overlay": false,
+                "overlay_color": "#00000026",
+                "overlay_style": "solid",
+                "gradient_direction": "to top",
+                "link": "",
+                "open_in_new_tab": false,
+                "placeholder": "",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "text_xrnftG": {
+                  "type": "text",
+                  "name": "Product title",
+                  "settings": {
+                    "text": "<h1>{{ closest.product.title }}</h1>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "h3",
+                    "font": "var(--font-primary--family)",
+                    "font_size": "",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_xrnftG"
+              ]
+            },
+            "buy_buttons_eYQEYi": {
+              "type": "buy-buttons",
+              "settings": {
+                "stacking": true,
+                "show_pickup_availability": false,
+                "gift_card_form": true,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "quantity": {
+                  "type": "quantity",
+                  "disabled": true,
+                  "static": true,
+                  "settings": {},
+                  "blocks": {}
+                },
+                "add-to-cart": {
+                  "type": "add-to-cart",
+                  "static": true,
+                  "settings": {
+                    "style_class": "button"
+                  },
+                  "blocks": {}
+                },
+                "accelerated-checkout": {
+                  "type": "accelerated-checkout",
+                  "static": true,
+                  "settings": {},
+                  "blocks": {}
+                }
+              },
+              "block_order": []
+            },
+            "text_aEtTtq": {
+              "type": "text",
+              "name": "Product description",
+              "disabled": true,
+              "settings": {
+                "text": "<p>Pelle à litière en acier galvanisé — ne rouille pas, facile à nettoyer. Conçue pour les litières végétales en granules, comme la cosse de pois et le tofu : ses fentes laissent retomber la litière propre et retiennent les agglomérats.</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-primary--family)",
+                "font_size": "",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "product_upsell_x0": {
+              "type": "product-upsell",
+              "settings": {
+                "product": "royal-tofu",
+                "heading": "",
+                "subtitle": "Litière de tofu naturelle, 99 % sans poussière",
+                "badge": "",
+                "show_compare_price": true,
+                "show_variant_picker": true,
+                "sold_out_label": "Épuisé",
+                "open_cart_drawer": false,
+                "hide_kaching_upsells": false,
+                "background_color": "#ffffff",
+                "active_background_color": "#fdf3dc",
+                "border_color": "#f3e3a6",
+                "accent_color": "#f2b705",
+                "image_size": 50,
+                "border_radius": 8,
+                "padding-block-start": 0,
+                "padding-block-end": 0
+              },
+              "blocks": {}
+            },
+            "product_upsell_x1": {
+              "type": "product-upsell",
+              "settings": {
+                "product": "granules-de-test-pour-litiere",
+                "heading": "",
+                "subtitle": "Détectent les traces de sang dans l’urine",
+                "badge": "",
+                "show_compare_price": true,
+                "show_variant_picker": true,
+                "sold_out_label": "Épuisé",
+                "open_cart_drawer": false,
+                "hide_kaching_upsells": false,
+                "background_color": "#ffffff",
+                "active_background_color": "#fdf3dc",
+                "border_color": "#f3e3a6",
+                "accent_color": "#f2b705",
+                "image_size": 50,
+                "border_radius": 8,
+                "padding-block-start": 0,
+                "padding-block-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "group_icgrde",
+            "buy_buttons_eYQEYi",
+            "product_upsell_x0",
+            "product_upsell_x1",
+            "text_aEtTtq"
+          ]
+        }
+      },
+      "settings": {
+        "content_width": "content-center-aligned",
+        "desktop_media_position": "left",
+        "equal_columns": true,
+        "limit_details_width": false,
+        "gap": 48,
+        "enable_sticky_add_to_cart": false,
+        "color_scheme": "",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
+    "royal_tofu_text_cta_hDKmWy": {
+      "type": "royal-tofu-text-cta",
+      "name": "Royal Tofu Text CTA",
+      "settings": {
+        "heading": "Un bac propre en quelques secondes.",
+        "text": "<p>Notre <strong>pelle en acier galvanisé</strong> tamise la litière propre et ne garde que les agglomérats. Moins de gaspillage, moins d’effort, un bac plus frais chaque jour.</p>",
+        "text_alignment": "center",
+        "max_width": 820,
+        "text_width": 720,
+        "background_color": "#f4efe6",
+        "heading_color": "#2b211b",
+        "text_color": "#4b4038",
+        "strong_text_color": "#2b211b",
+        "heading_size": 52,
+        "mobile_heading_size": 34,
+        "text_size": 19,
+        "mobile_text_size": 16,
+        "show_buttons": false,
+        "primary_button_label": "Découvrir les avantages",
+        "primary_button_link": "",
+        "secondary_button_label": "",
+        "secondary_button_link": "",
+        "button_radius": 40,
+        "primary_button_bg": "#2b211b",
+        "primary_button_text_color": "#ffffff",
+        "secondary_button_text_color": "#2b211b",
+        "secondary_button_border": "#2b211b",
+        "secondary_button_hover_bg": "#2b211b",
+        "secondary_button_hover_text_color": "#ffffff",
+        "mobile_button_layout": "column",
+        "mobile_full_width_buttons": false,
+        "padding_top": 90,
+        "padding_bottom": 90,
+        "mobile_padding_top": 60,
+        "mobile_padding_bottom": 60
+      }
+    },
+    "royal_tofu_image_text_3cdWpA": {
+      "type": "royal-tofu-image-text",
+      "blocks": {
+        "benefit_YGckbM": {
+          "type": "benefit",
+          "settings": {
+            "icon": "✓",
+            "text": "Tamisage rapide"
+          }
+        },
+        "benefit_3d87Rn": {
+          "type": "benefit",
+          "settings": {
+            "icon": "✓",
+            "text": "Moins de gaspillage"
+          }
+        },
+        "benefit_UHWxUW": {
+          "type": "benefit",
+          "settings": {
+            "icon": "✓",
+            "text": "Nettoyage rapide"
+          }
+        }
+      },
+      "block_order": [
+        "benefit_YGckbM",
+        "benefit_3d87Rn",
+        "benefit_UHWxUW"
+      ],
+      "name": "Royal Tofu Image Text",
+      "settings": {
+        "image": "shopify://shop_images/IMG_4499.webp",
+        "image_alt": "Pelle à litière",
+        "eyebrow": "Pelle à litière Royal Tofu",
+        "heading": "Tamise en un seul geste.",
+        "text": "<p>Les fentes laissent retomber les granules propres dans le bac et retiennent uniquement les agglomérats.</p>",
+        "reverse_layout": false,
+        "mobile_image_first": true,
+        "text_alignment": "left",
+        "mobile_text_alignment": "left",
+        "image_ratio": "1 / 1",
+        "image_position": "center center",
+        "section_width": 1200,
+        "content_width": 560,
+        "desktop_gap": 60,
+        "mobile_gap": 30,
+        "image_radius": 24,
+        "background_color": "#ffffff",
+        "image_background": "#eee7dc",
+        "eyebrow_color": "#7b6654",
+        "heading_color": "#2b211b",
+        "text_color": "#4b4038",
+        "strong_text_color": "#2b211b",
+        "benefit_text_color": "#2b211b",
+        "icon_bg": "#f4efe6",
+        "icon_color": "#2b211b",
+        "eyebrow_size": 12,
+        "heading_size": 52,
+        "mobile_heading_size": 34,
+        "text_size": 18,
+        "mobile_text_size": 16,
+        "benefit_size": 16,
+        "show_buttons": false,
+        "primary_button_label": "",
+        "primary_button_link": "",
+        "secondary_button_label": "",
+        "secondary_button_link": "",
+        "button_radius": 40,
+        "primary_button_bg": "#2b211b",
+        "primary_button_text": "#ffffff",
+        "secondary_button_text": "#2b211b",
+        "secondary_button_border": "#2b211b",
+        "mobile_full_width_buttons": true,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "mobile_padding_top": 50,
+        "mobile_padding_bottom": 50
+      }
+    },
+    "royal_tofu_image_text_zf8tPM": {
+      "type": "royal-tofu-image-text",
+      "blocks": {
+        "benefit_mBUgAM": {
+          "type": "benefit",
+          "settings": {
+            "icon": "✓",
+            "text": "Acier galvanisé"
+          }
+        },
+        "benefit_GGmFwB": {
+          "type": "benefit",
+          "settings": {
+            "icon": "✓",
+            "text": "Ne rouille pas"
+          }
+        },
+        "benefit_yxzKgU": {
+          "type": "benefit",
+          "settings": {
+            "icon": "✓",
+            "text": "Facile à nettoyer"
+          }
+        }
+      },
+      "block_order": [
+        "benefit_mBUgAM",
+        "benefit_GGmFwB",
+        "benefit_yxzKgU"
+      ],
+      "name": "Royal Tofu Image Text",
+      "settings": {
+        "image": "shopify://shop_images/hf_20260608_221146_f2a2c6f5-c6b9-484d-b699-30783bd75028.png",
+        "image_alt": "Pelle à litière",
+        "eyebrow": "Pelle à litière Royal Tofu",
+        "heading": "Acier galvanisé, fait pour durer.",
+        "text": "<p>Une pelle rigide en acier galvanisé qui ne rouille pas et se rince en quelques secondes après usage.</p>",
+        "reverse_layout": true,
+        "mobile_image_first": true,
+        "text_alignment": "left",
+        "mobile_text_alignment": "left",
+        "image_ratio": "1 / 1",
+        "image_position": "center center",
+        "section_width": 1200,
+        "content_width": 560,
+        "desktop_gap": 60,
+        "mobile_gap": 30,
+        "image_radius": 24,
+        "background_color": "#f4efe6",
+        "image_background": "#eee7dc",
+        "eyebrow_color": "#7b6654",
+        "heading_color": "#2b211b",
+        "text_color": "#4b4038",
+        "strong_text_color": "#2b211b",
+        "benefit_text_color": "#2b211b",
+        "icon_bg": "#ffffff",
+        "icon_color": "#2b211b",
+        "eyebrow_size": 12,
+        "heading_size": 52,
+        "mobile_heading_size": 34,
+        "text_size": 18,
+        "mobile_text_size": 16,
+        "benefit_size": 16,
+        "show_buttons": false,
+        "primary_button_label": "",
+        "primary_button_link": "",
+        "secondary_button_label": "",
+        "secondary_button_link": "",
+        "button_radius": 40,
+        "primary_button_bg": "#2b211b",
+        "primary_button_text": "#ffffff",
+        "secondary_button_text": "#2b211b",
+        "secondary_button_border": "#2b211b",
+        "mobile_full_width_buttons": true,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "mobile_padding_top": 50,
+        "mobile_padding_bottom": 50
+      }
+    },
+    "section_3RtEXk": {
+      "type": "section",
+      "blocks": {
+        "text_qbHtGk": {
+          "type": "text",
+          "name": "t:names.heading",
+          "settings": {
+            "text": "<h3>FAQ</h3>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 10,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "accordion_Y7qJL7": {
+          "type": "accordion",
+          "name": "t:names.accordion",
+          "settings": {
+            "icon": "caret",
+            "dividers": true,
+            "type_preset": "h5",
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "accordion_row_cWVDqJ": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "Est-ce que la pelle fonctionne avec la litière Royal Tofu ?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_YTBRAk": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Oui. Elle est conçue pour les litières végétales en granules comme le tofu et la cosse de pois : la litière propre retombe dans le bac et les agglomérats restent dans la pelle.</p>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_YTBRAk"
+              ]
+            },
+            "accordion_row_WdAjWn": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "Est-ce que la pelle rouille ?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_qeBi7g": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Non. Elle est en acier galvanisé, un métal traité pour résister à la rouille. Rincez-la simplement à l’eau tiède au besoin.</p>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_qeBi7g"
+              ]
+            },
+            "accordion_row_w7AJxb": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "Fonctionne-t-elle avec d’autres litières ?",
+                "open_by_default": false,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_pG7gPi": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Elle est pensée pour les litières végétales en granules. Avec une litière très fine comme l’argile, une partie de la litière peut rester dans la pelle.</p>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_pG7gPi"
+              ]
+            }
+          },
+          "block_order": [
+            "accordion_row_cWVDqJ",
+            "accordion_row_WdAjWn",
+            "accordion_row_w7AJxb"
+          ]
+        }
+      },
+      "block_order": [
+        "text_qbHtGk",
+        "accordion_Y7qJL7"
+      ],
+      "name": "t:names.faq_section",
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 32,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 48,
+        "padding-block-end": 48
+      }
+    },
+    "1780288183adeba915": {
+      "type": "_blocks",
+      "blocks": {
+        "judge_me_reviews_review_widget_h4HB4Q": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "sample_data",
+            "max_width": 1200,
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget"
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_h4HB4Q"
+      ],
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 12,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
+    "custom_sticky_scroll_atc_BGzUww": {
+      "type": "custom-sticky-scroll-atc",
+      "name": "Custom sticky scroll ATC",
+      "settings": {
+        "button_text": "AJOUTER AU PANIER",
+        "show_price": false,
+        "scroll_target": "buy_now",
+        "bottom_gap": -12,
+        "show_mobile": true,
+        "show_desktop": true,
+        "max_width": 220,
+        "bottom_spacing": 18,
+        "mobile_bottom_spacing": 12,
+        "outer_padding": 4,
+        "mobile_outer_padding": 4,
+        "button_height": 48,
+        "mobile_button_height": 46,
+        "button_font_size": 15,
+        "mobile_button_font_size": 14,
+        "outer_background": "#ffa805",
+        "button_background": "#111111",
+        "button_text_color": "#ffffff"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "royal_tofu_text_cta_hDKmWy",
+    "royal_tofu_image_text_3cdWpA",
+    "royal_tofu_image_text_zf8tPM",
+    "section_3RtEXk",
+    "1780288183adeba915",
+    "custom_sticky_scroll_atc_BGzUww"
+  ]
+}
