@@ -133,6 +133,11 @@
                       </summary>
                       {% liquid
                         assign render_link_image = false
+                        # Royal Tofu: show product photos for product links, whatever the menu style
+                        assign product_links = link.links | where: 'type', 'product_link'
+                        if product_links.size > 0
+                          assign render_link_image = true
+                        endif
                         if block_settings.menu_style == 'collection_images'
                           assign catalog_links = link.links | where: 'type', 'catalog_link'
                           assign collection_list_links = link.links | where: 'type', 'collections_link'
@@ -168,6 +173,7 @@
                                 %}
                               {% endif %}
                               <span class="menu-drawer__menu-item-text wrap-text">{{ childlink.title | escape }}</span>
+<span class="menu-drawer__product-price">{%- if childlink.type == 'product_link' -%}{{ childlink.object.price | money }}{%- endif -%}</span>
                             </a>
                           </li>
                         {%- endfor -%}
@@ -190,6 +196,11 @@
                   </a>
                   {% liquid
                     assign render_link_image = false
+                    # Royal Tofu: show product photos for product links, whatever the menu style
+                    assign product_links = link.links | where: 'type', 'product_link'
+                    if product_links.size > 0
+                      assign render_link_image = true
+                    endif
                     if block_settings.menu_style == 'collection_images'
                       assign catalog_links = link.links | where: 'type', 'catalog_link'
                       assign collection_list_links = link.links | where: 'type', 'collections_link'
@@ -221,6 +232,7 @@
                             %}
                           {% endif %}
                           <span class="menu-drawer__menu-item-text wrap-text">{{ childlink.title | escape }}</span>
+<span class="menu-drawer__product-price">{%- if childlink.type == 'product_link' -%}{{ childlink.object.price | money }}{%- endif -%}</span>
                         </a>
                       </li>
                     {%- endfor -%}
@@ -1102,6 +1114,24 @@
     position: relative;
     aspect-ratio: 16 / 9;
     object-fit: cover;
+  }
+
+  /* Royal Tofu: product links show a square packshot and the price */
+  .menu-drawer__link-image.link-featured-image--product {
+    aspect-ratio: 1;
+    object-fit: contain;
+    background: #f4efe6;
+    border-radius: var(--menu-image-border-radius, 8px);
+  }
+
+  .menu-drawer__product-price:empty {
+    display: none;
+  }
+
+  .menu-drawer__product-price {
+    font-size: 0.875rem;
+    font-weight: 600;
+    opacity: 0.75;
   }
 
   /* Fix alignment for collection image mode links without images in drawer */

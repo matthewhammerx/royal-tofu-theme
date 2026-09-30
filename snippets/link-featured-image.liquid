@@ -11,7 +11,16 @@
 
 {% assign image_sizes = sizes | default: 'auto' %}
 
-{% if link.type == 'collection_link' %}
+{% if link.type == 'product_link' %}
+  {% if link.object.featured_image %}
+    {% assign product_image_class = class | append: ' link-featured-image--product' %}
+    {{
+      link.object.featured_image
+      | image_url: width: 600
+      | image_tag: loading: 'lazy', class: product_image_class, sizes: image_sizes
+    }}
+  {% endif %}
+{% elsif link.type == 'collection_link' %}
   {% if link.object.featured_image %}
     {{
       link.object.featured_image
