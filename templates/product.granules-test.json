@@ -340,7 +340,7 @@
       ],
       "name": "Royal Tofu Image Text",
       "settings": {
-        "image": "shopify://shop_images/ChatGPT_Image_Sep_29_2026_08_27_53_PM.png",
+        "image": "shopify://shop_images/ChatGPT_Image_Sep_29_2026_08_54_27_PM.png",
         "image_alt": "Granules de test pour litière",
         "eyebrow": "Santé de votre chat",
         "heading": "Simple à utiliser.",
@@ -386,6 +386,72 @@
         "padding_bottom": 80,
         "mobile_padding_top": 50,
         "mobile_padding_bottom": 50
+      }
+    },
+    "granules_signs": {
+      "type": "royal-tofu-steps",
+      "blocks": {
+        "step_g0": {
+          "type": "step",
+          "settings": {
+            "icon": "🚽",
+            "title": "Passages fréquents",
+            "text": "Votre chat va souvent au bac pour de petites quantités d’urine."
+          }
+        },
+        "step_g1": {
+          "type": "step",
+          "settings": {
+            "icon": "😿",
+            "title": "Inconfort",
+            "text": "Il miaule, s’agite ou semble forcer en urinant."
+          }
+        },
+        "step_g2": {
+          "type": "step",
+          "settings": {
+            "icon": "🩸",
+            "title": "Urine teintée",
+            "text": "L’urine vous semble plus foncée ou rosée."
+          }
+        },
+        "step_g3": {
+          "type": "step",
+          "settings": {
+            "icon": "🐈",
+            "title": "Suivi",
+            "text": "Chat âgé, antécédents urinaires ou contrôle après un traitement."
+          }
+        }
+      },
+      "block_order": [
+        "step_g0",
+        "step_g1",
+        "step_g2",
+        "step_g3"
+      ],
+      "settings": {
+        "eyebrow": "Quand l’utiliser ?",
+        "heading": "Les signes à surveiller",
+        "text": "<p>Les granules sont utiles dès qu’un doute s’installe, ou en suivi régulier.</p>",
+        "note": "<p>Les granules ne remplacent pas un diagnostic. Au moindre doute, consultez votre vétérinaire.</p>",
+        "columns": 4,
+        "marker_shape": "circle",
+        "background_color": "#ffffff",
+        "card_background": "#f4efe6",
+        "card_border": "#eee7dc",
+        "heading_color": "#2b211b",
+        "text_color": "#4b4038",
+        "accent_color": "#f2b705",
+        "marker_text_color": "#2b211b",
+        "section_width": 1200,
+        "radius": 20,
+        "heading_size": 44,
+        "mobile_heading_size": 30,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "mobile_padding_top": 56,
+        "mobile_padding_bottom": 56
       }
     },
     "section_3RtEXk": {
@@ -660,72 +726,6 @@
         "outer_background": "#ffa805",
         "button_background": "#111111",
         "button_text_color": "#ffffff"
-      }
-    },
-    "granules_signs": {
-      "type": "royal-tofu-steps",
-      "blocks": {
-        "step_g0": {
-          "type": "step",
-          "settings": {
-            "icon": "🚽",
-            "title": "Passages fréquents",
-            "text": "Votre chat va souvent au bac pour de petites quantités d’urine."
-          }
-        },
-        "step_g1": {
-          "type": "step",
-          "settings": {
-            "icon": "😿",
-            "title": "Inconfort",
-            "text": "Il miaule, s’agite ou semble forcer en urinant."
-          }
-        },
-        "step_g2": {
-          "type": "step",
-          "settings": {
-            "icon": "🩸",
-            "title": "Urine teintée",
-            "text": "L’urine vous semble plus foncée ou rosée."
-          }
-        },
-        "step_g3": {
-          "type": "step",
-          "settings": {
-            "icon": "🐈",
-            "title": "Suivi",
-            "text": "Chat âgé, antécédents urinaires ou contrôle après un traitement."
-          }
-        }
-      },
-      "block_order": [
-        "step_g0",
-        "step_g1",
-        "step_g2",
-        "step_g3"
-      ],
-      "settings": {
-        "eyebrow": "Quand l’utiliser ?",
-        "heading": "Les signes à surveiller",
-        "text": "<p>Les granules sont utiles dès qu’un doute s’installe, ou en suivi régulier.</p>",
-        "note": "<p>Les granules ne remplacent pas un diagnostic. Au moindre doute, consultez votre vétérinaire.</p>",
-        "columns": 4,
-        "marker_shape": "circle",
-        "background_color": "#ffffff",
-        "card_background": "#f4efe6",
-        "card_border": "#eee7dc",
-        "heading_color": "#2b211b",
-        "text_color": "#4b4038",
-        "accent_color": "#f2b705",
-        "marker_text_color": "#2b211b",
-        "section_width": 1200,
-        "radius": 20,
-        "heading_size": 44,
-        "mobile_heading_size": 30,
-        "padding_top": 80,
-        "padding_bottom": 80,
-        "mobile_padding_top": 56,
-        "mobile_padding_bottom": 56
       }
     }
   },

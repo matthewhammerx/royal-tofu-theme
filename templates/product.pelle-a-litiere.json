@@ -176,33 +176,6 @@
               },
               "block_order": []
             },
-            "text_aEtTtq": {
-              "type": "text",
-              "name": "Product description",
-              "disabled": true,
-              "settings": {
-                "text": "<p>Pelle à litière en acier galvanisé — ne rouille pas, facile à nettoyer. Conçue pour les litières végétales en granules, comme la cosse de pois et le tofu : ses fentes laissent retomber la litière propre et retiennent les agglomérats.</p>",
-                "width": "100%",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-primary--family)",
-                "font_size": "",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
             "product_upsell_x0": {
               "type": "product-upsell",
               "settings": {
@@ -248,6 +221,33 @@
                 "padding-block-end": 0
               },
               "blocks": {}
+            },
+            "text_aEtTtq": {
+              "type": "text",
+              "name": "Product description",
+              "disabled": true,
+              "settings": {
+                "text": "<p>Pelle à litière en acier galvanisé — ne rouille pas, facile à nettoyer. Conçue pour les litières végétales en granules, comme la cosse de pois et le tofu : ses fentes laissent retomber la litière propre et retiennent les agglomérats.</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-primary--family)",
+                "font_size": "",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
             }
           },
           "block_order": [
@@ -269,6 +269,63 @@
         "color_scheme": "",
         "padding-block-start": 0,
         "padding-block-end": 0
+      }
+    },
+    "pelle_steps": {
+      "type": "royal-tofu-steps",
+      "blocks": {
+        "step_p0": {
+          "type": "step",
+          "settings": {
+            "icon": "",
+            "title": "Glissez",
+            "text": "Passez la pelle sous les agglomérats, jusqu’au fond du bac."
+          }
+        },
+        "step_p1": {
+          "type": "step",
+          "settings": {
+            "icon": "",
+            "title": "Tamisez",
+            "text": "Secouez doucement : la litière propre retombe à travers les fentes."
+          }
+        },
+        "step_p2": {
+          "type": "step",
+          "settings": {
+            "icon": "",
+            "title": "Jetez",
+            "text": "Videz les agglomérats à la poubelle ou au compost, selon votre litière."
+          }
+        }
+      },
+      "block_order": [
+        "step_p0",
+        "step_p1",
+        "step_p2"
+      ],
+      "settings": {
+        "eyebrow": "Comment l’utiliser",
+        "heading": "Un bac propre en 3 gestes",
+        "text": "",
+        "note": "",
+        "columns": 3,
+        "marker_shape": "circle",
+        "background_color": "#f4efe6",
+        "card_background": "#ffffff",
+        "card_border": "#eee7dc",
+        "heading_color": "#2b211b",
+        "text_color": "#4b4038",
+        "accent_color": "#f2b705",
+        "marker_text_color": "#2b211b",
+        "section_width": 1200,
+        "radius": 20,
+        "heading_size": 44,
+        "mobile_heading_size": 30,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "mobile_padding_top": 56,
+        "mobile_padding_bottom": 56
       }
     },
     "royal_tofu_image_text_zf8tPM": {
@@ -623,63 +680,6 @@
         "outer_background": "#ffa805",
         "button_background": "#111111",
         "button_text_color": "#ffffff"
-      }
-    },
-    "pelle_steps": {
-      "type": "royal-tofu-steps",
-      "blocks": {
-        "step_p0": {
-          "type": "step",
-          "settings": {
-            "icon": "",
-            "title": "Glissez",
-            "text": "Passez la pelle sous les agglomérats, jusqu’au fond du bac."
-          }
-        },
-        "step_p1": {
-          "type": "step",
-          "settings": {
-            "icon": "",
-            "title": "Tamisez",
-            "text": "Secouez doucement : la litière propre retombe à travers les fentes."
-          }
-        },
-        "step_p2": {
-          "type": "step",
-          "settings": {
-            "icon": "",
-            "title": "Jetez",
-            "text": "Videz les agglomérats à la poubelle ou au compost, selon votre litière."
-          }
-        }
-      },
-      "block_order": [
-        "step_p0",
-        "step_p1",
-        "step_p2"
-      ],
-      "settings": {
-        "eyebrow": "Comment l’utiliser",
-        "heading": "Un bac propre en 3 gestes",
-        "text": "",
-        "note": "",
-        "columns": 3,
-        "marker_shape": "circle",
-        "background_color": "#f4efe6",
-        "card_background": "#ffffff",
-        "card_border": "#eee7dc",
-        "heading_color": "#2b211b",
-        "text_color": "#4b4038",
-        "accent_color": "#f2b705",
-        "marker_text_color": "#2b211b",
-        "section_width": 1200,
-        "radius": 20,
-        "heading_size": 44,
-        "mobile_heading_size": 30,
-        "padding_top": 80,
-        "padding_bottom": 80,
-        "mobile_padding_top": 56,
-        "mobile_padding_bottom": 56
       }
     }
   },
