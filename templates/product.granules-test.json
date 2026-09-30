@@ -345,7 +345,7 @@
         "eyebrow": "Santé de votre chat",
         "heading": "Simple à utiliser.",
         "text": "<p>Saupoudrez les granules à la surface de la litière. Votre chat fait ses besoins comme d’habitude, puis observez la couleur des granules.</p>",
-        "reverse_layout": false,
+        "reverse_layout": true,
         "mobile_image_first": true,
         "text_alignment": "left",
         "mobile_text_alignment": "left",
@@ -364,86 +364,6 @@
         "strong_text_color": "#2b211b",
         "benefit_text_color": "#2b211b",
         "icon_bg": "#f4efe6",
-        "icon_color": "#2b211b",
-        "eyebrow_size": 12,
-        "heading_size": 52,
-        "mobile_heading_size": 34,
-        "text_size": 18,
-        "mobile_text_size": 16,
-        "benefit_size": 16,
-        "show_buttons": false,
-        "primary_button_label": "",
-        "primary_button_link": "",
-        "secondary_button_label": "",
-        "secondary_button_link": "",
-        "button_radius": 40,
-        "primary_button_bg": "#2b211b",
-        "primary_button_text": "#ffffff",
-        "secondary_button_text": "#2b211b",
-        "secondary_button_border": "#2b211b",
-        "mobile_full_width_buttons": true,
-        "padding_top": 80,
-        "padding_bottom": 80,
-        "mobile_padding_top": 50,
-        "mobile_padding_bottom": 50
-      }
-    },
-    "royal_tofu_image_text_zf8tPM": {
-      "type": "royal-tofu-image-text",
-      "blocks": {
-        "benefit_mBUgAM": {
-          "type": "benefit",
-          "settings": {
-            "icon": "✓",
-            "text": "Changement de couleur"
-          }
-        },
-        "benefit_GGmFwB": {
-          "type": "benefit",
-          "settings": {
-            "icon": "✓",
-            "text": "Résultats rapides"
-          }
-        },
-        "benefit_yxzKgU": {
-          "type": "benefit",
-          "settings": {
-            "icon": "✓",
-            "text": "Détection précoce"
-          }
-        }
-      },
-      "block_order": [
-        "benefit_mBUgAM",
-        "benefit_GGmFwB",
-        "benefit_yxzKgU"
-      ],
-      "name": "Royal Tofu Image Text",
-      "settings": {
-        "image": "shopify://shop_images/hf_20260608_221146_f2a2c6f5-c6b9-484d-b699-30783bd75028.png",
-        "image_alt": "Granules de test pour litière",
-        "eyebrow": "Santé de votre chat",
-        "heading": "Repérez les signes tôt.",
-        "text": "<p>En cas de présence de sang dans l’urine, les granules changent de couleur. Un signal clair pour consulter votre vétérinaire au besoin.</p>",
-        "reverse_layout": true,
-        "mobile_image_first": true,
-        "text_alignment": "left",
-        "mobile_text_alignment": "left",
-        "image_ratio": "1 / 1",
-        "image_position": "center center",
-        "section_width": 1200,
-        "content_width": 560,
-        "desktop_gap": 60,
-        "mobile_gap": 30,
-        "image_radius": 24,
-        "background_color": "#f4efe6",
-        "image_background": "#eee7dc",
-        "eyebrow_color": "#7b6654",
-        "heading_color": "#2b211b",
-        "text_color": "#4b4038",
-        "strong_text_color": "#2b211b",
-        "benefit_text_color": "#2b211b",
-        "icon_bg": "#ffffff",
         "icon_color": "#2b211b",
         "eyebrow_size": 12,
         "heading_size": 52,
@@ -741,13 +661,79 @@
         "button_background": "#111111",
         "button_text_color": "#ffffff"
       }
+    },
+    "granules_signs": {
+      "type": "royal-tofu-steps",
+      "blocks": {
+        "step_g0": {
+          "type": "step",
+          "settings": {
+            "icon": "🚽",
+            "title": "Passages fréquents",
+            "text": "Votre chat va souvent au bac pour de petites quantités d’urine."
+          }
+        },
+        "step_g1": {
+          "type": "step",
+          "settings": {
+            "icon": "😿",
+            "title": "Inconfort",
+            "text": "Il miaule, s’agite ou semble forcer en urinant."
+          }
+        },
+        "step_g2": {
+          "type": "step",
+          "settings": {
+            "icon": "🩸",
+            "title": "Urine teintée",
+            "text": "L’urine vous semble plus foncée ou rosée."
+          }
+        },
+        "step_g3": {
+          "type": "step",
+          "settings": {
+            "icon": "🐈",
+            "title": "Suivi",
+            "text": "Chat âgé, antécédents urinaires ou contrôle après un traitement."
+          }
+        }
+      },
+      "block_order": [
+        "step_g0",
+        "step_g1",
+        "step_g2",
+        "step_g3"
+      ],
+      "settings": {
+        "eyebrow": "Quand l’utiliser ?",
+        "heading": "Les signes à surveiller",
+        "text": "<p>Les granules sont utiles dès qu’un doute s’installe, ou en suivi régulier.</p>",
+        "note": "<p>Les granules ne remplacent pas un diagnostic. Au moindre doute, consultez votre vétérinaire.</p>",
+        "columns": 4,
+        "marker_shape": "circle",
+        "background_color": "#ffffff",
+        "card_background": "#f4efe6",
+        "card_border": "#eee7dc",
+        "heading_color": "#2b211b",
+        "text_color": "#4b4038",
+        "accent_color": "#f2b705",
+        "marker_text_color": "#2b211b",
+        "section_width": 1200,
+        "radius": 20,
+        "heading_size": 44,
+        "mobile_heading_size": 30,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "mobile_padding_top": 56,
+        "mobile_padding_bottom": 56
+      }
     }
   },
   "order": [
     "main",
     "royal_tofu_text_cta_hDKmWy",
     "royal_tofu_image_text_3cdWpA",
-    "royal_tofu_image_text_zf8tPM",
+    "granules_signs",
     "section_3RtEXk",
     "1780288183adeba915",
     "custom_sticky_scroll_atc_BGzUww"

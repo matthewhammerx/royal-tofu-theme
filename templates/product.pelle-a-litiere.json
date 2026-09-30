@@ -271,123 +271,6 @@
         "padding-block-end": 0
       }
     },
-    "royal_tofu_text_cta_hDKmWy": {
-      "type": "royal-tofu-text-cta",
-      "name": "Royal Tofu Text CTA",
-      "settings": {
-        "heading": "Un bac propre en quelques secondes.",
-        "text": "<p>Notre <strong>pelle en acier galvanisé</strong> tamise la litière propre et ne garde que les agglomérats. Moins de gaspillage, moins d’effort, un bac plus frais chaque jour.</p>",
-        "text_alignment": "center",
-        "max_width": 820,
-        "text_width": 720,
-        "background_color": "#f4efe6",
-        "heading_color": "#2b211b",
-        "text_color": "#4b4038",
-        "strong_text_color": "#2b211b",
-        "heading_size": 52,
-        "mobile_heading_size": 34,
-        "text_size": 19,
-        "mobile_text_size": 16,
-        "show_buttons": false,
-        "primary_button_label": "Découvrir les avantages",
-        "primary_button_link": "",
-        "secondary_button_label": "",
-        "secondary_button_link": "",
-        "button_radius": 40,
-        "primary_button_bg": "#2b211b",
-        "primary_button_text_color": "#ffffff",
-        "secondary_button_text_color": "#2b211b",
-        "secondary_button_border": "#2b211b",
-        "secondary_button_hover_bg": "#2b211b",
-        "secondary_button_hover_text_color": "#ffffff",
-        "mobile_button_layout": "column",
-        "mobile_full_width_buttons": false,
-        "padding_top": 90,
-        "padding_bottom": 90,
-        "mobile_padding_top": 60,
-        "mobile_padding_bottom": 60
-      }
-    },
-    "royal_tofu_image_text_3cdWpA": {
-      "type": "royal-tofu-image-text",
-      "blocks": {
-        "benefit_YGckbM": {
-          "type": "benefit",
-          "settings": {
-            "icon": "✓",
-            "text": "Tamisage rapide"
-          }
-        },
-        "benefit_3d87Rn": {
-          "type": "benefit",
-          "settings": {
-            "icon": "✓",
-            "text": "Moins de gaspillage"
-          }
-        },
-        "benefit_UHWxUW": {
-          "type": "benefit",
-          "settings": {
-            "icon": "✓",
-            "text": "Nettoyage rapide"
-          }
-        }
-      },
-      "block_order": [
-        "benefit_YGckbM",
-        "benefit_3d87Rn",
-        "benefit_UHWxUW"
-      ],
-      "name": "Royal Tofu Image Text",
-      "settings": {
-        "image": "shopify://shop_images/IMG_4499.webp",
-        "image_alt": "Pelle à litière",
-        "eyebrow": "Pelle à litière Royal Tofu",
-        "heading": "Tamise en un seul geste.",
-        "text": "<p>Les fentes laissent retomber les granules propres dans le bac et retiennent uniquement les agglomérats.</p>",
-        "reverse_layout": false,
-        "mobile_image_first": true,
-        "text_alignment": "left",
-        "mobile_text_alignment": "left",
-        "image_ratio": "1 / 1",
-        "image_position": "center center",
-        "section_width": 1200,
-        "content_width": 560,
-        "desktop_gap": 60,
-        "mobile_gap": 30,
-        "image_radius": 24,
-        "background_color": "#ffffff",
-        "image_background": "#eee7dc",
-        "eyebrow_color": "#7b6654",
-        "heading_color": "#2b211b",
-        "text_color": "#4b4038",
-        "strong_text_color": "#2b211b",
-        "benefit_text_color": "#2b211b",
-        "icon_bg": "#f4efe6",
-        "icon_color": "#2b211b",
-        "eyebrow_size": 12,
-        "heading_size": 52,
-        "mobile_heading_size": 34,
-        "text_size": 18,
-        "mobile_text_size": 16,
-        "benefit_size": 16,
-        "show_buttons": false,
-        "primary_button_label": "",
-        "primary_button_link": "",
-        "secondary_button_label": "",
-        "secondary_button_link": "",
-        "button_radius": 40,
-        "primary_button_bg": "#2b211b",
-        "primary_button_text": "#ffffff",
-        "secondary_button_text": "#2b211b",
-        "secondary_button_border": "#2b211b",
-        "mobile_full_width_buttons": true,
-        "padding_top": 80,
-        "padding_bottom": 80,
-        "mobile_padding_top": 50,
-        "mobile_padding_bottom": 50
-      }
-    },
     "royal_tofu_image_text_zf8tPM": {
       "type": "royal-tofu-image-text",
       "blocks": {
@@ -425,7 +308,7 @@
         "eyebrow": "Pelle à litière Royal Tofu",
         "heading": "Acier galvanisé, fait pour durer.",
         "text": "<p>Une pelle rigide en acier galvanisé qui ne rouille pas et se rince en quelques secondes après usage.</p>",
-        "reverse_layout": true,
+        "reverse_layout": false,
         "mobile_image_first": true,
         "text_alignment": "left",
         "mobile_text_alignment": "left",
@@ -741,12 +624,68 @@
         "button_background": "#111111",
         "button_text_color": "#ffffff"
       }
+    },
+    "pelle_steps": {
+      "type": "royal-tofu-steps",
+      "blocks": {
+        "step_p0": {
+          "type": "step",
+          "settings": {
+            "icon": "",
+            "title": "Glissez",
+            "text": "Passez la pelle sous les agglomérats, jusqu’au fond du bac."
+          }
+        },
+        "step_p1": {
+          "type": "step",
+          "settings": {
+            "icon": "",
+            "title": "Tamisez",
+            "text": "Secouez doucement : la litière propre retombe à travers les fentes."
+          }
+        },
+        "step_p2": {
+          "type": "step",
+          "settings": {
+            "icon": "",
+            "title": "Jetez",
+            "text": "Videz les agglomérats à la poubelle ou au compost, selon votre litière."
+          }
+        }
+      },
+      "block_order": [
+        "step_p0",
+        "step_p1",
+        "step_p2"
+      ],
+      "settings": {
+        "eyebrow": "Comment l’utiliser",
+        "heading": "Un bac propre en 3 gestes",
+        "text": "",
+        "note": "",
+        "columns": 3,
+        "marker_shape": "circle",
+        "background_color": "#f4efe6",
+        "card_background": "#ffffff",
+        "card_border": "#eee7dc",
+        "heading_color": "#2b211b",
+        "text_color": "#4b4038",
+        "accent_color": "#f2b705",
+        "marker_text_color": "#2b211b",
+        "section_width": 1200,
+        "radius": 20,
+        "heading_size": 44,
+        "mobile_heading_size": 30,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "mobile_padding_top": 56,
+        "mobile_padding_bottom": 56
+      }
     }
   },
   "order": [
     "main",
-    "royal_tofu_text_cta_hDKmWy",
-    "royal_tofu_image_text_3cdWpA",
+    "pelle_steps",
     "royal_tofu_image_text_zf8tPM",
     "section_3RtEXk",
     "1780288183adeba915",
